@@ -5,7 +5,7 @@ Plugin URI: http://ultimatemember.com/
 Description: Deletes users by status after X number of days/months/years
 Version: 1.0.0
 Author: UM Devs
-Author URI: https://umdevs.com
+Author URI: https://ultimatemember.com
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
