@@ -1,4 +1,4 @@
-## Ultimate Member - Generate Dumm Acounts
+## Ultimate Member - Generate Dummy Acounts
 
 This plugin enables you to generate dummies in Ultimate Member
 
