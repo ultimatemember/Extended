@@ -57,7 +57,7 @@ add_filter("um_predefined_fields_hook", function( $predefined_fields ){
     return $predefined_fields;
 
 });
-
+/*
 add_filter("um_core_fields_hook",function( $data ){
 
     $data['user_ip_address'] = array(
@@ -99,6 +99,7 @@ add_filter("um_core_fields_hook",function( $data ){
     return $data;
 
 }, 99999, 1);
+*/
 
 /**
  * Add hidden fields to front-end
