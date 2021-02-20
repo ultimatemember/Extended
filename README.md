@@ -9,3 +9,9 @@ All custom extended features and codes. Click on each plugin for more details.
 -  [Enable Profile Photo in Register form](https://github.com/ultimatemember/Extended/tree/main/um-profile-photo)
 -  [User Meta Shortcode](https://github.com/ultimatemember/Extended/tree/main/um-user-shortcode)
 -  [Displays Country Flag to a Profile & Member Directory](https://github.com/ultimatemember/Extended/tree/main/um-country-flag)
+
+# Installation
+
+-  Download the [zip file](https://github.com/ultimatemember/Extended/archive/main.zip)
+-  Extract the file and then zip each plugin directory
+-  Upload the zippped plugin to WP Admin > Plugins
