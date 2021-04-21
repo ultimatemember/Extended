@@ -1,6 +1,6 @@
 ## Ultimate Member - Regenerate Cover & Profile Photo thumbnails
 
-Regeenrates Cover & Profile Photo thumsnails
+Regenerates Cover & Profile Photo thumbnails
 
 -  After installation, go to WP Admin > Ultimate Member > see "Regenerate Thumbnails" submenu.
 
