@@ -44,17 +44,25 @@ function um_registration_set_profile_photo( $user_id ){
 
     $profile_photo = array_slice(scandir($user_basedir), 2);
     
-    if( empty( $profile_photo ) ) return;
+	if( empty( $profile_photo ) ) return;
 
-    $image_path = $user_basedir . DIRECTORY_SEPARATOR . $profile_photo[0];
+	foreach( $profile_photo as $i => $p ){
+		if (strpos($p, 'profile_') !== false && strpos($p, '_photo') !== false ) {
+			$profile_p = $p;
+		}
+	}
+
+	if( empty( $profile_p ) ) return;
+
+    $image_path = $user_basedir . DIRECTORY_SEPARATOR . $profile_p;
     
     $image = wp_get_image_editor( $image_path );
 
-	$file_info = wp_check_filetype_and_ext( $image_path, $profile_photo[0] );
+	$file_info = wp_check_filetype_and_ext( $image_path, $profile_p );
  
 	$ext = $file_info['ext'];
 	
-    $new_image_name = str_replace( $profile_photo[0],  "profile_photo.".$ext, $image_path );
+    $new_image_name = str_replace( $profile_p,  "profile_photo.".$ext, $image_path );
 
 	$sizes = UM()->options()->get( 'photo_thumb_sizes' );
 
@@ -79,6 +87,23 @@ function um_registration_set_profile_photo( $user_id ){
 		@unlink( $image_path );
 
 	} 
+	// var_dump([
+	// 	'user_id' => $user_id,
+	// 	'image_path' => $image_path,
+	// 	'profile_photo' => $profile_photo,
+	// 	'raw' => $_REQUEST
+	// ]);
+	// wp_die('test');
 
 }
 
+add_filter("um_image_upload_handler_overrides__profile_photo", "um_register_profile_change_filename", 9999 );
+function um_register_profile_change_filename($upload_overrides){
+
+    //if( ! is_user_logged_in() ){
+        $hashed = hash('ripemd160', time() . mt_rand( 10, 1000 ) );
+        $upload_overrides['unique_filename_callback'] = str_replace( "_temp", "_{$hashed}temp", $upload_overrides['unique_filename_callback'] );
+   // }
+
+    return $upload_overrides;
+}
