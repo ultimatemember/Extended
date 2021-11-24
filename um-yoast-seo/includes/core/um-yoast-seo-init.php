@@ -8,9 +8,24 @@ function um_custom_wpseo_sitemap_exclude_author( $users ){
     
     // WP_User_Query arguments
 	$args = array(
-		'fields' => array( 'ID' )
+		'fields' => array( 'ID' ),
 	);
 
+	$args['meta_query'] = array(
+		'relation' => 'OR',
+			array(
+				'key'     => 'wpseo_noindex_author',
+				'value'   => '',
+	 			'compare' => '='
+			),
+			array(
+				'key'     => 'wpseo_noindex_author',
+				'compare' => 'NOT EXISTS'
+			)
+	);
+	
+	$args = apply_filters('um_yoast_seo_get_users', $args );
+	
     $users = get_users( $args );
 
 	return $users;
