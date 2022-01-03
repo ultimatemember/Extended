@@ -11,6 +11,7 @@ All custom extended features and codes. Click on each plugin for more details.
 -  [Displays Country Flag to a Profile & Member Directory](https://github.com/ultimatemember/Extended/tree/main/um-country-flag)
 -  [Regenerate Profile & Cover Photo Thumbnails](https://github.com/ultimatemember/Extended/tree/main/um-regenerate-thumbnails)
 -  [Math Captcha in UM Register Forms](https://github.com/ultimatemember/Extended/tree/main/um-math-captcha)
+-  [Adds a predefined field to generate VCard for users to download from their profiles](https://github.com/ultimatemember/Extended/tree/main/um-vcard)
 
 # Installation
 
