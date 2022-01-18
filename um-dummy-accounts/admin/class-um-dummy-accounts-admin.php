@@ -1,6 +1,4 @@
 <?php
-// class PHPMailerNO
-require_once 'class-php-mailer-no.php';
 
 /**
  * The admin-specific functionality of the plugin.
@@ -46,11 +44,9 @@ class Um_Dummy_Accounts_Admin {
 	}
 
 	/**
-	 * Register the stylesheets for the admin area.
-	 *
-	 * @since    1.0.0
+	 * Register stylesheets and JavaScript for the admin area.
 	 */
-	public function enqueue_styles() {
+	public function enqueue() {
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -63,28 +59,9 @@ class Um_Dummy_Accounts_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/um-dummy-accounts-admin.css', array(), $this->version, 'all' );
-	}
+		//wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/um-dummy-accounts-admin.css', array(), $this->version, 'all' );
 
-	/**
-	 * Register the JavaScript for the admin area.
-	 *
-	 * @since    1.0.0
-	 */
-	public function enqueue_scripts() {
-
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in Um_Dummy_Accounts_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The Um_Dummy_Accounts_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/um-dummy-accounts-admin.js', array( 'jquery' ), $this->version, false );
+		//wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/um-dummy-accounts-admin.js', array( 'jquery' ), $this->version, false );
 	}
 
 	public function admin_menu() {
@@ -123,8 +100,9 @@ class Um_Dummy_Accounts_Admin {
 	}
 
 	public function disable_emails() {
-		global $phpmailer;
-		$phpmailer = new PHPMailerNO( true );
+		add_filter( 'pre_wp_mail', function( $pre_wp_mail, $atts ) {
+			return true;
+		}, 20, 2 );
 	}
 
 	public function render_form() {
@@ -213,7 +191,7 @@ class Um_Dummy_Accounts_Admin {
 						</th>
 						<td>
 							<label><input type="email" name="email_pattern" placeholder="example@gmail.com" class="regular-text" /></label>
-							<p><small><?php _e( 'If you leave this blank, Admin email will be used as a pattern.', 'um-dummy-accounts' ); ?></small></p>
+							<p><small><?php _e( 'If you leave this blank, the site domain will be used as a pattern.', 'um-dummy-accounts' ); ?></small></p>
 						</td>
 					</tr>
 					<tr>
@@ -289,9 +267,9 @@ class Um_Dummy_Accounts_Admin {
 				  public 'gender' => string 'male' (length=4)
 				  public 'name' =>
 				  object(stdClass)[967]
-				  public 'title' => string 'Mr' (length=2)
-				  public 'first' => string 'Dean' (length=4)
-				  public 'last' => string 'Rodriguez' (length=9)
+					public 'title' => string 'Mr' (length=2)
+					public 'first' => string 'Dean' (length=4)
+					public 'last' => string 'Rodriguez' (length=9)
 				  public 'location' =>
 				  object(stdClass)[1062]
 				  public 'street' =>
@@ -349,18 +327,18 @@ class Um_Dummy_Accounts_Admin {
 						$login = $login . '_' . wp_generate_password( 4, false );
 					}
 
-					if( !empty( $_REQUEST[ 'email_pattern' ] ) ) {
-						$email = str_replace( '@', "+$login-dummy@", $_REQUEST[ 'email_pattern' ] );
-					}
-					else {
-						$site_url = @$_SERVER[ 'SERVER_NAME' ];
+					if ( !empty( $_REQUEST['email_pattern'] ) ) {
+						$email = str_replace( '@', "+$login-dummy@", $_REQUEST['email_pattern'] );
+					} elseif ( isset( $_SERVER['SERVER_NAME'] ) && substr_count( $_SERVER['SERVER_NAME'], '.' ) ) {
+						$site_url = $_SERVER['SERVER_NAME'];
 						$email = "$login-dummy@{$site_url}";
+					} else {
+						$email = $dummy->email;
 					}
 
-					if( !empty( $_REQUEST[ 'password' ] ) ) {
-						$password = $_REQUEST[ 'password' ];
-					}
-					else {
+					if ( !empty( $_REQUEST['password'] ) ) {
+						$password = $_REQUEST['password'];
+					} else {
 						$password = wp_generate_password( 8, false );
 					}
 
