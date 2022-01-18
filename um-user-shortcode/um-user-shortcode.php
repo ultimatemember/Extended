@@ -18,13 +18,13 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function um_user_shortcode( $atts ) {
 	$atts = extract( shortcode_atts( array(
-		'user_id' => get_current_user_id(),
+		'user_id' => um_profile_id(),
 		'meta_key' => '',
 	), $atts ) );
 	
 	if ( empty( $meta_key ) ) return;
 	
-	if( empty( $user_id ) ) $user_id = get_current_user_id(); 
+	if( empty( $user_id ) ) $user_id = um_profile_id(); 
     
     $meta_value = get_user_meta( $user_id, $meta_key, true );
     if( is_serialized( $meta_value ) ){
