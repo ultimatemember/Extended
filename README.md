@@ -13,6 +13,7 @@ All custom extended features and codes. Click on each plugin for more details.
 -  [Math Captcha in UM Register Forms](https://github.com/ultimatemember/Extended/tree/main/um-math-captcha)
 -  [Generate VCard for users to download from their profiles](https://github.com/ultimatemember/Extended/tree/main/um-vcard)
 -  [Fields Character and Words Counter](https://github.com/ultimatemember/Extended/tree/main/um-fields-counter/)
+-  [Resend the Account Email Confirmation notification with WP Cronjob](https://github.com/ultimatemember/Extended/tree/main/um-cronjob-activation-email/)
 
 # Installation
 
