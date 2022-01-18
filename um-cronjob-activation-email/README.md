@@ -2,7 +2,7 @@
 
 Resends the Account Email Confirmation notification with WP Cronjob when the activation link has expired.
 
-##Filter Hook
+## Filter Hook
 
 Change the WP Cronjob schedule to trigger the resending of email confirmation notification.
 
@@ -16,7 +16,7 @@ function um_cron_resend_activation_link_recurrence( $recurrence ){
 }
 ```
 
-##Notes
+## Notes
 
 -  Ensure that the option `Activation link lifetime` is set in WP Admin > Ultimate Member > Settings > General Users for this plugin to work.
 
