@@ -17,6 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * You can modify the return meta_value with filter hook 'um_user_shortcode_filter__{$meta_key}'
  */
 function um_user_shortcode( $atts ) {
+
+    if( ! class_exists( "UM" ) ) return;
+
 	$atts = extract( shortcode_atts( array(
 		'user_id' => um_profile_id(),
 		'meta_key' => '',
