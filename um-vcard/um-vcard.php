@@ -61,13 +61,24 @@ function um_vcard_generate( $user_id ) {
 
 	$user_dir = UM()->uploader()->get_upload_user_base_dir( $user_id ) . DIRECTORY_SEPARATOR;
 
-	$vcard = new VCard( Kind::organization() );
-	$vcard->add( new Name( $lastname, $firstname, $additional, $prefix, $suffix ) );
+	$vcard = new VCard( null, Version::version3() );
+	$vcard->add( new Name( $lastname, $firstname ) );
 	$vcard->add( new Title( um_user( 'title' ) ) );
 	$vcard->add( new Role( um_user( 'role' ) ) );
 	$vcard->add( new Telephone( um_user( 'mobile_number' ) ) );
-	$vcard->add( new Photo( file_get_contents( $user_dir . um_profile( 'profile_photo' ) ) ) );
-	$vcard->add( new Logo( file_get_contents( $user_dir . um_profile( 'profile_photo' ) ) ) );
+	if ( file_exists( $user_dir . um_profile( 'profile_photo' ) ) && is_file( $user_dir . um_profile( 'profile_photo' ) ) ) {
+		//$sizes    = UM()->options()->get( 'photo_thumb_sizes' );
+		//$min_size = min( $sizes );
+		//$avatar   = str_replace( 'profile_photo', 'profile_photo-' . $min_size . 'x' . $min_size, $user_dir . um_profile( 'profile_photo' ) );
+		
+		$avatar   = $user_dir . um_profile( 'profile_photo' );
+		$data     = file_get_contents( $avatar );
+		// we should split this large string into smaller 72-symbols strings, to correspond the standard.
+
+		$vcard->add( new Photo( $data ) );
+		$vcard->add( new Logo( $data ) );
+
+	}
 
 	add_action( 'um_vcard_before_save', $vcard, $user_id );
 
@@ -79,6 +90,7 @@ function um_vcard_generate( $user_id ) {
 
 }
 add_action( 'um_after_user_updated', 'um_vcard_generate' );
+add_action( 'um_registration_complete', 'um_vcard_generate' );
 
 
 /**
