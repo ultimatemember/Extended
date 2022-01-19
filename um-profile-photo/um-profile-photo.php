@@ -21,8 +21,8 @@ function um_predefined_fields_hook_profile_photo( $arr ) {
 		'title' => __( 'Profile Photo', 'ultimate-member' ),
 		'metakey' => 'register_profile_photo',
 		'type' => 'image',
-		'label' => __('Change your profile photo','ultimate-member'),
-		'upload_text' => __('Upload your photo here','ultimate-member'),
+		'label' => __('Change your profile photo','ultimate-member' ),
+		'upload_text' => __( 'Upload your photo here', 'ultimate-member' ),
 		'icon' => 'um-faicon-camera',
 		'crop' => 1,
 		'max_size' => ( UM()->options()->get('profile_photo_max_size') ) ? UM()->options()->get('profile_photo_max_size') : 999999999,
@@ -41,6 +41,10 @@ add_filter( 'um_predefined_fields_hook', 'um_predefined_fields_hook_profile_phot
  * @param integer $user_id the user ID.
  */
 function um_registration_set_profile_photo( $user_id ) {
+
+	if( is_user_logged_in() ) {
+		UM()->files()->delete_core_user_photo( $user_id, 'profile_photo' );
+	}
 
 	$user_basedir = UM()->uploader()->get_upload_user_base_dir( $user_id, true );
 
@@ -73,7 +77,8 @@ function um_registration_set_profile_photo( $user_id ) {
 	
 	$sizes = UM()->options()->get( 'photo_thumb_sizes' );
 
-    $quality = UM()->options()->get( 'image_compression' );
+	$quality = UM()->options()->get( 'image_compression' );
+	
 	
 	if ( ! is_wp_error( $image ) ) {
 			
@@ -91,17 +96,20 @@ function um_registration_set_profile_photo( $user_id ) {
 
 		delete_user_meta( $user_id, 'synced_profile_photo' );
 		update_user_meta( $user_id, 'profile_photo', "profile_photo.{$ext}" ); 
+		update_user_meta( $user_id, 'register_profile_photo', "profile_photo.{$ext}" ); 
 		@unlink( $temp_image_path );
 
 	} 
 
 }
+add_action( 'um_after_user_account_updated', 'um_registration_set_profile_photo', 1, 1 );
 add_action( 'um_registration_set_extra_data', 'um_registration_set_profile_photo', 1, 1 );
 
 /**
  * Set Temporary user id
  */
-function um_register_profile_photo_set_temp_user_id(){
+function um_register_profile_photo_set_temp_user_id() {
+
 	$temp_profile_id = isset( $_COOKIE['um-register-profile-photo'] ) ? $_COOKIE['um-register-profile-photo'] : null;
 	if ( ! $temp_profile_id ) {
 		setcookie( 'um-register-profile-photo', md5( time() ), time() + 3600, COOKIEPATH, COOKIE_DOMAIN );
@@ -114,10 +122,10 @@ add_action( 'template_redirect', 'um_register_profile_photo_set_temp_user_id' );
  * Set handler callback for filename
  */
 function um_register_profile_photo_upload_handler( $override_handler ) {
-
-	if ( 'stream_photo' == UM()->uploader()->upload_image_type ) {
-
-		$override_handler['unique_filename_callback'] = "um_register_profile_photo_name";
+	
+	if ( 'stream_photo' == UM()->uploader()->upload_image_type && 'register_profile_photo' == UM()->uploader()->field_key ) {
+		
+		$override_handler['unique_filename_callback'] = 'um_register_profile_photo_name';
 	}
 
 	return $override_handler;
@@ -133,3 +141,66 @@ function um_register_profile_photo_name( $dir, $filename, $ext ) {
 	return "profile_photo_{$temp_profile_id}_temp{$ext}";
 
 }
+
+/**
+ * Support profile photo uploader in Account form
+ */
+function um_register_display_profile_photo_in_account( $field_atts, $key, $data ) {
+
+	if ( 'register_profile_photo' == $key && um_is_core_page( 'account' ) ) {
+
+		$profile_photo = UM()->uploader()->get_upload_base_url() . um_user( 'ID' ) . DIRECTORY_SEPARATOR . um_profile( 'profile_photo' ) . '?ts=' . current_time( 'timestamp' );
+
+		$field_atts['data-profile_photo'] = array( $profile_photo );
+	}
+
+	return $field_atts;
+}
+add_filter( 'um_field_extra_atts', 'um_register_display_profile_photo_in_account', 10, 3 );
+
+/**
+ * Clear profile photo cache
+ */
+function um_register_display_profile_photo_script() {
+
+	if( ! um_is_core_page( 'account' ) ) return; 
+
+	?>
+	<script type="text/javascript">
+	    jQuery(document).on("ready", function(){
+		  setTimeout(() => {
+			var register_profile_photo = jQuery("div[data-key='register_profile_photo']");
+			
+			register_profile_photo.find(".um-field-area").find(".um-single-image-preview").find("img").attr("src", register_profile_photo.data("profile_photo"));
+			}, 1000);
+
+			var account_small_avatar = jQuery(".um-account-meta-img-b").find("a").find("img");
+			account_small_avatar.attr("src", account_small_avatar.attr("src") + "?ts=" + Math.floor(Date.now() / 1000) );
+		
+			jQuery(document).ajaxSuccess(function(event, xhr, settings) {
+				if( typeof settings.data.indexOf !== "undefined" ){
+					if (settings.data.indexOf("action=um_resize_image") > -1) {
+						jQuery(".um-account .um-form form").submit();
+					}
+				}
+			});
+		});
+	</script>
+	<?php
+}
+add_action( 'wp_footer', 'um_register_display_profile_photo_script' );
+
+/**
+ * Delete profile photo viam the account form
+ */
+function um_register_delete_profile_photo_from_account() {
+
+	if( isset( $_REQUEST['mode'] ) && "account" == $_REQUEST['mode'] ) {
+		UM()->files()->delete_core_user_photo( get_current_user_id(), 'profile_photo' );
+	}
+	wp_send_json_success();
+
+}
+add_action( 'wp_ajax_um_remove_file', 'um_register_delete_profile_photo_from_account', 1 );
+
+			
