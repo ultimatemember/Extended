@@ -42,6 +42,8 @@ add_filter( 'um_predefined_fields_hook', 'um_predefined_fields_hook_profile_phot
  */
 function um_registration_set_profile_photo( $user_id ) {
 
+	if( ! isset( $_REQUEST['register_profile_photo'] ) ) return;
+	
 	if( is_user_logged_in() ) {
 		UM()->files()->delete_core_user_photo( $user_id, 'profile_photo' );
 	}
