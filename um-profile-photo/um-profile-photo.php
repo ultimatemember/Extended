@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Member - Enable Profile Photo in Register form
 Plugin URI: http://ultimatemember.com/
 Description: Enable users to upload their profile photo in Register form
-Version: 1.0.0
+Version: 1.3.0
 Author: Ultimate Member Ltd.
 Author URI: https://ultimatemember.com
 */
@@ -25,6 +25,7 @@ function um_predefined_fields_hook_profile_photo( $arr ) {
 		'upload_text' => __( 'Upload your photo here', 'ultimate-member' ),
 		'icon' => 'um-faicon-camera',
 		'crop' => 1,
+                'editable' => 1,
 		'max_size' => ( UM()->options()->get('profile_photo_max_size') ) ? UM()->options()->get('profile_photo_max_size') : 999999999,
 		'min_width' => str_replace('px','',UM()->options()->get('profile_photosize')),
 		'min_height' => str_replace('px','',UM()->options()->get('profile_photosize')),
@@ -40,12 +41,14 @@ add_filter( 'um_predefined_fields_hook', 'um_predefined_fields_hook_profile_phot
  *
  * @param integer $user_id the user ID.
  */
-function um_registration_set_profile_photo( $user_id ) {
-
-	if( ! isset( $_REQUEST['register_profile_photo'] ) ) return;
-	if ( strpos( $_REQUEST['register_profile_photo'], '_temp.') <= -1 ) {
-		return;
-	}
+function um_registration_set_profile_photo( $user_id, $args ) {
+	
+	if( isset( $args['form_id'] )) $req = 'register_profile_photo-' . $args['form_id'];
+	else $req = 'register_profile_photo';
+	if( ! isset( $_REQUEST[$req] ) ) return;
+	//if ( strpos( $_REQUEST['register_profile_photo'], '_temp.') <= -1 ) {
+		//return;
+	//}
 	
 	if( is_user_logged_in() ) {
 		UM()->files()->delete_core_user_photo( $user_id, 'profile_photo' );
@@ -72,9 +75,9 @@ function um_registration_set_profile_photo( $user_id ) {
 	$temp_image_path = $temp_dir . DIRECTORY_SEPARATOR . $profile_p;
 	$new_image_path = $user_basedir . DIRECTORY_SEPARATOR . $profile_p;
 	
-    $image = wp_get_image_editor( $temp_image_path );
+        $image = wp_get_image_editor( $temp_image_path );
 
-	$file_info = wp_check_filetype_and_ext( $image_path, $profile_p );
+	$file_info = wp_check_filetype_and_ext( $temp_image_path, $profile_p );
  
 	$ext = $file_info['ext'];
 	
@@ -107,8 +110,8 @@ function um_registration_set_profile_photo( $user_id ) {
 	} 
 
 }
-add_action( 'um_after_user_account_updated', 'um_registration_set_profile_photo', 1, 1 );
-add_action( 'um_registration_set_extra_data', 'um_registration_set_profile_photo', 1, 1 );
+add_action( 'um_after_user_account_updated', 'um_registration_set_profile_photo', 1, 2 );
+add_action( 'um_registration_set_extra_data', 'um_registration_set_profile_photo', 1, 2 );
 
 /**
  * Set Temporary user id
@@ -206,6 +209,4 @@ function um_register_delete_profile_photo_from_account() {
 	wp_send_json_success();
 
 }
-add_action( 'wp_ajax_um_remove_file', 'um_register_delete_profile_photo_from_account', 1 );
-
-			
+add_action( 'wp_ajax_um_remove_file', 'um_register_delete_profile_photo_from_account', 1 );		
