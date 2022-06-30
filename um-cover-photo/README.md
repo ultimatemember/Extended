@@ -1,8 +1,8 @@
 ## Ultimate Member - Enable Profile Photo in Register form
 
-Enable users to upload their profile photo in Register form
+Enable users to upload their cover photo in Register form
 
--  Just add the pre-defined field "Profile Photo" to the Register form via UM Form Builder!
+-  Just add the pre-defined field "Cover Photo" to the Register form via UM Form Builder!
 
 ## License
 
