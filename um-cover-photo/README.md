@@ -1,4 +1,4 @@
-## Ultimate Member - Enable Profile Photo in Register form
+## Ultimate Member - Enable Cover Photo in Register form
 
 Enable users to upload their cover photo in Register form
 
