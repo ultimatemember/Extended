@@ -1,13 +1,13 @@
 <?php
 /*
-Plugin Name: Ultimate Member - Set Password
-Plugin URI: https://www.ultimatemember/com
-Description: Generates a link for email templates to allow users to set password on account activation/registration.
-Version: 1.0.0
-Author: Ultimate Member Ltd.
-Author URI: https://www.ultimatemember.com/
-Text Domain: um-set-password
-*/
+  Plugin Name: Ultimate Member - Set Password
+  Plugin URI: https://www.ultimatemember.com
+  Description: Generates a link for email templates to allow users to set password on account activation/registration.
+  Version: 1.0.1
+  Author: Ultimate Member Ltd.
+  Author URI: https://www.ultimatemember.com
+  Text Domain: um-set-password
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'You are not allowed to call this page directly.' );
@@ -23,20 +23,18 @@ function um_custom_set_password_add_placeholder( $placeholders ) {
 
 	return $placeholders;
 }
-add_filter( 'um_template_tags_patterns_hook', 'um_custom_set_password_add_placeholder' , 10, 1 );
+add_filter( 'um_template_tags_patterns_hook', 'um_custom_set_password_add_placeholder', 10, 1 );
 
 /**
  * Generate set password link for placeholder
  *
  * @param array $replace_placeholders .
  */
-function um_custom_set_password_add_replace_placeholder( $replace_placeholders ){
+function um_custom_set_password_add_replace_placeholder( $replace_placeholders ) {
 
-	$user_id   = um_user( 'ID' );
-	$user_data = get_userdata( $user_id );
-	$key       = UM()->user()->maybe_generate_password_reset_key( $user_data );
+	$url = UM()->password()->reset_url();
 
-	$replace_placeholders[] = add_query_arg( array( 'set_pass' => 'new_user', 'act' => 'reset_password', 'hash' => $key, 'user_id' => $user_id ), um_get_core_page( 'password-reset' ) );
+	$replace_placeholders[] = add_query_arg( array( 'set_pass' => 'new_user' ), $url );
 	return $replace_placeholders;
 }
 add_filter( 'um_template_tags_replaces_hook', 'um_custom_set_password_add_replace_placeholder', 10, 1 );
@@ -45,31 +43,33 @@ add_filter( 'um_template_tags_replaces_hook', 'um_custom_set_password_add_replac
  * Set Password text
  */
 function um_custom_set_password_text() {
-
-	if ( ! isset( $_REQUEST['set_pass'] ) ){
-         return;
+	if ( ! isset( $_REQUEST['set_pass'] ) ) {
+		return;
 	}
 
 	add_filter( 'um_edit_label_user_password', function( $text ) {
-        return __( 'Set your Password', 'ultimate-member' );
-	});
+		return __( 'Set your Password', 'ultimate-member' );
+	} );
 
 	add_filter( 'gettext', function ( $translated_text, $untranslated_text, $domain ) {
-        if ( 'Change my password' == $translated_text) {
-            return __( 'Save my password', 'ultimate-member' );
-        }
-
-        return $translated_text;
+		if ( 'Change my password' == $translated_text ) {
+			return __( 'Save my password', 'ultimate-member' );
+		}
+		return $translated_text;
 	}, 10, 3 );
 }
-add_action("template_redirect","um_custom_set_password_text");
+add_action( "template_redirect", "um_custom_set_password_text" );
 
 /**
  * Redirect with parameter to set Password text
  *
  * @param integer $user_id User ID.
  */
-function um_custom_password_has_changed( $user_id ){
+function um_custom_password_has_changed( $user_id ) {
+	if ( isset( $_REQUEST['set_pass'] ) && 'new_user' === sanitize_key( $_REQUEST['set_pass'] ) ) {
+		um_fetch_user( $user_id );
+		UM()->user()->approve( false );
+	}
 	exit( wp_redirect( um_get_core_page( 'login', 'password_set' ) ) );
 }
 add_action( 'um_after_changing_user_password', 'um_custom_password_has_changed' );
@@ -80,9 +80,9 @@ add_action( 'um_after_changing_user_password', 'um_custom_password_has_changed' 
  * @param string $success Success Message.
  * @param string $key Message key.
  */
-function um_custom_password_set_message( $success, $key ){
+function um_custom_password_set_message( $success, $key ) {
 	if ( 'password_set' == $key ) {
-        $success = __( 'Your password has been set. Please login below.', 'ultimate-member' );
+		$success = __( 'Your password has been set. Please login below.', 'ultimate-member' );
 	}
 	return $success;
 }
