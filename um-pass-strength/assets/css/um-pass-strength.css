@@ -1,0 +1,58 @@
+
+meter#um-sp-password-strength-meter {
+    /* Reset the default appearance */
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+            
+	margin: 0 auto 1em;
+	width: 100%;
+	height: .5em;
+    
+    /* Applicable only to Firefox */
+	background: none;
+	background-color: rgba(0,0,0,0.1);
+}
+
+meter#um-sp-password-strength-meter::-webkit-meter-bar {
+	background: none;
+	background-color: rgba(0,0,0,0.1);
+}
+
+meter#um-sp-password-strength-meter > div{
+    height: 7.5px;
+}
+
+meter#um-sp-password-strength-meter[value="1"] > div {
+    width: 25%;
+    background: red;
+  }
+
+meter#um-sp-password-strength-meter[value="2"] > div {
+    width: 50%;
+    background: yellow;
+  }
+
+meter#um-sp-password-strength-meter[value="3"] > div {
+    width: 75%;
+    background: orange;
+  }
+
+meter#um-sp-password-strength-meter[value="4"] > div {
+    width: 100%;
+    background: green;
+  }
+
+meter#um-sp-password-strength-meter[value="1"]::-webkit-meter-optimum-value { background: red; }
+meter#um-sp-password-strength-meter[value="2"]::-webkit-meter-optimum-value { background: yellow; }
+meter#um-sp-password-strength-meter[value="3"]::-webkit-meter-optimum-value { background: orange; }
+meter#um-sp-password-strength-meter[value="4"]::-webkit-meter-optimum-value { background: green; }
+
+meter#um-sp-password-strength-meter[value="1"]::-moz-meter-bar { background: red; }
+meter#um-sp-password-strength-meter[value="2"]::-moz-meter-bar { background: yellow; }
+meter#um-sp-password-strength-meter[value="3"]::-moz-meter-bar { background: orange; }
+meter#um-sp-password-strength-meter[value="4"]::-moz-meter-bar { background: green; }
+
+#um-sp-password-strength-text .feedback .warning, #um-sp-password-strength-text .feedback .suggestions{
+    padding:5px;
+}
