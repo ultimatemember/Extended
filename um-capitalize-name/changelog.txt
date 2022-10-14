@@ -1,0 +1,6 @@
+== Changelog ==
+
+= 1.0.0: October 14, 2022 =
+
+  - Officially Released 
+  - credits to https://github.com/MissVeronica

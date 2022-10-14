@@ -17,6 +17,7 @@ All custom extended features and codes. Click on each plugin for more details.
 -  [Resend the Account Email Confirmation notification with WP Cronjob](https://github.com/ultimatemember/Extended/tree/main/um-cronjob-activation-email/)
 -  [Set Password Link for UM Email Templates](https://github.com/ultimatemember/Extended/tree/main/um-set-password/)
 -  [Show Password Strength meter in Register form, Reset Password form and Change Password form](https://github.com/ultimatemember/Extended/tree/main/um-pass-strength)
+-  [Force Capitalization of Display Name( First and Last Names )](https://github.com/ultimatemember/Extended/tree/main/um-capitalize-name)
 
 # Installation
 
