@@ -6,7 +6,7 @@ This forces the Display Name to be capitalized with special prepositions globall
 -  It supports special prepositions:
 -  Some use cases:
 
-| Original             | ucwords(strtolower(\$str) | UM Capitlize(\$str)  |
+| Original             | ucwords(strtolower(\$str) | UM Capitalize(\$str) |
 | :------------------- | :------------------------ | :------------------- |
 | jOÃO DA SILVA        | João Da Silva             | João da Silva        |
 | eduardo dall'agnoll  | Eduardo Dall'agnoll       | Eduardo Dall'Agnoll  |
