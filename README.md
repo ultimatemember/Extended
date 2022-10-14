@@ -23,3 +23,7 @@ All custom extended features and codes. Click on each plugin for more details.
 -  Download the [zip file](https://github.com/ultimatemember/Extended/archive/main.zip)
 -  Extract the file and then zip each plugin directory
 -  Upload the zippped plugin to WP Admin > Plugins
+
+# Contributors
+
+![Contributors](https://contrib.rocks/image?repo=ultimatemember/Extended)
