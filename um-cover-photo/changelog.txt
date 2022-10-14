@@ -1,0 +1,11 @@
+== Changelog ==
+
+= 1.0.1: October 14, 2022 =
+
+  - Official Released - credits to @joaolago1113
+
+* Enhancements:
+
+  - Added: Minimum Width and Minimum Height field options
+
+
