@@ -7,6 +7,7 @@ All custom extended features and codes. Click on each plugin for more details.
 -  [Yoast SEO metas for Profile page](https://github.com/ultimatemember/Extended/tree/main/um-yoast-seo)
 -  [Schedule User Deletions with WP Cronjob](https://github.com/ultimatemember/Extended/tree/main/um-cron-delete)
 -  [Enable Profile Photo in Register form](https://github.com/ultimatemember/Extended/tree/main/um-profile-photo)
+-  [Enable Cover Photo in Register form](https://github.com/ultimatemember/Extended/tree/main/um-cover-photo)
 -  [User Meta Shortcode](https://github.com/ultimatemember/Extended/tree/main/um-user-shortcode)
 -  [Displays Country Flag to a Profile & Member Directory](https://github.com/ultimatemember/Extended/tree/main/um-country-flag)
 -  [Regenerate Profile & Cover Photo Thumbnails](https://github.com/ultimatemember/Extended/tree/main/um-regenerate-thumbnails)
