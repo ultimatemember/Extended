@@ -42,6 +42,8 @@ function um_extended_capitlize_display_name_init() {
     $is_forced = apply_filters( 'um_extended_capitalize_name_forced', true );
     if( $is_forced ){
         add_filter( 'um_user_display_name_filter', 'um_extended_capitalize_display_name', 10, 1 );
+        add_filter( 'um_profile_first_name__filter', 'um_extended_capitalize_display_name', 10, 1 );
+        add_filter( 'um_profile_last_name__filter', 'um_extended_capitalize_display_name', 10, 1 );
     }else{
         add_filter( 'pre_user_display_name', 'um_extended_capitalize_display_name', 10, 1 );
         add_filter( 'pre_user_first_name', 'um_extended_capitalize_display_name', 10, 1 );
