@@ -21,6 +21,7 @@ jQuery(document).on("ready", function() {
          var field_value_length = me.find("input,textarea").val().length;
       }
 
+      if (max_chars <= 0) return;
       field_wrap.append(
          "<small class='um-right um-field-counter-wrap'>" +
             "<span class='um-field-text-counter'>" +
@@ -41,6 +42,7 @@ jQuery(document).on("ready", function() {
             .parent(".um-field-area")
             .find(".um-field-max-chars")
             .text();
+         if (field_max_chars <= 0) return;
 
          var max_words = jQuery(this)
             .parent(".um-field-area")

@@ -1,0 +1,7 @@
+== Changelog ==
+
+= 1.3.1: October 14, 2022 =
+
+* Bugfixes:
+
+  - Fixed: Missing error message in all forms
