@@ -3,12 +3,24 @@
 Plugin Name: Ultimate Member - Enable Profile Photo in Register form
 Plugin URI: http://ultimatemember.com/
 Description: Enable users to upload their profile photo in Register form
-Version: 1.3.1
+Version: 1.3.2
 Author: Ultimate Member Ltd.
 Author URI: https://ultimatemember.com
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
+
+/**
+ * Remove profile photo field from the default uploader for Profile forms
+ */
+add_filter( 'um_user_pre_updating_files_array', function( $files ) {
+	
+	if ( um_is_core_page( 'account' ) ) {
+		unset( $files['register_profile_photo'] );
+	}
+
+	return $files;
+}, 10, 1);
 
 /**
  * Add new predefined field "Profile Photo" in UM Form Builder.
@@ -102,15 +114,20 @@ add_filter( 'um_core_fields_hook', 'um_profile_photo_modify_field_option' );
  */
 function um_registration_set_profile_photo( $user_id, $args ) {
 	
-	if( isset( $args['form_id'] )) $req = 'register_profile_photo-' . $args['form_id'];
-	else $req = 'register_profile_photo';
-	if( ! isset( $_REQUEST[$req] ) ) return;
-	//if ( strpos( $_REQUEST['register_profile_photo'], '_temp.') <= -1 ) {
-		//return;
-	//}
-	
-	if( is_user_logged_in() ) {
-		UM()->files()->delete_core_user_photo( $user_id, 'profile_photo' );
+
+	if( isset( $args['form_id'] )  ) {
+		$req = 'register_profile_photo-' . $args['form_id'];
+	}elseif( null !== UM()->form()->form_id  ){
+		$req = 'register_profile_photo-' . UM()->form()->form_id;
+	}else{
+		$req = 'register_profile_photo';
+	}
+
+	if( ! isset( $_REQUEST[ $req ] ) || empty( $_REQUEST[ $req ] ) ) return;
+
+	if( is_user_logged_in() && strpos( $_REQUEST[ $req ], '_temp' ) > -1 ) {
+	   UM()->files()->delete_core_user_photo( $user_id, 'profile_photo' );
+	   delete_user_meta( $user_id, 'register_profile_photo' );
 	}
 
 	$user_basedir = UM()->uploader()->get_upload_user_base_dir( $user_id, true );
@@ -124,7 +141,7 @@ function um_registration_set_profile_photo( $user_id, $args ) {
 	if( empty( $temp_profile_photo ) ) return;
 
 	foreach( $temp_profile_photo as $i => $p ){
-		if ( strpos($p, "_photo_{$temp_profile_id}_temp") !== false ) {
+		if ( strpos($p, "profile_photo_{$temp_profile_id}_temp") !== false ) {
 			$profile_p = $p;
 		}
 	}
@@ -134,7 +151,7 @@ function um_registration_set_profile_photo( $user_id, $args ) {
 	$temp_image_path = $temp_dir . DIRECTORY_SEPARATOR . $profile_p;
 	$new_image_path = $user_basedir . DIRECTORY_SEPARATOR . $profile_p;
 	
-        $image = wp_get_image_editor( $temp_image_path );
+    $image = wp_get_image_editor( $temp_image_path );
 
 	$file_info = wp_check_filetype_and_ext( $temp_image_path, $profile_p );
  
@@ -167,6 +184,7 @@ function um_registration_set_profile_photo( $user_id, $args ) {
 		@unlink( $temp_image_path );
 
 	} 
+
 
 }
 add_action( 'um_after_user_account_updated', 'um_registration_set_profile_photo', 1, 2 );
@@ -258,14 +276,21 @@ function um_register_display_profile_photo_script() {
 add_action( 'wp_footer', 'um_register_display_profile_photo_script' );
 
 /**
- * Delete profile photo viam the account form
+ * Delete profile photo via the account form
  */
 function um_register_delete_profile_photo_from_account() {
 
-	if( isset( $_REQUEST['mode'] ) && "account" == $_REQUEST['mode'] ) {
-		UM()->files()->delete_core_user_photo( get_current_user_id(), 'profile_photo' );
+	if( isset( $_REQUEST['mode'] ) && in_array( $_REQUEST['mode'], array( "account", "profile" ) ) ) {
+		
+		$fname = pathinfo( $_REQUEST['filename'], PATHINFO_FILENAME );
+
+		if( 'profile_photo' === $fname ){
+			UM()->files()->delete_core_user_photo( get_current_user_id(), $fname );
+			UM()->files()->delete_core_user_photo( get_current_user_id(), 'register_profile_photo' );
+			wp_send_json_success( $fname  );
+		}
+		
 	}
-	wp_send_json_success();
 
 }
 add_action( 'wp_ajax_um_remove_file', 'um_register_delete_profile_photo_from_account', 1 );		
