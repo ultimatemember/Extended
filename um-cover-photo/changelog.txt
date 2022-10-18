@@ -1,5 +1,12 @@
 == Changelog ==
 
+= 1.0.2: October 18, 2022 =
+
+* Bugfixes:
+
+  - Fixed: Conflict issue with Profile Photo basic extension
+  - Fixed: Compatibility with custom Account forms
+
 = 1.0.1: October 14, 2022 =
 
   - Official Released - credits to @joaolago1113

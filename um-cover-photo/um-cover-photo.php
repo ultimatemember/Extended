@@ -3,12 +3,24 @@
 Plugin Name: Ultimate Member - Enable Cover Photo in Register form
 Plugin URI: http://ultimatemember.com/
 Description: Enable users to upload their cover photo in Register form
-Version: 1.0.1
+Version: 1.0.2
 Author: Ultimate Member Ltd.
 Author URI: https://ultimatemember.com
 */
 
 if ( ! defined( 'ABSPATH' ) ) exit;
+
+/**
+ * Remove cover photo field from the default uploader for Profile forms
+ */
+add_filter( 'um_user_pre_updating_files_array', function( $files ) {
+	
+	if ( um_is_core_page( 'account' ) ) {
+		unset( $files['register_cover_photo'] );
+	}
+
+	return $files;
+}, 10, 1);
 
 /**
  * Add new predefined field "Cover Photo" in UM Form Builder.
@@ -104,16 +116,19 @@ add_filter( 'um_core_fields_hook', 'um_cover_photo_modify_field_option' );
  */
 function um_registration_set_cover_photo( $user_id, $args ) {
 	
-	
-	if( isset( $args['form_id'] )) $req = 'register_cover_photo-' . $args['form_id'];
-	else $req = 'register_cover_photo';
-	if( ! isset( $_REQUEST[$req] ) ) return;
-	//if ( strpos( $_REQUEST['register_profile_photo'], '_temp.') <= -1 ) {
-		//return;
-	//}
-	
-	if( is_user_logged_in() ) {
+	if( isset( $args['form_id'] )  ) {
+		$req = 'register_cover_photo-' . $args['form_id'];
+	}elseif( null !== UM()->form()->form_id  ){
+		$req = 'register_cover_photo-' . UM()->form()->form_id;
+	}else{
+		$req = 'register_cover_photo';
+	}
+
+	if ( ! isset( $_REQUEST[ $req ] ) || empty( $_REQUEST[ $req ] ) ) return;
+
+	if( is_user_logged_in() && strpos( $_REQUEST[ $req ], '_temp' ) > -1 ) {
 		UM()->files()->delete_core_user_photo( $user_id, 'cover_photo' );
+		delete_user_meta( $user_id, 'cover_photo' );
 	}
 
 	$user_basedir = UM()->uploader()->get_upload_user_base_dir( $user_id, true );
@@ -125,7 +140,7 @@ function um_registration_set_cover_photo( $user_id, $args ) {
 	$temp_profile_id =  isset( $_COOKIE['um-register-cover-photo'] ) ? $_COOKIE['um-register-cover-photo'] : null;
 
 	foreach( $temp_profile_photo as $i => $p ){
-		if ( strpos($p, "_photo_{$temp_profile_id}_temp") !== false ) {
+		if ( strpos($p, "cover_photo_{$temp_profile_id}_temp") !== false ) {
 			$profile_p = $p;
 		}
 	}
@@ -219,9 +234,9 @@ function um_register_display_cover_photo_in_account( $field_atts, $key, $data ) 
 
 	if ( 'register_cover_photo' == $key && um_is_core_page( 'account' ) ) {
 
-		$profile_photo = UM()->uploader()->get_upload_base_url() . um_user( 'ID' ) . DIRECTORY_SEPARATOR . um_profile( 'cover_photo' ) . '?ts=' . current_time( 'timestamp' );
+		$cover_photo = UM()->uploader()->get_upload_base_url() . um_user( 'ID' ) . DIRECTORY_SEPARATOR . um_profile( 'cover_photo' ) . '?ts=' . current_time( 'timestamp' );
 
-		$field_atts['data-cover_photo'] = array( $profile_photo );
+		$field_atts['data-cover_photo'] = array( $cover_photo );
 	}
 
 	return $field_atts;
@@ -265,10 +280,20 @@ add_action( 'wp_footer', 'um_register_display_cover_photo_script' );
  */
 function um_register_delete_cover_photo_from_account() {
 
-	if( isset( $_REQUEST['mode'] ) && "account" == $_REQUEST['mode'] ) {
-		UM()->files()->delete_core_user_photo( get_current_user_id(), 'cover_photo' );
+	if( isset( $_REQUEST['mode'] ) && in_array( $_REQUEST['mode'], array( 'account', 'profile' ) ) ) {
+		
+		$fname = pathinfo( $_REQUEST['filename'], PATHINFO_FILENAME );
+
+		if( 'cover_photo' === $fname ){
+			UM()->files()->delete_core_user_photo( get_current_user_id(), $fname );
+			delete_user_meta( get_current_user_id(), 'cover_photo' );
+			UM()->files()->delete_core_user_photo( get_current_user_id(), 'register_cover_photo' );
+			wp_send_json_success( $fname  );
+		}
+		
 	}
-	wp_send_json_success();
+	
+	
 
 }
 add_action( 'wp_ajax_um_remove_file', 'um_register_delete_cover_photo_from_account', 1 );
