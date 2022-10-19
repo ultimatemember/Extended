@@ -53,6 +53,7 @@ add_filter( 'um_predefined_fields_hook', 'um_predefined_fields_hook_profile_phot
  */
 function um_profile_photo_register_add_field_settings_type_min_width( $edit_mode_value, $form_id, $edit_array ) {
 
+	if ( isset( $_REQUEST['arg3'] ) && 'register_profile_photo' === $_REQUEST['arg3'] ){
 	?>
 
 	<p><label for="_min_width"><?php _e( 'Mininum Image Width', 'ultimate-member' ) ?> <?php UM()->tooltip( __( 'Set Minimum Profile Photo Width for this section', 'ultimate-member' ) ); ?></label>
@@ -60,6 +61,7 @@ function um_profile_photo_register_add_field_settings_type_min_width( $edit_mode
 	</p>
 
 	<?php
+	}
 
 }
 add_action( 'um_admin_field_edit_hook_min_width', 'um_profile_photo_register_add_field_settings_type_min_width', 10, 3 );
@@ -69,6 +71,7 @@ add_action( 'um_admin_field_edit_hook_min_width', 'um_profile_photo_register_add
  */
 function um_profile_photo_register_add_field_settings_type_min_height( $edit_mode_value, $form_id, $edit_array ) {
 
+	if ( isset( $_REQUEST['arg3'] ) && 'register_profile_photo' === $_REQUEST['arg3'] ){
 	?>
 
 	<p><label for="_min_height"> <?php _e( 'Mininum Image Height', 'ultimate-member' ) ?> <?php UM()->tooltip( __( 'Set Minimum Profile Photo Height for this section', 'ultimate-member' ) ); ?></label>
@@ -76,6 +79,7 @@ function um_profile_photo_register_add_field_settings_type_min_height( $edit_mod
 	</p>
 
 	<?php
+	}
 
 }
 add_action( 'um_admin_field_edit_hook_min_height', 'um_profile_photo_register_add_field_settings_type_min_height', 10, 3 );
@@ -96,12 +100,14 @@ function um_profile_photo_modify_field_option( $fields ) {
 
 	}
 
-	if( ! isset( $_REQUEST['arg3'] )  || ( isset( $_REQUEST['arg3'] ) && 'register_profile_photo' !== $_REQUEST['arg3'] ) ){
+	if( ! isset( $_REQUEST['arg3'] ) ){
 		return $fields;
 	}
 
-	$fields['image']['col2'][ ] = '_min_height';
-	$fields['image']['col2'][ ] = '_min_width';
+	if ( 'register_profile_photo' === $_REQUEST['arg3'] ){
+		$fields['image']['col2'][ ] = '_min_height';
+		$fields['image']['col2'][ ] = '_min_width';
+	}
 	
 	return $fields;
 }

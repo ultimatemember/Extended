@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Member - Enable Cover Photo in Register form
 Plugin URI: http://ultimatemember.com/
 Description: Enable users to upload their cover photo in Register form
-Version: 1.0.2
+Version: 1.0.3
 Author: Ultimate Member Ltd.
 Author URI: https://ultimatemember.com
 */
@@ -54,14 +54,15 @@ add_filter( 'um_predefined_fields_hook', 'um_predefined_fields_hook_cover_photo'
  * Min Width field option
  */
 function um_cover_photo_register_add_field_settings_type_min_width( $edit_mode_value, $form_id, $edit_array ) {
-
+	if ( isset( $_REQUEST['arg3'] ) && 'register_cover_photo' === $_REQUEST['arg3'] ){
 	?>
 
-	<p><label for="_min_width"><?php _e( 'Mininum Image Width', 'ultimate-member' ) ?> <?php UM()->tooltip( __( 'Set Minimum Profile Photo Width for this section', 'ultimate-member' ) ); ?></label>
+	<p><label for="_min_width"><?php _e( 'Mininum Image Width', 'ultimate-member' ) ?> <?php UM()->tooltip( __( 'Set Minimum Cover Photo Width for this section', 'ultimate-member' ) ); ?></label>
 		<input type="text" name="_min_width" id="_min_width" value="<?php echo ( $edit_mode_value ) ? $edit_mode_value : UM()->options()->get('profile_photosize'); ?>" />
 	</p>
 
 	<?php
+	}
 
 }
 add_action( 'um_admin_field_edit_hook_min_width', 'um_cover_photo_register_add_field_settings_type_min_width', 10, 3 );
@@ -70,14 +71,15 @@ add_action( 'um_admin_field_edit_hook_min_width', 'um_cover_photo_register_add_f
  * Min Height field option
  */
 function um_cover_photo_register_add_field_settings_type_min_height( $edit_mode_value, $form_id, $edit_array ) {
-
+	if ( isset( $_REQUEST['arg3'] ) && 'register_cover_photo' === $_REQUEST['arg3'] ){
 	?>
 
-	<p><label for="_min_height"> <?php _e( 'Mininum Image Height', 'ultimate-member' ) ?> <?php UM()->tooltip( __( 'Set Minimum Profile Photo Height for this section', 'ultimate-member' ) ); ?></label>
+	<p><label for="_min_height"> <?php _e( 'Mininum Image Height', 'ultimate-member' ) ?> <?php UM()->tooltip( __( 'Set Minimum Cover Photo Height for this section', 'ultimate-member' ) ); ?></label>
 		<input type="text" name="_min_height" id="_min_height" value="<?php echo ( $edit_mode_value ) ? $edit_mode_value : UM()->options()->get('profile_photosize'); ?>" />
 	</p>
 
 	<?php
+	}
 
 }
 add_action( 'um_admin_field_edit_hook_min_height', 'um_cover_photo_register_add_field_settings_type_min_height', 10, 3 );
@@ -97,13 +99,15 @@ function um_cover_photo_modify_field_option( $fields ) {
 		return $fields;
 
 	}
-
-	if( ! isset( $_REQUEST['arg3'] )  || ( isset( $_REQUEST['arg3'] ) && 'register_cover_photo' !== $_REQUEST['arg3'] ) ){
+	
+	if( ! isset( $_REQUEST['arg3'] ) ){
 		return $fields;
 	}
 
-	$fields['image']['col2'][ ] = '_min_height';
-	$fields['image']['col2'][ ] = '_min_width';
+	if ( 'register_cover_photo' === $_REQUEST['arg3'] ){
+		$fields['image']['col2'][ ] = '_min_height';
+		$fields['image']['col2'][ ] = '_min_width';
+	}
 	
 	return $fields;
 }

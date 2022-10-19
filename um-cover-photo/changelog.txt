@@ -1,5 +1,11 @@
 == Changelog ==
 
+= 1.0.3: October 19, 2022 =
+
+* Bugfixes:
+
+  - Fixed: Conflict with field min and max sizes options
+
 = 1.0.2: October 18, 2022 =
 
 * Bugfixes:
