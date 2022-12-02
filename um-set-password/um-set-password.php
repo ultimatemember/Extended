@@ -32,6 +32,14 @@ add_filter( 'um_template_tags_patterns_hook', 'um_custom_set_password_add_placeh
  */
 function um_custom_set_password_add_replace_placeholder( $replace_placeholders ) {
 
+	// A fix to avoid internal caching in the class um\core\User.
+	static $last_user_id = 0;
+	$user_id = um_user( 'ID' );
+	if ( $last_user_id !== $user_id ) {
+		UM()->user()->password_reset_key = '';
+		$last_user_id                    = $user_id;
+	}
+
 	$url = UM()->password()->reset_url();
 
 	$replace_placeholders[] = add_query_arg( array( 'set_pass' => 'new_user' ), $url );
