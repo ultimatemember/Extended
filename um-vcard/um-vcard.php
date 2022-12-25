@@ -29,6 +29,7 @@ use JeroenDesloovere\VCard\Property\Address;
 use JeroenDesloovere\VCard\Property\Anniversary;
 use JeroenDesloovere\VCard\Property\Birthdate;
 use JeroenDesloovere\VCard\Property\Email;
+use JeroenDesloovere\VCard\Property\FullName;
 use JeroenDesloovere\VCard\Property\Gender;
 use JeroenDesloovere\VCard\Property\Logo;
 use JeroenDesloovere\VCard\Property\Name;
@@ -37,6 +38,7 @@ use JeroenDesloovere\VCard\Property\Note;
 use JeroenDesloovere\VCard\Property\Parameter\Kind;
 use JeroenDesloovere\VCard\Property\Parameter\Revision;
 use JeroenDesloovere\VCard\Property\Parameter\Type;
+use JeroenDesloovere\VCard\Property\Parameter\Value;
 use JeroenDesloovere\VCard\Property\Parameter\Version;
 use JeroenDesloovere\VCard\Property\Photo;
 use JeroenDesloovere\VCard\Property\Telephone;
@@ -64,8 +66,87 @@ function um_vcard_generate( $user_id ) {
 	$vcard = new VCard( null, Version::version3() );
 	$vcard->add( new Name( $lastname, $firstname ) );
 	$vcard->add( new Title( um_user( 'title' ) ) );
-	$vcard->add( new Role( um_user( 'role' ) ) );
-	$vcard->add( new Telephone( um_user( 'mobile_number' ) ) );
+	$vcard->add( new Role( um_user( 'role' ) ) );	
+	
+	$full_name = um_user( 'full_name' );
+	if ( $full_name ) {
+		$vcard->add( new FullName( $full_name ) );
+	}
+
+	$nickname = um_user( 'nickname' );
+	if ( $nickname ) {
+		$vcard->add( new Nickname( $nickname ) );
+	}
+
+	$birth_date = um_user( 'birth_date' );
+	if ( $birth_date ) {
+		$temestamp = strtotime( $birth_date );
+		$vcard->add( new Birthdate( date( 'Ymd', $temestamp ) ) );
+	}
+
+	$gender = um_user( 'gender' );
+	if ( $gender ) {
+		switch ( $gender ) {
+			case 'Female':
+				$value = 'F';
+				break;
+
+			case 'Male':
+				$value = 'M';
+				break;
+
+			case 'None':
+				$value = 'N';
+				break;
+
+			case 'Other':
+				$value = 'O';
+				break;
+
+			case 'Unknown':
+				$value = 'U';
+				break;
+
+			default:
+				$value = '';
+				break;
+		}
+
+		$vcard->add( new Gender( $value ) );
+	}
+
+	$description = um_user( 'description' );
+	if ( $description ) {
+		$note = apply_filters( 'um-vcard-property-note', $description, $user_id );
+		$vcard->add( new Note( $note ) );
+	}
+
+	$email = um_user( 'user_email' );
+	if ( $email ) {
+		$vcard->add( new Email( $email ) );
+	}
+
+	$mobile_number = um_user( 'mobile_number' );
+	if ( $mobile_number ) {
+		$telephoneNumber = preg_replace( '/[^0-9+]/i', '', $mobile_number );
+		$type            = new Type( 'work' );
+		$value           = new Value( 'text' );
+		$vcard->add( new Telephone( $telephoneNumber, $type, $value ) );
+	}
+
+	$phone_number = um_user( 'phone_number' );
+	if ( $phone_number ) {
+		$telephoneNumber = preg_replace( '/[^0-9+]/i', '', $phone_number );
+		$type            = new Type( 'home' );
+		$value           = new Value( 'text' );
+		$vcard->add( new Telephone( $telephoneNumber, $type, $value ) );
+	}
+
+	$user_url = um_user( 'user_url' );
+	if ( $user_url ) {
+		$vcard->add( new Url( $user_url ) );
+	}	
+
 	if ( file_exists( $user_dir . um_profile( 'profile_photo' ) ) && is_file( $user_dir . um_profile( 'profile_photo' ) ) ) {
 		//$sizes    = UM()->options()->get( 'photo_thumb_sizes' );
 		//$min_size = min( $sizes );
