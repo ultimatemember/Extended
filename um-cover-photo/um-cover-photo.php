@@ -162,7 +162,7 @@ function um_registration_set_cover_photo( $user_id, $args ) {
 	
 	$new_image_name = str_replace( $profile_p,  "cover_photo.{$ext}", $new_image_path );
 	
-	$sizes = UM()->options()->get( 'photo_thumb_sizes' );
+	$sizes = UM()->options()->get( 'cover_thumb_sizes' );
 
 	$quality = UM()->options()->get( 'image_compression' );
 	
