@@ -16,6 +16,7 @@ add_action( 'um_cron_delete_users_cron', 'um_delete_users_awaiting_email' );
 function um_delete_users_awaiting_email() {
 
 	$after_x     = apply_filters( 'um_cron_delete_users_after', '5 days ago midnight' );
+	$before_x    = apply_filters( 'um_cron_delete_users_before', '1 day ago' );
 	$user_status = apply_filters( 'um_cron_delete_users_status', 'awaiting_email_confirmation' );
 
 	$args = array(
@@ -24,6 +25,7 @@ function um_delete_users_awaiting_email() {
 		'date_query' => array(
 			array(
 				'after'     => $after_x,
+				'before'    => $before_x,
 				'inclusive' => true,
 			),
 		),
