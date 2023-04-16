@@ -41,8 +41,8 @@ function um_delete_users_awaiting_email() {
 
 	$users = get_users( $args );
 
-	foreach ( $users as $user ) {
-		um_fetch_user( $user->ID );
+	foreach ( $users as $user_id ) {
+		um_fetch_user( $user_id );
 		UM()->user()->delete();
 	}
 }
