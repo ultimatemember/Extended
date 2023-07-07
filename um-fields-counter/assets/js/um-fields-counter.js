@@ -23,15 +23,16 @@ jQuery(document).on("ready", function() {
 
       if (max_chars <= 0) return;
       field_wrap.append(
-         "<small class='um-right um-field-counter-wrap'>" +
-            "<span class='um-field-text-counter'>" +
-            field_value_length +
-            "</span>" +
-            "/" +
-            "<span class='um-field-max-chars'>" +
-            max_chars +
-            "</span>" +
-            "</small>"
+				'<small class="um-right um-field-counter-wrap">' +
+				'<span class="um-field-text-counter">' +
+				field_value_length +
+				'</span>' +
+				'/' +
+				'<span class="um-field-max-chars">' +
+				max_chars +
+				'</span>' +
+				'</small>' +
+				'<div class="um-clear"></div>'
       );
    });
 
@@ -87,8 +88,4 @@ jQuery(document).on("ready", function() {
          }
          field_counter.text(field_length);
       });
-
-   jQuery(".um-profile.um-editing .um-field[data-max_chars], .um-register .um-field[data-max_chars]")
-      .find("input,textarea")
-      .trigger("keyup");
 });
