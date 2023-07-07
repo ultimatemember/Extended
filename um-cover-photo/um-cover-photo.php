@@ -162,7 +162,7 @@ function um_registration_set_cover_photo( $user_id, $args ) {
 	
 	$new_image_name = str_replace( $profile_p,  "cover_photo.{$ext}", $new_image_path );
 	
-	$sizes = UM()->options()->get( 'photo_thumb_sizes' );
+	$sizes = UM()->options()->get( 'cover_thumb_sizes' );
 
 	$quality = UM()->options()->get( 'image_compression' );
 	
@@ -225,10 +225,21 @@ add_filter( 'um_image_upload_handler_overrides__register_cover_photo', 'um_regis
  * Change filename
  */
 function um_register_cover_photo_name( $dir, $filename, $ext ) {
-	$temp_profile_id =  isset( $_COOKIE['um-register-cover-photo'] ) ? $_COOKIE['um-register-cover-photo'] : null;
 	
-	return "cover_photo_{$temp_profile_id}_temp{$ext}";
+	$temp_profile_id =  isset( $_COOKIE['um-register-cover-photo'] ) ? $_COOKIE['um-register-cover-photo'] : null;
 
+	if ( empty( $ext ) ) {
+			$image_type = wp_check_filetype( $filename );
+			$ext = strtolower( trim( $image_type['ext'], ' \/.' ) );
+	} else {
+			$ext = strtolower( trim( $ext, ' \/.' ) );
+	}
+
+	$filename = "cover_photo_{$temp_profile_id}_temp.{$ext}";
+
+	UM()->uploader()->delete_existing_file( $filename, $ext, $dir );
+
+	return $filename;
 }
 
 /**
