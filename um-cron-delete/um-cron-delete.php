@@ -3,7 +3,7 @@
 Plugin Name: Ultimate Member - Schedule User Deletions with WP Cronjob
 Plugin URI: http://ultimatemember.com/
 Description: Deletes users by status after X number of days/months/years
-Version: 1.0.0
+Version: 1.0.1
 Author: UM Devs
 Author URI: https://ultimatemember.com
 */
@@ -16,14 +16,16 @@ add_action( 'um_cron_delete_users_cron', 'um_delete_users_awaiting_email' );
 function um_delete_users_awaiting_email() {
 
 	$after_x     = apply_filters( 'um_cron_delete_users_after', '5 days ago midnight' );
+	$before_x    = apply_filters( 'um_cron_delete_users_before', '1 day ago' );
 	$user_status = apply_filters( 'um_cron_delete_users_status', 'awaiting_email_confirmation' );
 
 	$args = array(
-		'fields'     => 'ID',
+		'fields'     => 'ids',
 		'number'     => -1,
 		'date_query' => array(
 			array(
 				'after'     => $after_x,
+				'before'    => $before_x,
 				'inclusive' => true,
 			),
 		),
@@ -43,10 +45,9 @@ function um_delete_users_awaiting_email() {
 		um_fetch_user( $user->ID );
 		UM()->user()->delete();
 	}
-
 }
 
 if ( ! wp_next_scheduled( 'um_cron_delete_users_cron' ) ) {
 	$recurrence = apply_filters( 'um_cron_delete_users_recurrence', 'daily' );
-	wp_schedule_event( time(), 'daily', 'um_cron_delete_users_cron' );
+	wp_schedule_event( time(), $recurrence, 'um_cron_delete_users_cron' );
 }
