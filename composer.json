@@ -1,0 +1,42 @@
+{
+    "name": "ultimatemember/um-extended",
+    "description": "Extended features & functionalities of Ultimate Member",
+    "type": "wordpress-plugin",
+    "homepage": "https://ultimatemember.com/",
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+       {
+          "name": "Ultimate Member Group Ltd.",
+          "email": "team@ultimatemember.com"
+       }
+    ],
+    "autoload": {
+       "psr-4": {
+          "UM_Extended\\": "src",
+          "UM_Extended_Block_Emails\\": "src/um-block-emails/src",
+          "UM_Extended_Browser_Detect\\": "src/um-browser-detect/src",
+          "UM_Extended_Capitalize_Names\\": "src/um-capitalize-name/src"
+
+       }
+    },
+    "require-dev": {
+      "wp-cli/wp-cli": "*",
+      "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+      "object-calisthenics/phpcs-calisthenics-rules": "*",
+      "phpcompatibility/phpcompatibility-wp": "*",
+      "wp-coding-standards/wpcs": "2.3.0",
+      "squizlabs/php_codesniffer": "3.*",
+      "phpdocumentor/phpdocumentor": "3.1.*"
+   },
+   "config": {
+      "allow-plugins": {
+         "symfony/flex": true,
+         "dealerdirect/phpcodesniffer-composer-installer": true
+      }
+   },
+    "require": {
+        "cbschuld/browser.php": "^1.9"
+    }
+}
