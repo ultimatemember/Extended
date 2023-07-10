@@ -104,5 +104,5 @@ function um_extended_blockemails_plugin() {
 
 	return $core;
 }
-
+// Init
 um_extended_blockemails_plugin();
