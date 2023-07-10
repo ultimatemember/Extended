@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Ultimate Member - Block Spam Email Addresses/Domains
+ * Plugin Name: Ultimate Member - Block Disposable Email Domains
  * Plugin URI: https://www.ultimatemember.com/
- * Description: This provides a list of known Spam Email Addresses & Domains
+ * Description: This provides a list of known Spam/Disposable Email Domains.
  * Version: 1.0.0
  * Author: Ultimate Member
  * Author URI: https://www.ultimatemember.com
