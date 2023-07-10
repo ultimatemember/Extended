@@ -38,7 +38,7 @@ class Core {
 		add_filter( 'um_settings_structure', array( $this, 'settings' ) );
 
 		add_filter( 'um_get_option_filter__blocked_emails', array( $this, 'merge_disposable_emails' ) );
-		
+
 	}
 
 	/**
@@ -78,7 +78,7 @@ class Core {
 
 	/**
 	 * Add settings for Disposable Email Domains
-	 * 
+	 *
 	 * @param array $fields Fields Settings.
 	 */
 	public function settings( $fields ) {
@@ -97,8 +97,8 @@ class Core {
 
 	/**
 	 * Merge Disposble Emails with Blocked Emails
-	 * 
-	 * @param string $emails existing emails
+	 *
+	 * @param string $emails Existing emails.
 	 */
 	public function merge_disposable_emails( $emails ) {
 
