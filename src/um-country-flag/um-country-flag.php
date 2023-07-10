@@ -102,7 +102,7 @@ function um_extended_countryflags_plugin() {
 	static $core;
 
 	if ( ! isset( $core ) ) {
-		$core = new \UM_Extended_Country_Flags\Core( __FILE__ );
+		$core = new \UM_Extended_Country_Flags\Core();
 	}
 
 	return $core;

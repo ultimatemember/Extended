@@ -18,8 +18,8 @@
           "UM_Extended_Block_Emails\\": "src/um-block-emails/src",
           "UM_Extended_Browser_Detect\\": "src/um-browser-detect/src",
           "UM_Extended_Capitalize_Names\\": "src/um-capitalize-name/src",
-          "UM_Extended_Country_Flags\\": "src/um-country-flag/src"
-
+          "UM_Extended_Country_Flags\\": "src/um-country-flag/src",
+          "UM_Extended_Cover_Photo\\": "src/um-cover-photo/src"
        }
     },
     "require-dev": {
