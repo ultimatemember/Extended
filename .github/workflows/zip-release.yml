@@ -1,73 +1,38 @@
 name: Build Release
 
 on:
-   push:
-      tags:
-         - "*"
+  push:
+    branches:
+      - master
 
 permissions:
-   contents: write
+  contents: write
 
 jobs:
-   build:
-      runs-on: ubuntu-latest
-      steps:
-         - name: Clone repository
-           uses: actions/checkout@v3
-         - name: Use Node.js 16
-           uses: actions/setup-node@v3
-           with:
-              node-version: 16
-         - name: Install dependencies
-           run: npm install
-         - name: Generate build
-           run: npm run build
-         # Share artifact inside workflow
-         - name: Share artifact inside workflow
-           uses: actions/upload-artifact@v1
-           with:
-              name: um-extended-build
-              path: build
-   deploy:
-      runs-on: ubuntu-latest
-      # When application is successfully tested and build has been generated
-      # Then we can start with deployment
-      needs: build
-      steps:
-         # Download previously shared build
-         - name: Get artifact
-           uses: actions/download-artifact@v3
-           with:
-              name: um-extended-build
-
-   release:
-      runs-on: ubuntu-latest
-      # We specify that deploys needs to
-      # finish before we create a release
-      needs: deploy
-      steps:
-         # Download previously shared build
-         - name: Get artifact
-           uses: actions/download-artifact@v3
-           with:
-              name: um-extended-build
-         # Zip the build using external action
-         - name: Zip build
-           uses: thedoctor0/zip-release@master
-           with:
-              filename: release-build.zip
-              # path: um-extended-build
-         # Upload as an artifact of the current workflow
-         - name: Upload build zip artifact
-           uses: actions/upload-artifact@v3
-           with:
-              name: release-build.zip
-              path: release-build.zip
-         # Make official GitHub release which will trigger
-         # sending the mail with link for access
-         - name: Release
-           uses: ncipollo/release-action@v1
-           with:
-              artifacts: release-build.zip
-              token: ${{ secrets.GITHUB_TOKEN }}
-              allowUpdates: true
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install PHP
+      uses: "shivammathur/setup-php@v2"
+      with:
+        php-version: "latest"
+    - name: Install Composer Dependencies
+      uses: php-actions/composer@v6
+      with:
+        php_version: "latest"
+        command: install --no-progress --no-dev --optimize-autoloader --ignore-platform-req=ext-exif --ignore-platform-req=ext-gd
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git rm .gitignore
+        git add vendor/\*
+        git commit -a -m "Composer Installed"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: releases
+        repository: ultimatemember/Extended
+        force: true
