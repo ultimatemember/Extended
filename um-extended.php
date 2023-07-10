@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( 'You are not allowed to call this page directly.' );
 }
 
+define( 'UM_EXTENDED_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 	/**
@@ -49,8 +50,8 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 
 			echo '<div class="notice notice-warning"><p>';
 			printf(
-				wp_kses( /* translators: %1$s - The Ultimate Member WP CLI requires the latest versio. */
-					__( 'The Ultimate Member - WP CLI requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'champ' ),
+				wp_kses( /* translators: %1$s - The Ultimate Member - Extended Features & Functionalities plugin requires the latest versio. */
+					__( 'The Ultimate Member - Extended Features & Functionalities plugin requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'champ' ),
 					array(
 						'a'      => array(
 							'href'   => array(),
@@ -109,6 +110,10 @@ function um_extended_plugin() {
 
 	if ( ! isset( $core->capitalize_names ) ) {
 		$core->capitalize_names = new UM_Extended_Capitalize_Names\Core();
+	}
+
+	if ( ! isset( $core->country_flags ) ) {
+		$core->country_flags = new UM_Extended_Country_Flags\Core();
 	}
 
 	return $core;

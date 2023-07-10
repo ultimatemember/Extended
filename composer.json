@@ -17,7 +17,8 @@
           "UM_Extended\\": "src",
           "UM_Extended_Block_Emails\\": "src/um-block-emails/src",
           "UM_Extended_Browser_Detect\\": "src/um-browser-detect/src",
-          "UM_Extended_Capitalize_Names\\": "src/um-capitalize-name/src"
+          "UM_Extended_Capitalize_Names\\": "src/um-capitalize-name/src",
+          "UM_Extended_Country_Flags\\": "src/um-country-flag/src"
 
        }
     },

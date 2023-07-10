@@ -1,66 +1,110 @@
 <?php
-/*
-Plugin Name: Ultimate Member - Country Flag
-Plugin URI: https://ultimatemember.com/extensions/country-flag
-Description: Display Country flag in Member Directory and User Profiles.
-Version: 1.1
-Author: Ultimate Member
-Author URI: http://ultimatemember.com/
-Text Domain: um-country-flag
-Domain Path: /languages
-UM version: 2.1.0
-*/
+/**
+ * Plugin Name: Ultimate Member - Country Flag
+ * Plugin URI: https://ultimatemember.com/extensions/country-flag
+ * Description: Display Country flag in Member Directory and User Profiles.
+ * Version: 1.1
+ * Author: Ultimate Member
+ * Author URI: http://ultimatemember.com/
+ * Text Domain: um-country-flag
+ * Domain Path: /languages
+ * UM version: 2.1.0
+ *
+ * @package UM_Extended_Country_Flags\Core
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	die( 'You are not allowed to call this page directly.' );
 }
 
-define( 'UM_COUNTRY_FLAG_URL', plugin_dir_url( __FILE__ ) );
+define( 'UM_EXTENDED_COUNTRY_FLAG_URL', plugin_dir_url( __FILE__ ) );
 
-/**
- * The main UM_Country_Flag class.
- */
-class UM_Country_Flag {
-
+if ( ! function_exists( 'um_extended_countryflags_loading_allowed' ) ) {
 	/**
-	 * Setup class.
+	 * Don't allow to run the plugin when  Ultimate Member plugin is not active/installed
 	 *
 	 * @since 1.0.0
 	 */
-	public function __construct() {
-		add_action( 'um_after_profile_header_name', array( $this, 'display_flag' ) ); // Display country flag to user profiles pages.
-		add_action( 'um_members_after_user_name', array( $this, 'display_flag' ) ); // Display country flag to Member Directory.
-		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_library' ) ); // Enqueue the country flag library.
+	function um_extended_countryflags_loading_allowed() {
+
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			require_once ABSPATH . '/wp-admin/includes/plugin.php';
+		}
+
+		// Search for ultimate-member plugin name.
+		if ( ! is_plugin_active( 'ultimate-member/ultimate-member.php' ) ) {
+
+			add_action( 'admin_notices', 'um_extended_countryflags_ultimatemember_requirement_notice' );
+
+			return false;
+		}
+
+		return true;
 	}
 
-	/**
-	 * Display Country Flag.
-	 */
-	public function display_flag() {
+	if ( ! function_exists( 'um_extended_countryflags_ultimatemember_requirement_notice' ) ) {
+		/**
+		 * Display the notice after activation
+		 *
+		 * @since 1.5.0
+		 */
+		function um_extended_countryflags_ultimatemember_requirement_notice() {
 
-		// Check if Ultimate Member plugin is active.
-		if ( class_exists( 'UM' ) ) {
+			echo '<div class="notice notice-warning"><p>';
+			printf(
+				wp_kses( /* translators: %1$s - The Ultimate Member requires the latest versio. */
+					__( 'The Ultimate Member - Country Flags requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'champ' ),
+					array(
+						'a'      => array(
+							'href'   => array(),
+							'target' => array(),
+							'rel'    => array(),
+						),
+						'strong' => array(),
+					)
+				),
+				'https://wordpress.org/plugins/ultimate-member/'
+			);
+			echo '</p></div>';
 
-			$user_country = um_user( 'country' ); // Get the user's country.
-			$array_can = UM()->builtin()->get( 'countries' ); // Get the array of all available countries.
-			$result_array = array_search( $user_country, $array_can ); // Pull the country code of the user's country.
-
-			// Output the country flag.
-			if ( ! empty( $user_country ) ) {
-				?>
-				<span class="fi fi-<?php echo esc_attr( strtolower( $result_array ) ); ?>" aria-label="<?php echo esc_attr( $user_country ); ?>"></span>
-				<?php
+			if ( isset( $_GET['activate'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				unset( $_GET['activate'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			}
 		}
 	}
 
+	// Stop the plugin loading.
+	if ( um_extended_countryflags_loading_allowed() === false ) {
+		return;
+	}
+
 	/**
-	 * Enqueue Country Flag library.
+	 * Autoloader with Composer
 	 */
-	public function enqueue_library() {
-		wp_register_style( 'country_flag_lib', UM_COUNTRY_FLAG_URL . 'assets/flag-icons.min.css' ); // Register the flag-icon.min.css library from CDN.
-		wp_enqueue_style( 'country_flag_lib' ); // Enqueue the library.
+	if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+		require __DIR__ . '/vendor/autoload.php';
 	}
 }
 
-new UM_Country_Flag();
+/**
+ * Global function-holder. Works similar to a singleton's instance().
+ *
+ * @since 1.0.0
+ *
+ * @return Champ\Core
+ */
+function um_extended_countryflags_plugin() {
+	/**
+	 * Load core class
+	 *
+	 * @var $core
+	 */
+	static $core;
+
+	if ( ! isset( $core ) ) {
+		$core = new \UM_Extended_Country_Flags\Core( __FILE__ );
+	}
+
+	return $core;
+}
+um_extended_countryflags_plugin();
