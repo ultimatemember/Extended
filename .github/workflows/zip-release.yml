@@ -23,11 +23,8 @@ jobs:
         php_version: "latest"
         command: install --no-progress --no-dev --optimize-autoloader --ignore-platform-req=ext-exif --ignore-platform-req=ext-gd
     - name: Install Block Emails Dependencies
-      uses: php-actions/composer@v6
       working-directory: ./um-block-emails
-      with:
-        php_version: "latest"
-        command: install --no-progress --no-dev --optimize-autoloader --ignore-platform-req=ext-exif --ignore-platform-req=ext-gd
+      run: composer install --prefer-dist
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
