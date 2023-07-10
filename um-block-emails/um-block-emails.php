@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 	/**
-	 * Don't allow to run the plugin when WP-MAIL-SMTP plugin is not active/installed
+	 * Don't allow to run the plugin when Ultimate Member plugin is not active/installed
 	 *
 	 * @since 1.0.0
 	 */
@@ -49,8 +49,8 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 
 			echo '<div class="notice notice-warning"><p>';
 			printf(
-				wp_kses( /* translators: %1$s - The Ultimate Member WP CLI requires the latest versio. */
-					__( 'The Ultimate Member - WP CLI requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'champ' ),
+				wp_kses( /* translators: %1$s - The Ultimate Member - Block Disposable Domains requires the latest versio. */
+					__( 'The Ultimate Member - Block Disposable Domains requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'champ' ),
 					array(
 						'a'      => array(
 							'href'   => array(),
