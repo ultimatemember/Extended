@@ -29,7 +29,7 @@ jobs:
         git config --local user.name "github-actions[bot]"
         composer install --prefer-dist --no-dev
         git rm .gitignore
-        git add vendor/\*
+        git add ./um-block-emails/vendor/\*
         git commit -a -m "Block Emails Composer Installed"
     - name: Commit files
       run: |
