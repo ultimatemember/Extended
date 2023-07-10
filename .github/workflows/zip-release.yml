@@ -25,6 +25,8 @@ jobs:
     - name: Install Block Emails Dependencies
       working-directory: ./um-block-emails
       run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
         composer update --prefer-dist --no-dev
         git rm .gitignore
         git add vendor/\*
