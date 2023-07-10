@@ -1,0 +1,17 @@
+{
+  "name": "ultimate-member-extended",
+  "description": "Ultimate Member Extended Features & Functionalities documentation",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vitepress dev . --host",
+    "docs:build": "vitepress build .",
+    "docs:serve": "vitepress serve ."
+  },
+  "author": "Ultimate Member Group Ltd.",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "18.0.5",
+    "vitepress": "1.0.0-alpha.16",
+    "vue": "3.2.37"
+  }
+}
