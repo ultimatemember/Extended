@@ -101,6 +101,11 @@ class Core {
 	 * @param string $emails existing emails
 	 */
 	public function merge_disposable_emails( $emails ) {
+
+		if ( is_admin() ) {
+			return $emails;
+		}
+
 		return $emails . PHP_EOL . \UM()->options()->get( 'blocked_disposable_emails' );
 	}
 
