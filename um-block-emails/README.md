@@ -2,8 +2,8 @@
 
 This provides a list of known Spam/Disposable Email Domains.
 
-Once activated, this will update the list of blocked email domains in Ultimate Member > Settings > Access > Other > Blocked Emails.
-This also updates the blocked email domains daily if there's a new email domain on the remote site.
+Once activated, this will update the list of blocked email domains in Ultimate Member > Settings > Access > Other > Blocked Disposable Email Domains.
+This updates the list daily if there's a new disposable email domain to block. This merges with Blocked Emails option so you can add your Email address and Domains using the existing option.
 
 Source: [Block Disposable Domains](https://github.com/disposable/disposable)
 
