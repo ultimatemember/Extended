@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Ultimate Member - Block Spam Email Addresses/Hosts
+ * Plugin Name: Ultimate Member - Block Spam Email Addresses/Domains
  * Plugin URI: https://www.ultimatemember.com/
- * Description: This provides a list of known Spam Email Addresses & Hosts
+ * Description: This provides a list of known Spam Email Addresses & Domains
  * Version: 1.0.0
  * Author: Ultimate Member
  * Author URI: https://www.ultimatemember.com
