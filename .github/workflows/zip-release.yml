@@ -24,13 +24,13 @@ jobs:
         command: install --no-progress --no-dev --optimize-autoloader --ignore-platform-req=ext-exif --ignore-platform-req=ext-gd
     - name: Install Block Emails Dependencies
       working-directory: ./um-block-emails
-      run: composer update --prefer-dist
+      run: composer update --prefer-dist --no-dev
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git rm .gitignore
-        git add ':(glob)**/vendor/*'
+        git add :(glob)**\/vendor\/*
         git commit -a -m "Composer Installed"
     - name: Push changes
       uses: ad-m/github-push-action@master
