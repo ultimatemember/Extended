@@ -34,6 +34,11 @@ class Core {
 		 * Update List Daily
 		 */
 		add_action( 'um_daily_scheduled_events', array( $this, 'update_blacklist' ) );
+
+		add_filter( 'um_settings_structure', array( $this, 'settings' ) );
+
+		add_filter( 'um_get_option_filter__blocked_emails', array( $this, 'merge_disposable_emails' ) );
+		
 	}
 
 	/**
@@ -65,9 +70,38 @@ class Core {
 				);
 			}
 
-			\UM()->options()->update( 'blocked_emails', implode( PHP_EOL, $arr_email_formatted ) );
+			\UM()->options()->update( 'blocked_disposable_emails', implode( PHP_EOL, $arr_email_formatted ) );
 
 		}
 
 	}
+
+	/**
+	 * Add settings for Disposable Email Domains
+	 * 
+	 * @param array $fields Fields Settings.
+	 */
+	public function settings( $fields ) {
+
+		$new_field = array(
+			'id'          => 'blocked_disposable_emails',
+			'type'        => 'textarea',
+			'label'       => __( 'Blocked Disposable Email Domains', 'ultimate-member' ),
+			'description' => __( 'This updates automatically & daily so you don\'t need to modify this field. This merges with the Blocked Email Addresses option above.', 'ultimate-member' ),
+		);
+
+		$fields['access']['sections']['other']['fields'][] = $new_field;
+
+		return $fields;
+	}
+
+	/**
+	 * Merge Disposble Emails with Blocked Emails
+	 * 
+	 * @param string $emails existing emails
+	 */
+	public function merge_disposable_emails( $emails ) {
+		return $emails . PHP_EOL . \UM()->options()->get( 'blocked_disposable_emails' );
+	}
+
 }
