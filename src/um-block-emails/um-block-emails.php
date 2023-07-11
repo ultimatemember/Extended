@@ -88,7 +88,7 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
  *
  * @since 1.0.0
  *
- * @return um-extended\Core
+ * @return UM_Extended_Block_Emails\Core
  */
 function um_extended_blockemails_plugin() {
 	/**

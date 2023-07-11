@@ -87,7 +87,7 @@ if ( ! function_exists( 'um_extended_coverphoto_loading_allowed' ) ) {
  *
  * @since 1.0.0
  *
- * @return um-extended\Core
+ * @return UM_Extended_Cover_Photo\Core
  */
 function um_extended_coverphoto_plugin() {
 	/**

@@ -53,7 +53,7 @@ if ( ! function_exists( 'um_extended_countryflags_loading_allowed' ) ) {
 			echo '<div class="notice notice-warning"><p>';
 			printf(
 				wp_kses( /* translators: %1$s - The Ultimate Member requires the latest versio. */
-					__( 'The Ultimate Member - Country Flags requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'champ' ),
+					__( 'The Ultimate Member - Country Flags requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'um-extended' ),
 					array(
 						'a'      => array(
 							'href'   => array(),
@@ -91,7 +91,7 @@ if ( ! function_exists( 'um_extended_countryflags_loading_allowed' ) ) {
  *
  * @since 1.0.0
  *
- * @return Champ\Core
+ * @return UM_Extended_Country_Flags\Core
  */
 function um_extended_countryflags_plugin() {
 	/**
