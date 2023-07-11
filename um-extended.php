@@ -14,7 +14,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'You are not allowed to call this page directly.' );
 }
-
+define( 'UM_IS_EXTENDED', true );
 define( 'UM_EXTENDED_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
@@ -84,39 +84,81 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 	}
 }
 
-
 /**
- * Global function-holder. Works similar to a singleton's instance().
- *
- * @since 1.0.0
- *
- * @return Champ\Core
+ * Extended
  */
-function um_extended_plugin() {
+final class UM_Extended {
+
 	/**
-	 * Load core class
+	 * Core object
 	 *
-	 * @var $core
+	 * @var object $core
 	 */
-	$core = new stdClass();
+	public $core;
 
-	if ( ! isset( $core->block_emails ) ) {
-		$core->block_emails = new UM_Extended_Block_Emails\Core( __FILE__ );
+	/**
+	 * Init
+	 */
+	public function __construct() {
+		$this->block_emails();
 	}
 
-	if ( ! isset( $core->browser_detect ) ) {
-		$core->browser_detect = new UM_Extended_Browser_Detect\Core();
+	/**
+	 * Block Disposable Email Domains
+	 */
+	public function block_emails() {
+		if ( ! isset( $this->core->block_emails ) ) {
+			$this->core->block_emails = new UM_Extended_Block_Emails\Core( __FILE__ );
+		}
+
+		return $this->core->block_emails;
 	}
 
-	if ( ! isset( $core->capitalize_names ) ) {
-		$core->capitalize_names = new UM_Extended_Capitalize_Names\Core();
-	}
+	/**
+	 * Cover Photo
+	 */
+	public function cover_photo() {
+		if ( ! isset( $this->core->cover_photo ) ) {
+			$this->core->cover_photo = new UM_Extended_Cover_Photo\Core();
+		}
 
-	if ( ! isset( $core->country_flags ) ) {
-		$core->country_flags = new UM_Extended_Country_Flags\Core();
+		return $this->core->cover_photo;
 	}
+	/**
+	 * Global function-holder. Works similar to a singleton's instance().
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return Champ\Core
+	 */
+	public function um_extended_plugin() {
+		/**
+		 * Load core class
+		 *
+		 * @var $core
+		 */
+		$core = new stdClass();
 
-	return $core;
+		if ( ! isset( $core->browser_detect ) ) {
+			$core->browser_detect = new UM_Extended_Browser_Detect\Core();
+		}
+
+		if ( ! isset( $core->capitalize_names ) ) {
+			$core->capitalize_names = new UM_Extended_Capitalize_Names\Core();
+		}
+
+		if ( ! isset( $core->country_flags ) ) {
+			$core->country_flags = new UM_Extended_Country_Flags\Core();
+		}
+
+		return $core;
+	}
 }
 
+/**
+ * Extended function
+ */
+function um_extended_plugin() {
+	return new UM_Extended();
+}
 um_extended_plugin();

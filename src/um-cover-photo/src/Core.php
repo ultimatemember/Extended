@@ -79,7 +79,7 @@ class Core {
 	 * @param string $edit_mode_value Field value.
 	 */
 	public function field_settings_type_min_width( $edit_mode_value ) {
-		if ( isset( $_REQUEST['arg3'] ) && 'register_cover_photo' === $_REQUEST['arg3'] ) {
+		if ( isset( $_REQUEST['arg3'] ) && 'register_cover_photo' === $_REQUEST['arg3'] ) {  // phpcs:ignore WordPress.Security.NonceVerification
 			?>
 
 		<p><label for="_min_width"><?php esc_attr_e( 'Mininum Image Width', 'um-extended' ); ?> <?php UM()->tooltip( __( 'Set Minimum Cover Photo Width for this section', 'um-extended' ) ); ?></label>
@@ -96,7 +96,7 @@ class Core {
 	 * @param string $edit_mode_value Field value.
 	 */
 	public function field_settings_type_min_height( $edit_mode_value ) {
-		if ( isset( $_REQUEST['arg3'] ) && 'register_cover_photo' === $_REQUEST['arg3'] ) {
+		if ( isset( $_REQUEST['arg3'] ) && 'register_cover_photo' === $_REQUEST['arg3'] ) {  // phpcs:ignore WordPress.Security.NonceVerification
 			?>
 
 		<p><label for="_min_height"><?php esc_attr_e( 'Mininum Image Height', 'um-extended' ); ?> <?php UM()->tooltip( __( 'Set Minimum Cover Photo Height for this section', 'um-extended' ) ); ?></label>
@@ -121,7 +121,7 @@ class Core {
 			return $fields;
 		}
 
-		if ( isset( $_REQUEST['act_id'] ) && 'um_admin_show_fields' == $_REQUEST['act_id'] ) {
+		if ( isset( $_REQUEST['act_id'] ) && 'um_admin_show_fields' === $_REQUEST['act_id'] ) {
 			return $fields;
 
 		}
@@ -224,7 +224,7 @@ class Core {
 	 */
 	public function set_temp_user_id() {
 
-		$temp_profile_id = isset( $_COOKIE['um-register-cover-photo'] ) ? $_COOKIE['um-register-cover-photo'] : null;
+		$temp_profile_id = isset( $_COOKIE['um-register-cover-photo'] ) ? sanitize_key( $_COOKIE['um-register-cover-photo'] ) : null;
 		if ( ! $temp_profile_id ) {
 			setcookie( 'um-register-cover-photo', md5( time() ), time() + 3600, COOKIEPATH, COOKIE_DOMAIN );
 		}
@@ -239,7 +239,11 @@ class Core {
 	public function upload_handler( $override_handler ) {
 
 		if ( 'stream_photo' === UM()->uploader()->upload_image_type && 'register_cover_photo' === UM()->uploader()->field_key ) {
-			$override_handler['unique_filename_callback'] = array( um_extended_coverphoto_plugin(), 'photo_name' );
+			if ( defined( 'UM_IS_EXTENDED' ) ) {
+				$override_handler['unique_filename_callback'] = array( um_extended_plugin()->cover_photo(), 'photo_name' );
+			} else {
+				$override_handler['unique_filename_callback'] = array( um_extended_coverphoto_plugin(), 'photo_name' );
+			}
 		}
 
 		return $override_handler;
@@ -305,7 +309,7 @@ class Core {
 	 */
 	public function delete_cover_photo_from_account() {
 
-		if ( isset( $_REQUEST['mode'] ) && in_array( $_REQUEST['mode'], array( 'account', 'profile' ) ) ) {  // phpcs:ignore WordPress.Security.NonceVerification
+		if ( isset( $_REQUEST['mode'] ) && in_array( $_REQUEST['mode'], array( 'account', 'profile' ), true ) ) {  // phpcs:ignore WordPress.Security.NonceVerification
 			$fname = '';
 			if ( isset( $_REQUEST['filename'] ) ) {  // phpcs:ignore WordPress.Security.NonceVerification
 				$fname = pathinfo( sanitize_key( $_REQUEST['filename'] ), PATHINFO_FILENAME );  // phpcs:ignore WordPress.Security.NonceVerification
