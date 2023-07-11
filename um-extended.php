@@ -134,6 +134,7 @@ final class UM_Extended {
 		$this->cron_delete_users();
 		$this->cron_resend_activate_email();
 		$this->dummy_accounts();
+		$this->field_counter();
 	}
 
 	/**
@@ -222,6 +223,17 @@ final class UM_Extended {
 		}
 
 		return $this->classes['dummy_accounts'];
+	}
+
+	/**
+	 * Field Counter
+	 */
+	public function field_counter() {
+		if ( ! isset( $this->classes['field_counter'] ) ) {
+			$this->classes['field_counter'] = new UM_Extended_Field_Counter\Core();
+		}
+
+		return $this->classes['field_counter'];
 	}
 }
 
