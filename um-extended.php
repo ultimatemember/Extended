@@ -135,6 +135,7 @@ final class UM_Extended {
 		$this->cron_resend_activate_email();
 		$this->dummy_accounts();
 		$this->field_counter();
+		$this->math_captcha();
 	}
 
 	/**
@@ -234,6 +235,17 @@ final class UM_Extended {
 		}
 
 		return $this->classes['field_counter'];
+	}
+
+	/**
+	 * Math Captcha
+	 */
+	public function math_captcha() {
+		if ( ! isset( $this->classes['math_captcha'] ) ) {
+			$this->classes['math_captcha'] = new UM_Extended_Math_Captcha\Core();
+		}
+
+		return $this->classes['math_captcha'];
 	}
 }
 

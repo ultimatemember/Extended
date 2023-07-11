@@ -23,7 +23,8 @@
           "UM_Extended_Cron_Delete_Users\\": "src/um-cron-delete/src/",
           "UM_Extended_CronJob_Email_Activation\\": "src/um-cronjob-activation-email/src/",
           "UM_Extended_Dummy_Accounts\\": "src/um-dummy-accounts/src/",
-          "UM_Extended_Field_Counter\\": "src/um-fields-counter/src/"
+          "UM_Extended_Field_Counter\\": "src/um-fields-counter/src/",
+          "UM_Extended_Math_Captcha\\": "src/um-math-captcha/src/"
        }
     },
     "require-dev": {
@@ -42,6 +43,7 @@
       }
    },
     "require": {
-        "cbschuld/browser.php": "^1.9"
+        "cbschuld/browser.php": "^1.9",
+        "kmlpandey77/math-captcha": "^1.0"
     }
 }
