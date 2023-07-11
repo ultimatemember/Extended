@@ -1,53 +1,106 @@
 <?php
-/*
-Plugin Name: Ultimate Member - Schedule User Deletions with WP Cronjob
-Plugin URI: http://ultimatemember.com/
-Description: Deletes users by status after X number of days/months/years
-Version: 1.0.1
-Author: UM Devs
-Author URI: https://ultimatemember.com
-*/
+/**
+ * Plugin Name: Ultimate Member - Schedule User Deletions with WP Cronjob
+ * Plugin URI: http://ultimatemember.com/
+ * Description: Deletes users by status after X number of days/months/years
+ * Version: 1.0.1
+ * Author: UM Devs
+ * Author URI: https://ultimatemember.com
+ * UM version: 2.1.0
+ *
+ * @package UM_Extended_Cover_Photo\Core
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	die( 'You are not allowed to call this page directly.' );
 }
 
-add_action( 'um_cron_delete_users_cron', 'um_delete_users_awaiting_email' );
-function um_delete_users_awaiting_email() {
+if ( ! function_exists( 'um_extended_crondelete_loading_allowed' ) ) {
+	/**
+	 * Don't allow to run the plugin when  Ultimate Member plugin is not active/installed
+	 *
+	 * @since 1.0.0
+	 */
+	function um_extended_crondelete_loading_allowed() {
 
-	$after_x     = apply_filters( 'um_cron_delete_users_after', '5 days ago midnight' );
-	$before_x    = apply_filters( 'um_cron_delete_users_before', '1 day ago' );
-	$user_status = apply_filters( 'um_cron_delete_users_status', 'awaiting_email_confirmation' );
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			require_once ABSPATH . '/wp-admin/includes/plugin.php';
+		}
 
-	$args = array(
-		'fields'     => 'ids',
-		'number'     => -1,
-		'date_query' => array(
-			array(
-				'after'     => $after_x,
-				'before'    => $before_x,
-				'inclusive' => true,
-			),
-		),
-		'meta_query' => array(
-			'relation' => 'AND',
-			array(
-				'key'     => 'account_status',
-				'value'   => $user_status,
-				'compare' => '=',
-			),
-		),
-	);
+		// Search for ultimate-member plugin name.
+		if ( ! is_plugin_active( 'ultimate-member/ultimate-member.php' ) ) {
 
-	$users = get_users( $args );
+			add_action( 'admin_notices', 'um_extended_crondelete_ultimatemember_requirement_notice' );
 
-	foreach ( $users as $user ) {
-		um_fetch_user( $user->ID );
-		UM()->user()->delete();
+			return false;
+		}
+
+		return true;
+	}
+
+	if ( ! function_exists( 'um_extended_crondelete_ultimatemember_requirement_notice' ) ) {
+		/**
+		 * Display the notice after activation
+		 *
+		 * @since 1.0.0
+		 */
+		function um_extended_crondelete_ultimatemember_requirement_notice() {
+
+			echo '<div class="notice notice-warning"><p>';
+			printf(
+				wp_kses( /* translators: %1$s - The Ultimate Member requires the latest version. */
+					__( 'The Ultimate Member - Cron Delete Users requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'um-extended' ),
+					array(
+						'a'      => array(
+							'href'   => array(),
+							'target' => array(),
+							'rel'    => array(),
+						),
+						'strong' => array(),
+					)
+				),
+				'https://wordpress.org/plugins/ultimate-member/'
+			);
+			echo '</p></div>';
+
+			if ( isset( $_GET['activate'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				unset( $_GET['activate'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			}
+		}
+	}
+
+	// Stop the plugin loading.
+	if ( um_extended_crondelete_loading_allowed() === false ) {
+		return;
+	}
+
+	/**
+	 * Autoloader with Composer
+	 */
+	if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+		require __DIR__ . '/vendor/autoload.php';
 	}
 }
 
-if ( ! wp_next_scheduled( 'um_cron_delete_users_cron' ) ) {
-	$recurrence = apply_filters( 'um_cron_delete_users_recurrence', 'daily' );
-	wp_schedule_event( time(), $recurrence, 'um_cron_delete_users_cron' );
+/**
+ * Global function-holder. Works similar to a singleton's instance().
+ *
+ * @since 1.0.0
+ *
+ * @return UM_Extended_Cover_Photo\Core
+ */
+function um_extended_crondelete_plugin() {
+	/**
+	 * Load core class
+	 *
+	 * @var $core
+	 */
+	static $core;
+
+	if ( ! isset( $core ) ) {
+		$core = new \UM_Extended_Cron_Delete_Users\Core();
+	}
+
+	return $core;
 }
+um_extended_crondelete_plugin();

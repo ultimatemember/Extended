@@ -19,7 +19,7 @@ define( 'UM_EXTENDED_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 	/**
-	 * Don't allow to run the plugin when WP-MAIL-SMTP plugin is not active/installed
+	 * Don't allow to run the plugin when Ultimate Member plugin is not active/installed
 	 *
 	 * @since 1.0.0
 	 */
@@ -44,14 +44,14 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 		/**
 		 * Display the notice after activation
 		 *
-		 * @since 1.5.0
+		 * @since 1.0.0
 		 */
 		function um_extended_blockemails_ultimatemember_requirement_notice() {
 
 			echo '<div class="notice notice-warning"><p>';
 			printf(
 				wp_kses( /* translators: %1$s - The Ultimate Member - Extended Features & Functionalities plugin requires the latest versio. */
-					__( 'The Ultimate Member - Extended Features & Functionalities plugin requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'champ' ),
+					__( 'The Ultimate Member - Extended Features & Functionalities plugin requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'um-extended' ),
 					array(
 						'a'      => array(
 							'href'   => array(),
@@ -101,6 +101,11 @@ final class UM_Extended {
 	 */
 	public function __construct() {
 		$this->block_emails();
+		$this->browser_detect();
+		$this->capitalize_names();
+		$this->country_flags();
+		$this->cover_photo();
+		$this->cron_delete_users();
 	}
 
 	/**
@@ -115,6 +120,39 @@ final class UM_Extended {
 	}
 
 	/**
+	 * Browser Detect
+	 */
+	public function browser_detect() {
+		if ( ! isset( $this->core->browser_detect ) ) {
+			$this->core->browser_detect = new UM_Extended_Browser_Detect\Core();
+		}
+
+		return $this->core->browser_detect;
+	}
+
+	/**
+	 * Capitalize Names
+	 */
+	public function capitalize_names() {
+		if ( ! isset( $this->core->capitalize_names ) ) {
+			$this->core->capitalize_names = new UM_Extended_Capitalize_Names\Core();
+		}
+
+		return $this->core->capitalize_names;
+	}
+
+	/**
+	 * Country Flags
+	 */
+	public function country_flags() {
+		if ( ! isset( $this->core->country_flags ) ) {
+			$this->core->country_flags = new UM_Extended_Cover_Photo\Core();
+		}
+
+		return $this->core->country_flags;
+	}
+
+	/**
 	 * Cover Photo
 	 */
 	public function cover_photo() {
@@ -124,34 +162,16 @@ final class UM_Extended {
 
 		return $this->core->cover_photo;
 	}
+
 	/**
-	 * Global function-holder. Works similar to a singleton's instance().
-	 *
-	 * @since 1.0.0
-	 *
-	 * @return Champ\Core
+	 * Cron Delete Users
 	 */
-	public function um_extended_plugin() {
-		/**
-		 * Load core class
-		 *
-		 * @var $core
-		 */
-		$core = new stdClass();
-
-		if ( ! isset( $core->browser_detect ) ) {
-			$core->browser_detect = new UM_Extended_Browser_Detect\Core();
+	public function cron_delete_users() {
+		if ( ! isset( $this->core->cron_delete_users ) ) {
+			$this->core->cron_delete_users = new UM_Extended_Cron_Delete_Users\Core();
 		}
 
-		if ( ! isset( $core->capitalize_names ) ) {
-			$core->capitalize_names = new UM_Extended_Capitalize_Names\Core();
-		}
-
-		if ( ! isset( $core->country_flags ) ) {
-			$core->country_flags = new UM_Extended_Country_Flags\Core();
-		}
-
-		return $core;
+		return $this->core->cron_delete_users;
 	}
 }
 
@@ -159,6 +179,13 @@ final class UM_Extended {
  * Extended function
  */
 function um_extended_plugin() {
-	return new UM_Extended();
+
+	static $core;
+
+	if ( empty( $core ) ) {
+		$core = new UM_Extended();
+	}
+
+	return $core;
 }
 um_extended_plugin();
