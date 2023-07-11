@@ -24,7 +24,8 @@
           "UM_Extended_CronJob_Email_Activation\\": "src/um-cronjob-activation-email/src/",
           "UM_Extended_Dummy_Accounts\\": "src/um-dummy-accounts/src/",
           "UM_Extended_Field_Counter\\": "src/um-fields-counter/src/",
-          "UM_Extended_Math_Captcha\\": "src/um-math-captcha/src/"
+          "UM_Extended_Math_Captcha\\": "src/um-math-captcha/src/",
+          "UM_Extended_Password_Strength_Meter\\": "src/um-pass-strength/src/"
        }
     },
     "require-dev": {

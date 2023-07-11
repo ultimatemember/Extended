@@ -136,6 +136,7 @@ final class UM_Extended {
 		$this->dummy_accounts();
 		$this->field_counter();
 		$this->math_captcha();
+		$this->password_strength_meter();
 	}
 
 	/**
@@ -246,6 +247,17 @@ final class UM_Extended {
 		}
 
 		return $this->classes['math_captcha'];
+	}
+
+	/**
+	 * Password Strength Meter
+	 */
+	public function password_strength_meter() {
+		if ( ! isset( $this->classes['password_strength_meter'] ) ) {
+			$this->classes['password_strength_meter'] = new UM_Extended_Password_Strength_Meter\Core();
+		}
+
+		return $this->classes['password_strength_meter'];
 	}
 }
 

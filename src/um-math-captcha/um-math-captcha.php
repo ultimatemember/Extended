@@ -5,7 +5,8 @@
  * Version: 1.0.1
  * Author: Ultimate Member
  * Author URI: http://ultimatemember.com/
- * Text Domain: um-math-captcha * UM version: 2.1.0
+ * Text Domain: um-math-captcha
+ * UM version: 2.1.0
  *
  * @package UM_Extended_Math_Captcha\Core
  */
@@ -48,7 +49,7 @@ if ( ! function_exists( 'um_extended_math_captcha_loading_allowed' ) ) {
 			echo '<div class="notice notice-warning"><p>';
 			printf(
 				wp_kses( /* translators: %1$s - The Ultimate Member requires the latest version. */
-					__( 'The Ultimate Member - Field Counter requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'um-extended' ),
+					__( 'The Ultimate Member - Math Captcha requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'um-extended' ),
 					array(
 						'a'      => array(
 							'href'   => array(),
