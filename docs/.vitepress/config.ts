@@ -24,12 +24,12 @@ const howToTitle = (filename: string) => {
 }
 
 
-const extendedItems = fs.readdirSync('./extended')
-    .filter(file => file !== 'index.md')
+const extendedItems = fs.readdirSync('./plugins')
+    .filter(file => ( file !== 'index.md') )
     .sort()
     .map(file => ({
         text: howToTitle(file),
-        link: `${file}`,
+        link: `plugins/${file}`,
     }));
 
 const basePath = '/Extended/';
