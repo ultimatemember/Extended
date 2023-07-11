@@ -90,16 +90,42 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 final class UM_Extended {
 
 	/**
+	 * Instance
+	 *
+	 * @var UM_Extended the single instance of the class
+	 */
+	protected static $instance;
+
+	/**
+	 * Main UM_Extended Instance
+	 *
+	 * Ensures only one instance of UM is loaded or can be loaded.
+	 *
+	 * @since 1.0
+	 * @static
+	 * @see UM()
+	 * @return UM - Main instance
+	 */
+	public static function instance() {
+		if ( is_null( self::$instance ) ) {
+			self::$instance = new self();
+			self::$instance->um_extended_construct();
+		}
+
+		return self::$instance;
+	}
+
+	/**
 	 * Core object
 	 *
-	 * @var object $core
+	 * @var array $classes
 	 */
-	public $core;
+	public $classes = array();
 
 	/**
 	 * Init
 	 */
-	public function __construct() {
+	public function um_extended_construct() {
 		$this->block_emails();
 		$this->browser_detect();
 		$this->capitalize_names();
@@ -112,66 +138,66 @@ final class UM_Extended {
 	 * Block Disposable Email Domains
 	 */
 	public function block_emails() {
-		if ( ! isset( $this->core->block_emails ) ) {
-			$this->core->block_emails = new UM_Extended_Block_Emails\Core( __FILE__ );
+		if ( ! isset( $this->classes['block_emails'] ) ) {
+			$this->classes['block_emails'] = new UM_Extended_Block_Emails\Core( __FILE__ );
 		}
 
-		return $this->core->block_emails;
+		return $this->classes['block_emails'];
 	}
 
 	/**
 	 * Browser Detect
 	 */
 	public function browser_detect() {
-		if ( ! isset( $this->core->browser_detect ) ) {
-			$this->core->browser_detect = new UM_Extended_Browser_Detect\Core();
+		if ( ! isset( $this->classes['browser_detect'] ) ) {
+			$this->classes['browser_detect'] = new UM_Extended_Browser_Detect\Core();
 		}
 
-		return $this->core->browser_detect;
+		return $this->classes['browser_detect'];
 	}
 
 	/**
 	 * Capitalize Names
 	 */
 	public function capitalize_names() {
-		if ( ! isset( $this->core->capitalize_names ) ) {
-			$this->core->capitalize_names = new UM_Extended_Capitalize_Names\Core();
+		if ( ! isset( $this->classes['capitalize_names'] ) ) {
+			$this->classes['capitalize_names'] = new UM_Extended_Capitalize_Names\Core();
 		}
 
-		return $this->core->capitalize_names;
+		return $this->classes['capitalize_names'];
 	}
 
 	/**
 	 * Country Flags
 	 */
 	public function country_flags() {
-		if ( ! isset( $this->core->country_flags ) ) {
-			$this->core->country_flags = new UM_Extended_Cover_Photo\Core();
+		if ( ! isset( $this->classes['country_flags'] ) ) {
+			$this->classes['country_flags'] = new UM_Extended_Country_Flags\Core();
 		}
 
-		return $this->core->country_flags;
+		return $this->classes['country_flags'];
 	}
 
 	/**
 	 * Cover Photo
 	 */
 	public function cover_photo() {
-		if ( ! isset( $this->core->cover_photo ) ) {
-			$this->core->cover_photo = new UM_Extended_Cover_Photo\Core();
+		if ( ! isset( $this->classes['cover_photo'] ) ) {
+			$this->classes['cover_photo'] = new UM_Extended_Cover_Photo\Core();
 		}
 
-		return $this->core->cover_photo;
+		return $this->classes['cover_photo'];
 	}
 
 	/**
 	 * Cron Delete Users
 	 */
 	public function cron_delete_users() {
-		if ( ! isset( $this->core->cron_delete_users ) ) {
-			$this->core->cron_delete_users = new UM_Extended_Cron_Delete_Users\Core();
+		if ( ! isset( $this->classes['cron_delete_users'] ) ) {
+			$this->classes['cron_delete_users'] = new UM_Extended_Cron_Delete_Users\Core();
 		}
 
-		return $this->core->cron_delete_users;
+		return $this->classes['cron_delete_users'];
 	}
 }
 
@@ -180,12 +206,6 @@ final class UM_Extended {
  */
 function um_extended_plugin() {
 
-	static $core;
-
-	if ( empty( $core ) ) {
-		$core = new UM_Extended();
-	}
-
-	return $core;
+	return UM_Extended::instance();
 }
 um_extended_plugin();
