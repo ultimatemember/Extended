@@ -29,7 +29,7 @@ const extendedItems = fs.readdirSync('./extended')
     .sort()
     .map(file => ({
         text: howToTitle(file),
-        link: `/Extended/${file}`,
+        link: `${file}`,
     }));
 
 const basePath = '/Extended/';
