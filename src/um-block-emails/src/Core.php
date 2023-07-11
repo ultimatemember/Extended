@@ -87,7 +87,7 @@ class Core {
 			'id'          => 'blocked_disposable_emails',
 			'type'        => 'textarea',
 			'label'       => __( 'Blocked Disposable Email Domains', 'ultimate-member' ),
-			'description' => __( 'This updates automatically & daily so you don\'t need to modify this field. This merges with the Blocked Email Addresses option above.', 'ultimate-member' ),
+			'description' => __( 'This updates automatically & daily so you don\'t need to modify this field. This merges with the Blocked Email Addresses option above.', 'um-extended' ),
 		);
 
 		$fields['access']['sections']['other']['fields'][] = $new_field;
