@@ -1,57 +1,107 @@
 <?php
-/*
-Plugin Name: Ultimate Member - Resend the Account Email Confirmation notification with WP Cronjob
-Plugin URI: https://www.ultimatemember/com
-Description: Resends the Account Email Confirmation notification with WP Cronjob when the activation link has expired.
-Version: 1.0.0
-Author: Ultimate Member Ltd.
-Author URI: https://www.ultimatemember.com/
-Text Domain: um-cronjob-activation-email
-*/
+/**
+ * Plugin Name: Ultimate Member - Resend the Account Email Confirmation notification with WP Cronjob
+ * Plugin URI: https://www.ultimatemember/com
+ * Description: Resends the Account Email Confirmation notification with WP Cronjob when the activation link has expired.
+ * Version: 1.0.0
+ * Author: Ultimate Member Ltd.
+ * Author URI: https://www.ultimatemember.com/
+ * Text Domain: um-cronjob-activation-email
+ * UM version: 2.1.0
+ *
+ * @package UM_Extended_Cover_Photo\Core
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'You are not allowed to call this page directly.' );
 }
 
-define( 'UM_CRONJOB_ACCOUNT_ACTIVATION_EMAIL_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'UM_CRONJOB_ACCOUNT_ACTIVATION_EMAIL_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+if ( ! function_exists( 'um_extended_cron_activation_email_loading_allowed' ) ) {
+	/**
+	 * Don't allow to run the plugin when  Ultimate Member plugin is not active/installed
+	 *
+	 * @since 1.0.0
+	 */
+	function um_extended_cron_activation_email_loading_allowed() {
+
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			require_once ABSPATH . '/wp-admin/includes/plugin.php';
+		}
+
+		// Search for ultimate-member plugin name.
+		if ( ! is_plugin_active( 'ultimate-member/ultimate-member.php' ) ) {
+
+			add_action( 'admin_notices', 'um_extended_cron_activation_email_ultimatemember_requirement_notice' );
+
+			return false;
+		}
+
+		return true;
+	}
+
+	if ( ! function_exists( 'um_extended_cron_activation_email_ultimatemember_requirement_notice' ) ) {
+		/**
+		 * Display the notice after activation
+		 *
+		 * @since 1.0.0
+		 */
+		function um_extended_cron_activation_email_ultimatemember_requirement_notice() {
+
+			echo '<div class="notice notice-warning"><p>';
+			printf(
+				wp_kses( /* translators: %1$s - The Ultimate Member requires the latest version. */
+					__( 'The Ultimate Member - Resend the Account Email Confirmation notification with WP Cronjob requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'um-extended' ),
+					array(
+						'a'      => array(
+							'href'   => array(),
+							'target' => array(),
+							'rel'    => array(),
+						),
+						'strong' => array(),
+					)
+				),
+				'https://wordpress.org/plugins/ultimate-member/'
+			);
+			echo '</p></div>';
+
+			if ( isset( $_GET['activate'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				unset( $_GET['activate'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			}
+		}
+	}
+
+	// Stop the plugin loading.
+	if ( um_extended_cron_activation_email_loading_allowed() === false ) {
+		return;
+	}
+
+	/**
+	 * Autoloader with Composer
+	 */
+	if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+		require __DIR__ . '/vendor/autoload.php';
+	}
+}
 
 /**
- * Resend email confirmation link to those users with expired secret hash
+ * Global function-holder. Works similar to a singleton's instance().
+ *
+ * @since 1.0.0
+ *
+ * @return UM_Extended_Cover_Photo\Core
  */
-function um_cron_resend_activation_notify() {
+function um_extended_cron_activation_email_plugin() {
+	/**
+	 * Load core class
+	 *
+	 * @var $core
+	 */
+	static $core;
 
-    $args = array(
-        'fields'     => 'ID',
-        'number'     => -1,
-        'meta_query' => array(
-            'relation' => 'OR',
-            array(
-                'key'       => 'account_secret_hash_expiry',
-                'value'     => time(),
-                'compare'   => '<=',
-            )
-        )
-    );
-   
+	if ( ! isset( $core ) ) {
+		$core = new \UM_Extended_CronJob_Email_Activation\Core();
+	}
 
-    $users = get_users( $args );
- 
-    foreach( $users as $user_id ) { 
-        
-        um_fetch_user( $user_id );
-
-        $status = um_user( 'account_status' );
-        if( $status == 'awaiting_email_confirmation' ) {
-            UM()->user()->email_pending();
-            um_reset_user();
-        }
-    }
+	return $core;
 }
-add_action( 'um_cron_resend_activation_link', 'um_cron_resend_activation_notify' );
-
-
-if ( ! wp_next_scheduled( 'um_cron_resend_activation_link' ) ) {
-    $recurrence = apply_filters( 'um_cron_resend_activation_link_recurrence', 'hourly' );
-    wp_schedule_event( time(), $recurrence, 'um_cron_resend_activation_link' );
-}
+um_extended_cron_activation_email_plugin();

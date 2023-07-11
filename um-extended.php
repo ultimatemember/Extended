@@ -132,6 +132,7 @@ final class UM_Extended {
 		$this->country_flags();
 		$this->cover_photo();
 		$this->cron_delete_users();
+		$this->cron_resend_activate_email();
 	}
 
 	/**
@@ -198,6 +199,17 @@ final class UM_Extended {
 		}
 
 		return $this->classes['cron_delete_users'];
+	}
+
+	/**
+	 * Cron Resend Activation Email
+	 */
+	public function cron_resend_activate_email() {
+		if ( ! isset( $this->classes['cron_resend_activate_email'] ) ) {
+			$this->classes['cron_resend_activate_email'] = new UM_Extended_CronJob_Email_Activation\Core();
+		}
+
+		return $this->classes['cron_resend_activate_email'];
 	}
 }
 

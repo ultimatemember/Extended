@@ -18,7 +18,7 @@ class Core {
 	 * Init
 	 */
 	public function __construct() {
-		add_action( 'um_daily_scheduled_events', array( $this, 'delete_users_awaiting_email' ) );
+		add_action( 'um_hourly_scheduled_events', array( $this, 'delete_users_awaiting_email' ) );
 	}
 
 	/**
