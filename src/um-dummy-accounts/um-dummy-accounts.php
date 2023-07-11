@@ -1,18 +1,5 @@
 <?php
-
 /**
- * The plugin bootstrap file
- *
- * This file is read by WordPress to generate the plugin information in the plugin
- * admin area. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
- * @link              Ultimate Member Ltd.
- * @since             1.0.0
- * @package           Um_Dummy_Accounts
- *
- * @wordpress-plugin
  * Plugin Name:       Ultimate Member - Generate Dummy Accounts
  * Plugin URI:        https://ultimatemember.com/
  * Description:       This plugin enables you to generate dummies in Ultimate Member
@@ -23,53 +10,102 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       um-dummy-accounts
  * Domain Path:       /languages
- */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
-}
-
-/**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-um-dummy-accounts-activator.php
- */
-function activate_Um_Dummy_Accounts() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-um-dummy-accounts-activator.php';
-	Um_Dummy_Accounts_Activator::activate();
-}
-
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-um-dummy-accounts-deactivator.php
- */
-function deactivate_Um_Dummy_Accounts() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-um-dummy-accounts-deactivator.php';
-	Um_Dummy_Accounts_Deactivator::deactivate();
-}
-
-register_activation_hook( __FILE__, 'activate_Um_Dummy_Accounts' );
-register_deactivation_hook( __FILE__, 'deactivate_Um_Dummy_Accounts' );
-
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-um-dummy-accounts.php';
-
-/**
- * Begins execution of the plugin.
+ * UM version: 2.1.0
  *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since    1.0.0
+ * @package UM_Extended_Dummy_Accounts\Core
  */
-function run_Um_Dummy_Accounts() {
 
-	$plugin = new Um_Dummy_Accounts();
-	$plugin->run();
-
+if ( ! defined( 'ABSPATH' ) ) {
+	die( 'You are not allowed to call this page directly.' );
 }
-run_Um_Dummy_Accounts();
+
+if ( ! function_exists( 'um_extended_dummy_account_loading_allowed' ) ) {
+	/**
+	 * Don't allow to run the plugin when  Ultimate Member plugin is not active/installed
+	 *
+	 * @since 1.0.0
+	 */
+	function um_extended_dummy_account_loading_allowed() {
+
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			require_once ABSPATH . '/wp-admin/includes/plugin.php';
+		}
+
+		// Search for ultimate-member plugin name.
+		if ( ! is_plugin_active( 'ultimate-member/ultimate-member.php' ) ) {
+
+			add_action( 'admin_notices', 'um_extended_dummy_account_ultimatemember_requirement_notice' );
+
+			return false;
+		}
+
+		return true;
+	}
+
+	if ( ! function_exists( 'um_extended_dummy_account_ultimatemember_requirement_notice' ) ) {
+		/**
+		 * Display the notice after activation
+		 *
+		 * @since 1.0.0
+		 */
+		function um_extended_dummy_account_ultimatemember_requirement_notice() {
+
+			echo '<div class="notice notice-warning"><p>';
+			printf(
+				wp_kses( /* translators: %1$s - The Ultimate Member requires the latest version. */
+					__( 'The Ultimate Member - Dummy Accounts requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'um-extended' ),
+					array(
+						'a'      => array(
+							'href'   => array(),
+							'target' => array(),
+							'rel'    => array(),
+						),
+						'strong' => array(),
+					)
+				),
+				'https://wordpress.org/plugins/ultimate-member/'
+			);
+			echo '</p></div>';
+
+			if ( isset( $_GET['activate'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				unset( $_GET['activate'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			}
+		}
+	}
+
+	// Stop the plugin loading.
+	if ( um_extended_dummy_account_loading_allowed() === false ) {
+		return;
+	}
+
+	/**
+	 * Autoloader with Composer
+	 */
+	if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+		require __DIR__ . '/vendor/autoload.php';
+	}
+}
+
+/**
+ * Global function-holder. Works similar to a singleton's instance().
+ *
+ * @since 1.0.0
+ *
+ * @return UM_Extended_Cover_Photo\Core
+ */
+function um_extended_dummy_account_plugin() {
+	/**
+	 * Load core class
+	 *
+	 * @var $core
+	 */
+	static $core;
+
+	if ( ! isset( $core ) ) {
+		$core = new \UM_Extended_Dummy_Accounts\Core();
+	}
+
+	return $core;
+}
+um_extended_dummy_account_plugin();

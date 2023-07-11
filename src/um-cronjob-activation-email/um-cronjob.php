@@ -9,7 +9,7 @@
  * Text Domain: um-cronjob-activation-email
  * UM version: 2.1.0
  *
- * @package UM_Extended_Cover_Photo\Core
+ * @package UM_Extended_CronJob_Email_Activation\Core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

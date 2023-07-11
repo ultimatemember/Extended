@@ -8,7 +8,7 @@
  * Author URI: https://ultimatemember.com
  * UM version: 2.1.0
  *
- * @package UM_Extended_Cover_Photo\Core
+ * @package UM_Extended_Cron_Delete_Users\Core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

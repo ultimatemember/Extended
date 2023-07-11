@@ -133,6 +133,7 @@ final class UM_Extended {
 		$this->cover_photo();
 		$this->cron_delete_users();
 		$this->cron_resend_activate_email();
+		$this->dummy_accounts();
 	}
 
 	/**
@@ -210,6 +211,17 @@ final class UM_Extended {
 		}
 
 		return $this->classes['cron_resend_activate_email'];
+	}
+
+	/**
+	 * Dummy Accounts
+	 */
+	public function dummy_accounts() {
+		if ( ! isset( $this->classes['dummy_accounts'] ) ) {
+			$this->classes['dummy_accounts'] = new UM_Extended_Dummy_Accounts\Core();
+		}
+
+		return $this->classes['dummy_accounts'];
 	}
 }
 

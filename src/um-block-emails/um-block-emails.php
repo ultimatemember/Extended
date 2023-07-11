@@ -43,7 +43,7 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 		/**
 		 * Display the notice after activation
 		 *
-		 * @since 1.5.0
+		 * @since 1.0.0
 		 */
 		function um_extended_blockemails_ultimatemember_requirement_notice() {
 
