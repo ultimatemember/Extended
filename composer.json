@@ -28,7 +28,8 @@
           "UM_Extended_Password_Strength_Meter\\": "src/um-pass-strength/src/",
           "UM_Extended_Profile_Photo\\": "src/um-profile-photo/src",
           "UM_Extended_Regenerate_Thumbnails\\": "src/um-regenerate-thumbnails/src/",
-          "UM_Extended_Set_Passwords\\": "src/um-set-password/src/"
+          "UM_Extended_Set_Passwords\\": "src/um-set-password/src/",
+          "UM_Extended_User_Shortcodes\\": "src/um-user-shortcode/src/"
           
        }
     },

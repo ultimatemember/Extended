@@ -140,6 +140,7 @@ final class UM_Extended {
 		$this->profile_photo();
 		$this->regenerate_thumbnails();
 		$this->set_passwords();
+		$this->user_shortcodes();
 	}
 
 	/**
@@ -294,6 +295,17 @@ final class UM_Extended {
 		}
 
 		return $this->classes['set_passwords'];
+	}
+
+	/**
+	 * User Shortcodes
+	 */
+	public function user_shortcodes() {
+		if ( ! isset( $this->classes['user_shortcodes'] ) ) {
+			$this->classes['user_shortcodes'] = new UM_Extended_User_Shortcodes\Core();
+		}
+
+		return $this->classes['user_shortcodes'];
 	}
 }
 
