@@ -138,6 +138,7 @@ final class UM_Extended {
 		$this->math_captcha();
 		$this->password_strength_meter();
 		$this->profile_photo();
+		$this->regenerate_thumbnails();
 	}
 
 	/**
@@ -270,6 +271,17 @@ final class UM_Extended {
 		}
 
 		return $this->classes['profile_photo'];
+	}
+
+	/**
+	 * Regenerate Thumbnails
+	 */
+	public function regenerate_thumbnails() {
+		if ( ! isset( $this->classes['regenerate_thumbnails'] ) ) {
+			$this->classes['regenerate_thumbnails'] = new UM_Extended_Regenerate_Thumbnails\Core();
+		}
+
+		return $this->classes['regenerate_thumbnails'];
 	}
 }
 
