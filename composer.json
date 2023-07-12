@@ -29,7 +29,8 @@
           "UM_Extended_Profile_Photo\\": "src/um-profile-photo/src",
           "UM_Extended_Regenerate_Thumbnails\\": "src/um-regenerate-thumbnails/src/",
           "UM_Extended_Set_Passwords\\": "src/um-set-password/src/",
-          "UM_Extended_User_Shortcodes\\": "src/um-user-shortcode/src/"
+          "UM_Extended_User_Shortcodes\\": "src/um-user-shortcode/src/",
+          "UM_Extended_Vcard\\": "src/um-vcard/src/"
           
        }
     },
@@ -50,6 +51,7 @@
    },
     "require": {
         "cbschuld/browser.php": "^1.9",
-        "kmlpandey77/math-captcha": "^1.0"
+        "kmlpandey77/math-captcha": "^1.0",
+        "jeroendesloovere/vcard": "dev-2.0.0-dev"
     }
 }

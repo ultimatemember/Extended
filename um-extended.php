@@ -141,6 +141,7 @@ final class UM_Extended {
 		$this->regenerate_thumbnails();
 		$this->set_passwords();
 		$this->user_shortcodes();
+		$this->vcard();
 	}
 
 	/**
@@ -306,6 +307,17 @@ final class UM_Extended {
 		}
 
 		return $this->classes['user_shortcodes'];
+	}
+
+	/**
+	 * VCard
+	 */
+	public function vcard() {
+		if ( ! isset( $this->classes['vcard'] ) ) {
+			$this->classes['vcard'] = new UM_Extended_Vcard\Core();
+		}
+
+		return $this->classes['vcard'];
 	}
 }
 

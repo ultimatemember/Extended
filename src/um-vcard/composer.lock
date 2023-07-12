@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6c258c61b1be83bed1c2f625be258dbd",
+    "content-hash": "f2bfd67c3384fabc61ca728b71989566",
     "packages": [
         {
             "name": "jeroendesloovere/vcard",
@@ -54,6 +54,10 @@
                 "php",
                 "vCard"
             ],
+            "support": {
+                "issues": "https://github.com/jeroendesloovere/vcard/issues",
+                "source": "https://github.com/jeroendesloovere/vcard/tree/2.0.0-dev"
+            },
             "time": "2021-11-24T21:35:23+00:00"
         }
     ],
@@ -63,8 +67,9 @@
     "stability-flags": {
         "jeroendesloovere/vcard": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
