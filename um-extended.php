@@ -139,6 +139,7 @@ final class UM_Extended {
 		$this->password_strength_meter();
 		$this->profile_photo();
 		$this->regenerate_thumbnails();
+		$this->set_passwords();
 	}
 
 	/**
@@ -282,6 +283,17 @@ final class UM_Extended {
 		}
 
 		return $this->classes['regenerate_thumbnails'];
+	}
+
+	/**
+	 * Set Passwords
+	 */
+	public function set_passwords() {
+		if ( ! isset( $this->classes['set_passwords'] ) ) {
+			$this->classes['set_passwords'] = new UM_Extended_Set_Passwords\Core();
+		}
+
+		return $this->classes['set_passwords'];
 	}
 }
 

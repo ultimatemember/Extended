@@ -1,97 +1,106 @@
 <?php
-/*
-  Plugin Name: Ultimate Member - Set Password
-  Plugin URI: https://www.ultimatemember.com
-  Description: Generates a link for email templates to allow users to set password on account activation/registration.
-  Version: 1.0.1
-  Author: Ultimate Member Ltd.
-  Author URI: https://www.ultimatemember.com
-  Text Domain: um-set-password
+/**
+ * Plugin Name: Ultimate Member - Set Password
+ * Plugin URI: https://www.ultimatemember.com
+ * Description: Generates a link for email templates to allow users to set password on account activation/registration.
+ * Version: 1.0.1
+ * Author: Ultimate Member Ltd.
+ * Author URI: https://www.ultimatemember.com
+ * Text Domain: um-set-password
+ *
+ * @package UM_Extended_Set_Passwords\Core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'You are not allowed to call this page directly.' );
 }
 
-/**
- * Add set password placeholder tag
- *
- * @param array $placeholders Placeholder array.
- */
-function um_custom_set_password_add_placeholder( $placeholders ) {
-	$placeholders[] = '{set_password_link}';
+if ( ! function_exists( 'um_extended_set_password_loading_allowed' ) ) {
+	/**
+	 * Don't allow to run the plugin when  Ultimate Member plugin is not active/installed
+	 *
+	 * @since 1.0.0
+	 */
+	function um_extended_set_password_loading_allowed() {
 
-	return $placeholders;
-}
-add_filter( 'um_template_tags_patterns_hook', 'um_custom_set_password_add_placeholder', 10, 1 );
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			require_once ABSPATH . '/wp-admin/includes/plugin.php';
+		}
 
-/**
- * Generate set password link for placeholder
- *
- * @param array $replace_placeholders .
- */
-function um_custom_set_password_add_replace_placeholder( $replace_placeholders ) {
+		// Search for ultimate-member plugin name.
+		if ( ! is_plugin_active( 'ultimate-member/ultimate-member.php' ) ) {
 
-	// A fix to avoid internal caching in the class um\core\User.
-	static $last_user_id = 0;
-	$user_id = um_user( 'ID' );
-	if ( $last_user_id !== $user_id ) {
-		UM()->user()->password_reset_key = '';
-		$last_user_id                    = $user_id;
+			add_action( 'admin_notices', 'um_extended_set_password_ultimatemember_requirement_notice' );
+
+			return false;
+		}
+
+		return true;
 	}
 
-	$url = UM()->password()->reset_url();
+	if ( ! function_exists( 'um_extended_set_password_ultimatemember_requirement_notice' ) ) {
+		/**
+		 * Display the notice after activation
+		 *
+		 * @since 1.0.0
+		 */
+		function um_extended_set_password_ultimatemember_requirement_notice() {
 
-	$replace_placeholders[] = add_query_arg( array( 'set_pass' => 'new_user' ), $url );
-	return $replace_placeholders;
-}
-add_filter( 'um_template_tags_replaces_hook', 'um_custom_set_password_add_replace_placeholder', 10, 1 );
+			echo '<div class="notice notice-warning"><p>';
+			printf(
+				wp_kses( /* translators: %1$s - The Ultimate Member requires the latest version. */
+					__( 'The Ultimate Member - Set Password requires the latest version of <a href="%1$s" target="_blank" rel="noopener noreferrer">Ultimate Member</a> plugin to be installed &amp; activated.', 'um-extended' ),
+					array(
+						'a'      => array(
+							'href'   => array(),
+							'target' => array(),
+							'rel'    => array(),
+						),
+						'strong' => array(),
+					)
+				),
+				'https://wordpress.org/plugins/ultimate-member/'
+			);
+			echo '</p></div>';
 
-/**
- * Set Password text
- */
-function um_custom_set_password_text() {
-	if ( ! isset( $_REQUEST['set_pass'] ) ) {
+			if ( isset( $_GET['activate'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+				unset( $_GET['activate'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			}
+		}
+	}
+
+	// Stop the plugin loading.
+	if ( um_extended_set_password_loading_allowed() === false ) {
 		return;
 	}
 
-	add_filter( 'um_edit_label_user_password', function( $text ) {
-		return __( 'Set your Password', 'ultimate-member' );
-	} );
-
-	add_filter( 'gettext', function ( $translated_text, $untranslated_text, $domain ) {
-		if ( 'Change my password' == $translated_text ) {
-			return __( 'Save my password', 'ultimate-member' );
-		}
-		return $translated_text;
-	}, 10, 3 );
+	/**
+	 * Autoloader with Composer
+	 */
+	if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
+		require __DIR__ . '/vendor/autoload.php';
+	}
 }
-add_action( "template_redirect", "um_custom_set_password_text" );
 
 /**
- * Redirect with parameter to set Password text
+ * Global function-holder. Works similar to a singleton's instance().
  *
- * @param integer $user_id User ID.
+ * @since 1.0.0
+ *
+ * @return UM_Extended_Set_Passwords\Core
  */
-function um_custom_password_has_changed( $user_id ) {
-	if ( isset( $_REQUEST['set_pass'] ) && 'new_user' === sanitize_key( $_REQUEST['set_pass'] ) ) {
-		um_fetch_user( $user_id );
-		UM()->user()->approve( false );
-	}
-	exit( wp_redirect( um_get_core_page( 'login', 'password_set' ) ) );
-}
-add_action( 'um_after_changing_user_password', 'um_custom_password_has_changed' );
+function um_extended_set_password_plugin() {
+	/**
+	 * Load core class
+	 *
+	 * @var $core
+	 */
+	static $core;
 
-/**
- * Add custom message for Login
- *
- * @param string $success Success Message.
- * @param string $key Message key.
- */
-function um_custom_password_set_message( $success, $key ) {
-	if ( 'password_set' == $key ) {
-		$success = __( 'Your password has been set. Please login below.', 'ultimate-member' );
+	if ( ! isset( $core ) ) {
+		$core = new \UM_Extended_Set_Passwords\Core();
 	}
-	return $success;
+
+	return $core;
 }
-add_filter( 'um_custom_success_message_handler', 'um_custom_password_set_message', 10, 2 );
+um_extended_set_password_plugin();
