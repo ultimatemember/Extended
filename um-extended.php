@@ -137,6 +137,7 @@ final class UM_Extended {
 		$this->field_counter();
 		$this->math_captcha();
 		$this->password_strength_meter();
+		$this->profile_photo();
 	}
 
 	/**
@@ -258,6 +259,17 @@ final class UM_Extended {
 		}
 
 		return $this->classes['password_strength_meter'];
+	}
+
+	/**
+	 * Password Strength Meter
+	 */
+	public function profile_photo() {
+		if ( ! isset( $this->classes['profile_photo'] ) ) {
+			$this->classes['profile_photo'] = new UM_Extended_Profile_Photo\Core();
+		}
+
+		return $this->classes['profile_photo'];
 	}
 }
 
