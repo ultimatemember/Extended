@@ -139,6 +139,8 @@ final class UM_Extended {
 			$name      = str_replace( '-', ' ', $name );
 			$name      = ucwords( $name );
 			$name      = str_replace( ' ', '_', $name );
+			$name      = str_replace( '_Wp', '_WP', $name );
+			$name      = str_replace( 'Wp_', 'WP_', $name );
 
 			if ( 'wpcli' === $slug ) {
 				$class_name = 'UM_WPCLI\Core';
@@ -159,7 +161,7 @@ final class UM_Extended {
 				);
 				call_user_func( array( $this, $func_name ) );
 			} else {
-				wp_die( esc_attr__( 'Invalid Class Name', 'um-extended' ) );
+				wp_die( esc_attr( 'Invalid Class Name: ' . $class_name ) );
 			}
 		}
 
