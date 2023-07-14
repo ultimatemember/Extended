@@ -2,10 +2,10 @@
 /**
  * Core class
  *
- * @package UM_Extended_User_Shortcodes\Core
+ * @package UM_Extended_User_Shortcode\Core
  */
 
-namespace UM_Extended_User_Shortcodes;
+namespace UM_Extended_User_Shortcode;
 
 /**
  * Class Core to handle all plugin initialization.

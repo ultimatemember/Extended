@@ -14,7 +14,7 @@
     ],
     "autoload": {
        "psr-4": {
-          "UM_Extended_Password_Strength_Meter\\": "src"
+          "UM_Extended_Pass_Strength\\": "src"
        }
     }
    

@@ -9,7 +9,7 @@
  * Text Domain: um-cronjob-activation-email
  * UM version: 2.1.0
  *
- * @package UM_Extended_CronJob_Email_Activation\Core
+ * @package UM_Extended_Cronjob_Activation_Email\Core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -99,7 +99,7 @@ function um_extended_cron_activation_email_plugin() {
 	static $core;
 
 	if ( ! isset( $core ) ) {
-		$core = new \UM_Extended_CronJob_Email_Activation\Core();
+		$core = new \UM_Extended_Cronjob_Activation_Email\Core();
 	}
 
 	return $core;

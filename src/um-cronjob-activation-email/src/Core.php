@@ -2,10 +2,10 @@
 /**
  * Core class
  *
- * @package UM_Extended_CronJob_Email_Activation\Core
+ * @package UM_Extended_Cronjob_Activation_Email\Core
  */
 
-namespace UM_Extended_CronJob_Email_Activation;
+namespace UM_Extended_Cronjob_Activation_Email;
 
 /**
  * Class Core to handle all plugin initialization.

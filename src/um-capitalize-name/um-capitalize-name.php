@@ -7,7 +7,7 @@
  * Author: Ultimate Member Ltd.
  * Author URI: https://ultimatemember.com
  *
- * @package UM_Extended_Capitalize_Names\Core
+ * @package UM_Extended_Capitalize_Name\Core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -86,7 +86,7 @@ if ( ! function_exists( 'um_extended_capitalizenames_loading_allowed' ) ) {
  *
  * @since 1.0.0
  *
- * @return UM_Extended_Capitalize_Names\Core
+ * @return UM_Extended_Capitalize_Name\Core
  */
 function um_extended_capitalizenames_plugin() {
 	/**
@@ -97,7 +97,7 @@ function um_extended_capitalizenames_plugin() {
 	static $core;
 
 	if ( ! isset( $core ) ) {
-		$core = new \UM_Extended_Capitalize_Names\Core( __FILE__ );
+		$core = new \UM_Extended_Capitalize_Name\Core( __FILE__ );
 	}
 
 	return $core;

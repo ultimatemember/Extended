@@ -8,7 +8,7 @@
  * Author URI: https://ultimatemember.com
  * UM version: 2.1.0
  *
- * @package UM_Extended_Cron_Delete_Users\Core
+ * @package UM_Extended_Cron_Delete\Core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -98,7 +98,7 @@ function um_extended_crondelete_plugin() {
 	static $core;
 
 	if ( ! isset( $core ) ) {
-		$core = new \UM_Extended_Cron_Delete_Users\Core();
+		$core = new \UM_Extended_Cron_Delete\Core();
 	}
 
 	return $core;

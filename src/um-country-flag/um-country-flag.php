@@ -10,7 +10,7 @@
  * Domain Path: /languages
  * UM version: 2.1.0
  *
- * @package UM_Extended_Country_Flags\Core
+ * @package UM_Extended_Country_Flag\Core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -91,7 +91,7 @@ if ( ! function_exists( 'um_extended_countryflags_loading_allowed' ) ) {
  *
  * @since 1.0.0
  *
- * @return UM_Extended_Country_Flags\Core
+ * @return UM_Extended_Country_Flag\Core
  */
 function um_extended_countryflags_plugin() {
 	/**
@@ -102,7 +102,7 @@ function um_extended_countryflags_plugin() {
 	static $core;
 
 	if ( ! isset( $core ) ) {
-		$core = new \UM_Extended_Country_Flags\Core();
+		$core = new \UM_Extended_Country_Flag\Core();
 	}
 
 	return $core;

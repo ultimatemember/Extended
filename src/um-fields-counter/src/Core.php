@@ -2,10 +2,10 @@
 /**
  * Core class
  *
- * @package UM_Extended_Field_Counter\Core
+ * @package UM_Extended_Fields_Counter\Core
  */
 
-namespace UM_Extended_Field_Counter;
+namespace UM_Extended_Fields_Counter;
 
 /**
  * Class Core to handle all plugin initialization.

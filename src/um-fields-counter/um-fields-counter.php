@@ -9,7 +9,7 @@
  * Text Domain: um-fields-counter
  * UM version: 2.1.0
  *
- * @package UM_Extended_Field_Counter\Core
+ * @package UM_Extended_Fields_Counter\Core
  */
 
 define( 'UM_EXTENDED_FIELDS_COUNTER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -101,7 +101,7 @@ function um_extended_field_counter_plugin() {
 	static $core;
 
 	if ( ! isset( $core ) ) {
-		$core = new \UM_Extended_Field_Counter\Core();
+		$core = new \UM_Extended_Fields_Counter\Core();
 	}
 
 	return $core;

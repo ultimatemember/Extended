@@ -7,7 +7,7 @@
  * Author: UM Devs
  * Author URI: https://ultimatemember.com
  *
- * @package UM_Extended_User_Shortcodes\Core
+ * @package UM_Extended_User_Shortcode\Core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -86,7 +86,7 @@ if ( ! function_exists( 'um_extended_user_shortcode_loading_allowed' ) ) {
  *
  * @since 1.0.0
  *
- * @return UM_Extended_User_Shortcodes\Core
+ * @return UM_Extended_User_Shortcode\Core
  */
 function um_extended_user_shortcode_plugin() {
 	/**
@@ -97,7 +97,7 @@ function um_extended_user_shortcode_plugin() {
 	static $core;
 
 	if ( ! isset( $core ) ) {
-		$core = new \UM_Extended_User_Shortcodes\Core();
+		$core = new \UM_Extended_User_Shortcode\Core();
 	}
 
 	return $core;

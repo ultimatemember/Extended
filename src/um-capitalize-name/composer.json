@@ -14,7 +14,7 @@
     ],
     "autoload": {
        "psr-4": {
-          "UM_Extended_Capitalize_Names\\": "src"
+          "UM_Extended_Capitalize_Name\\": "src"
        }
     }
  }

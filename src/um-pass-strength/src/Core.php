@@ -2,10 +2,10 @@
 /**
  * Core class
  *
- * @package UM_Extended_Password_Strength_Meter\Core
+ * @package UM_Extended_Pass_Strength\Core
  */
 
-namespace UM_Extended_Password_Strength_Meter;
+namespace UM_Extended_Pass_Strength;
 
 /**
  * Class Core to handle all plugin initialization.

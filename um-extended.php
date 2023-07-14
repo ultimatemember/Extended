@@ -3,7 +3,7 @@
  * Plugin Name: Ultimate Member - Extended Features & Functionalities
  * Plugin URI: https://www.ultimatemember.com/
  * Description: Extended features & functionalities of Ultimate Member
- * Version: 1.0.0
+ * Version: 1.0.3
  * Author: Ultimate Member
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-extended
@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 define( 'UM_IS_EXTENDED', true );
 define( 'UM_EXTENDED_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'UM_EXTENDED_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
 if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 	/**
@@ -123,201 +124,61 @@ final class UM_Extended {
 	public $classes = array();
 
 	/**
-	 * Init
+	 * Dynamically load extensions.
+	 * Directory name and class should match patterns:
+	 * e.g. directory 'um-user-shortcode' should have a class `UM_Extended_User_Shortcode`
 	 */
 	public function um_extended_construct() {
-		$this->block_emails();
-		$this->browser_detect();
-		$this->capitalize_names();
-		$this->country_flags();
-		$this->cover_photo();
-		$this->cron_delete_users();
-		$this->cron_resend_activate_email();
-		$this->dummy_accounts();
-		$this->field_counter();
-		$this->math_captcha();
-		$this->password_strength_meter();
-		$this->profile_photo();
-		$this->regenerate_thumbnails();
-		$this->set_passwords();
-		$this->user_shortcodes();
-		$this->vcard();
+
+		$extensions = glob( UM_EXTENDED_PLUGIN_DIR . 'src/um-*', GLOB_ONLYDIR );
+
+		foreach ( $extensions as $i => $ext ) {
+			$name      = str_replace( 'um-', '', basename( $ext ) );
+			$slug      = $name;
+			$func_name = str_replace( '-', '_', $name );
+			$name      = str_replace( '-', ' ', $name );
+			$name      = ucwords( $name );
+			$name      = str_replace( ' ', '_', $name );
+
+			$class_name = 'UM_Extended_' . $name . '\Core';
+
+			if ( class_exists( $class_name ) ) {
+				$this->add_method(
+					$func_name,
+					function() use ( $class_name, $slug ) {
+
+						if ( ! isset( $this->classes[ $slug ] ) ) {
+							$this->classes[ $slug ] = new $class_name( __FILE__ );
+						}
+						return $this->classes[ $slug ];
+					}
+				);
+				call_user_func( array( $this, $func_name ) );
+			} else {
+				wp_die( esc_attr__( 'Invalid Class Name', 'um-extended' ) );
+			}
+		}
+
 	}
 
 	/**
-	 * Block Disposable Email Domains
+	 * Dynamically Register Method
+	 *
+	 * @param string $name Function name.
+	 * @param array  $method Function.
 	 */
-	public function block_emails() {
-		if ( ! isset( $this->classes['block_emails'] ) ) {
-			$this->classes['block_emails'] = new UM_Extended_Block_Emails\Core( __FILE__ );
-		}
-
-		return $this->classes['block_emails'];
+	public function add_method( $name, $method ) {
+		$this->{$name} = $method;
 	}
 
 	/**
-	 * Browser Detect
+	 * Call function
+	 *
+	 * @param string $name Function name.
+	 * @param array  $arguments Function args.
 	 */
-	public function browser_detect() {
-		if ( ! isset( $this->classes['browser_detect'] ) ) {
-			$this->classes['browser_detect'] = new UM_Extended_Browser_Detect\Core();
-		}
-
-		return $this->classes['browser_detect'];
-	}
-
-	/**
-	 * Capitalize Names
-	 */
-	public function capitalize_names() {
-		if ( ! isset( $this->classes['capitalize_names'] ) ) {
-			$this->classes['capitalize_names'] = new UM_Extended_Capitalize_Names\Core();
-		}
-
-		return $this->classes['capitalize_names'];
-	}
-
-	/**
-	 * Country Flags
-	 */
-	public function country_flags() {
-		if ( ! isset( $this->classes['country_flags'] ) ) {
-			$this->classes['country_flags'] = new UM_Extended_Country_Flags\Core();
-		}
-
-		return $this->classes['country_flags'];
-	}
-
-	/**
-	 * Cover Photo
-	 */
-	public function cover_photo() {
-		if ( ! isset( $this->classes['cover_photo'] ) ) {
-			$this->classes['cover_photo'] = new UM_Extended_Cover_Photo\Core();
-		}
-
-		return $this->classes['cover_photo'];
-	}
-
-	/**
-	 * Cron Delete Users
-	 */
-	public function cron_delete_users() {
-		if ( ! isset( $this->classes['cron_delete_users'] ) ) {
-			$this->classes['cron_delete_users'] = new UM_Extended_Cron_Delete_Users\Core();
-		}
-
-		return $this->classes['cron_delete_users'];
-	}
-
-	/**
-	 * Cron Resend Activation Email
-	 */
-	public function cron_resend_activate_email() {
-		if ( ! isset( $this->classes['cron_resend_activate_email'] ) ) {
-			$this->classes['cron_resend_activate_email'] = new UM_Extended_CronJob_Email_Activation\Core();
-		}
-
-		return $this->classes['cron_resend_activate_email'];
-	}
-
-	/**
-	 * Dummy Accounts
-	 */
-	public function dummy_accounts() {
-		if ( ! isset( $this->classes['dummy_accounts'] ) ) {
-			$this->classes['dummy_accounts'] = new UM_Extended_Dummy_Accounts\Core();
-		}
-
-		return $this->classes['dummy_accounts'];
-	}
-
-	/**
-	 * Field Counter
-	 */
-	public function field_counter() {
-		if ( ! isset( $this->classes['field_counter'] ) ) {
-			$this->classes['field_counter'] = new UM_Extended_Field_Counter\Core();
-		}
-
-		return $this->classes['field_counter'];
-	}
-
-	/**
-	 * Math Captcha
-	 */
-	public function math_captcha() {
-		if ( ! isset( $this->classes['math_captcha'] ) ) {
-			$this->classes['math_captcha'] = new UM_Extended_Math_Captcha\Core();
-		}
-
-		return $this->classes['math_captcha'];
-	}
-
-	/**
-	 * Password Strength Meter
-	 */
-	public function password_strength_meter() {
-		if ( ! isset( $this->classes['password_strength_meter'] ) ) {
-			$this->classes['password_strength_meter'] = new UM_Extended_Password_Strength_Meter\Core();
-		}
-
-		return $this->classes['password_strength_meter'];
-	}
-
-	/**
-	 * Password Strength Meter
-	 */
-	public function profile_photo() {
-		if ( ! isset( $this->classes['profile_photo'] ) ) {
-			$this->classes['profile_photo'] = new UM_Extended_Profile_Photo\Core();
-		}
-
-		return $this->classes['profile_photo'];
-	}
-
-	/**
-	 * Regenerate Thumbnails
-	 */
-	public function regenerate_thumbnails() {
-		if ( ! isset( $this->classes['regenerate_thumbnails'] ) ) {
-			$this->classes['regenerate_thumbnails'] = new UM_Extended_Regenerate_Thumbnails\Core();
-		}
-
-		return $this->classes['regenerate_thumbnails'];
-	}
-
-	/**
-	 * Set Passwords
-	 */
-	public function set_passwords() {
-		if ( ! isset( $this->classes['set_passwords'] ) ) {
-			$this->classes['set_passwords'] = new UM_Extended_Set_Passwords\Core();
-		}
-
-		return $this->classes['set_passwords'];
-	}
-
-	/**
-	 * User Shortcodes
-	 */
-	public function user_shortcodes() {
-		if ( ! isset( $this->classes['user_shortcodes'] ) ) {
-			$this->classes['user_shortcodes'] = new UM_Extended_User_Shortcodes\Core();
-		}
-
-		return $this->classes['user_shortcodes'];
-	}
-
-	/**
-	 * VCard
-	 */
-	public function vcard() {
-		if ( ! isset( $this->classes['vcard'] ) ) {
-			$this->classes['vcard'] = new UM_Extended_Vcard\Core();
-		}
-
-		return $this->classes['vcard'];
+	public function __call( $name, $arguments ) {
+		return call_user_func( $this->{$name}, $arguments );
 	}
 }
 

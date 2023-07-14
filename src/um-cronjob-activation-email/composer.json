@@ -14,7 +14,7 @@
     ],
     "autoload": {
        "psr-4": {
-          "UM_Extended_CronJob_Email_Activation\\": "src"
+          "UM_Extended_Cronjob_Activation_Email\\": "src"
        }
     }
    

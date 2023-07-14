@@ -10,7 +10,7 @@
  * Domain Path: /languages
  * UM version: 2.1.0
  *
- * @package UM_Extended_Password_Strength_Meter\Core
+ * @package UM_Extended_Pass_Strength\Core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -102,7 +102,7 @@ function um_extended_password_strength_meter_plugin() {
 	static $core;
 
 	if ( ! isset( $core ) ) {
-		$core = new \UM_Extended_Password_Strength_Meter\Core();
+		$core = new \UM_Extended_Pass_Strength\Core();
 	}
 
 	return $core;

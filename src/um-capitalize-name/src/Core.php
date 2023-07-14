@@ -2,10 +2,10 @@
 /**
  * Core class
  *
- * @package UM_Extended_Capitalize_Names\Core
+ * @package UM_Extended_Capitalize_Name\Core
  */
 
-namespace UM_Extended_Capitalize_Names;
+namespace UM_Extended_Capitalize_Name;
 
 /**
  * Class Core to handle all plugin initialization.

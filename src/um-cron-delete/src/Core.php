@@ -2,10 +2,10 @@
 /**
  * Core class
  *
- * @package UM_Extended_Cron_Delete_Users\Core
+ * @package UM_Extended_Cron_Delete\Core
  */
 
-namespace UM_Extended_Cron_Delete_Users;
+namespace UM_Extended_Cron_Delete;
 
 /**
  * Class Core to handle all plugin initialization.

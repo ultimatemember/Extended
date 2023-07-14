@@ -2,10 +2,10 @@
 /**
  * Core class
  *
- * @package UM_Extended_Set_Passwords\Core
+ * @package UM_Extended_Set_Password\Core
  */
 
-namespace UM_Extended_Set_Passwords;
+namespace UM_Extended_Set_Password;
 
 /**
  * Class Core to handle all plugin initialization.

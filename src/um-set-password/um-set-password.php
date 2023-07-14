@@ -8,7 +8,7 @@
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-set-password
  *
- * @package UM_Extended_Set_Passwords\Core
+ * @package UM_Extended_Set_Password\Core
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -87,7 +87,7 @@ if ( ! function_exists( 'um_extended_set_password_loading_allowed' ) ) {
  *
  * @since 1.0.0
  *
- * @return UM_Extended_Set_Passwords\Core
+ * @return UM_Extended_Set_Password\Core
  */
 function um_extended_set_password_plugin() {
 	/**
@@ -98,7 +98,7 @@ function um_extended_set_password_plugin() {
 	static $core;
 
 	if ( ! isset( $core ) ) {
-		$core = new \UM_Extended_Set_Passwords\Core();
+		$core = new \UM_Extended_Set_Password\Core();
 	}
 
 	return $core;

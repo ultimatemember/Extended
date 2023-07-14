@@ -2,10 +2,10 @@
 /**
  * Core class
  *
- * @package UM_Extended_Country_Flags\Core
+ * @package UM_Extended_Country_Flag\Core
  */
 
-namespace UM_Extended_Country_Flags;
+namespace UM_Extended_Country_Flag;
 
 /**
  * Class Core to handle all plugin initialization.
