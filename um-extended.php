@@ -140,7 +140,11 @@ final class UM_Extended {
 			$name      = ucwords( $name );
 			$name      = str_replace( ' ', '_', $name );
 
-			$class_name = 'UM_Extended_' . $name . '\Core';
+			if ( 'wpcli' === $slug ) {
+				$class_name = 'UM_WPCLI\Core';
+			} else {
+				$class_name = 'UM_Extended_' . $name . '\Core';
+			}
 
 			if ( class_exists( $class_name ) ) {
 				$this->add_method(
