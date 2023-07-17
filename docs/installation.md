@@ -8,7 +8,7 @@ There are many approaches in building membership/community sites with Ultimate M
 
 | UM Core       |      Latest     |      Pre-Release     | 
 | ------------- | :-----------: | :-----------: |
-| ![Static Badge](https://img.shields.io/badge/Requires_Ultimate_Member-v2.6.8-8A2BE2) | ![GitHub release (with filter)](https://img.shields.io/github/v/release/ultimatemember/Extended?label=Latest%20Release)| ![GitHub release (with filter)](https://img.shields.io/github/v/release/ultimatemember/Extended?filter=2.0.0&label=Version)
+| ![Static Badge](https://img.shields.io/badge/Requires_Ultimate_Member-v2.6.8+-8A2BE2) | ![GitHub release (with filter)](https://img.shields.io/github/v/release/ultimatemember/Extended?label=Latest%20Release)| ![GitHub release (with filter)](https://img.shields.io/github/v/release/ultimatemember/Extended?filter=2.0.0&label=Version)
 
 1. Download the latest version of the Extended plugin from this [Github repository](https://github.com/ultimatemember/Extended/releases).
 2. Extract the zip file to your local computer.
