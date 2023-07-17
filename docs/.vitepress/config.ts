@@ -24,15 +24,23 @@ const howToTitle = (filename: string) => {
 }
 
 
-const extendedItems = fs.readdirSync('./plugins')
-    .filter(file => ( file !== 'index.md') )
+const extendedItems = fs.readdirSync('./extended')
+    .filter(file => file !== 'index.md')
     .sort()
     .map(file => ({
         text: howToTitle(file),
-        link: `plugins/${file}`,
+        link: `/extended/${file}`,
     }));
 
-const basePath = '/Extended/';
+    const developerdItems = fs.readdirSync('./developer')
+    .filter(file => file !== 'index.md')
+    .sort()
+    .map(file => ({
+        text: howToTitle(file),
+        link: `/developer/${file}`,
+    }));
+
+const basePath = '/';
 
 export default defineConfig({
     base: basePath,
@@ -56,7 +64,7 @@ export default defineConfig({
             indexName: 'ultimate-member-extended',
         },
         nav: [
-            { text: 'Documentation', link: '/getting-started' },
+            { text: 'Documentation', link: '/installation' },
             { text: 'Changelog', link: 'https://github.com/ultimatemember/Extended'},
         ],
         socialLinks: [
@@ -65,10 +73,17 @@ export default defineConfig({
         ],
         sidebar: [
             {
-                text: 'Introduction',
+                text: 'Getting Started',
                 items: [
-                    { text: 'Getting started', link: '/getting-started' },
                     { text: 'Installation', link: '/installation' },
+                ],
+            },
+            {
+                text: 'Developer',
+                collapsed: false,
+                collapsible: true,
+                items: [
+                   ...developerdItems
                 ],
             },
             {
