@@ -18,13 +18,13 @@ define( 'UM_IS_EXTENDED', true );
 define( 'UM_EXTENDED_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 define( 'UM_EXTENDED_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 
-if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
+if ( ! function_exists( 'um_extended_loading_allowed' ) ) {
 	/**
 	 * Don't allow to run the plugin when Ultimate Member plugin is not active/installed
 	 *
 	 * @since 1.0.0
 	 */
-	function um_extended_blockemails_loading_allowed() {
+	function um_extended_loading_allowed() {
 
 		if ( ! function_exists( 'is_plugin_active' ) ) {
 			require_once ABSPATH . '/wp-admin/includes/plugin.php';
@@ -33,7 +33,7 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 		// Search for ultimate-member plugin name.
 		if ( ! is_plugin_active( 'ultimate-member/ultimate-member.php' ) ) {
 
-			add_action( 'admin_notices', 'um_extended_blockemails_ultimatemember_requirement_notice' );
+			add_action( 'admin_notices', 'um_extended_ultimatemember_requirement_notice' );
 
 			return false;
 		}
@@ -41,13 +41,13 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 		return true;
 	}
 
-	if ( ! function_exists( 'um_extended_blockemails_ultimatemember_requirement_notice' ) ) {
+	if ( ! function_exists( 'um_extended_ultimatemember_requirement_notice' ) ) {
 		/**
 		 * Display the notice after activation
 		 *
 		 * @since 1.0.0
 		 */
-		function um_extended_blockemails_ultimatemember_requirement_notice() {
+		function um_extended_ultimatemember_requirement_notice() {
 
 			echo '<div class="notice notice-warning"><p>';
 			printf(
@@ -73,7 +73,7 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 	}
 
 	// Stop the plugin loading.
-	if ( um_extended_blockemails_loading_allowed() === false ) {
+	if ( um_extended_loading_allowed() === false ) {
 		return;
 	}
 
@@ -161,7 +161,9 @@ final class UM_Extended {
 				);
 				call_user_func( array( $this, $func_name ) );
 			} else {
-				wp_die( esc_attr( 'Invalid Class Name: ' . $class_name ) );
+				if ( ! defined( 'WP_CLI' ) ) {
+					wp_die( esc_attr( 'Invalid Class Name: ' . $class_name ) );
+				}
 			}
 		}
 
