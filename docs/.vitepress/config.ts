@@ -40,7 +40,7 @@ const extendedItems = fs.readdirSync('./extended')
         link: `/developer/${file}`,
     }));
 
-const basePath = '/';
+const basePath = '/Extended/';
 
 export default defineConfig({
     base: basePath,
