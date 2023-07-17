@@ -44,6 +44,7 @@ const basePath = '/Extended/';
 
 export default defineConfig({
     base: basePath,
+    appearance: 'dark',
     title: 'UM Extended',
     description: 'Some extended features & functionalities of Ultimate Member plugin.',
     lang: 'en-US',
@@ -80,15 +81,14 @@ export default defineConfig({
             },
             {
                 text: 'Developer',
-                collapsed: false,
-                collapsible: true,
+                collapsed: true,
                 items: [
                    ...developerdItems
                 ],
             },
             {
                 text: 'Extended',
-                collapsed: true,
+                collapsed: false,
                 items: [
                     ...extendedItems,
                 ],
