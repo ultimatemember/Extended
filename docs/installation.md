@@ -2,7 +2,7 @@
 
 Ultimate Member plugin offers many features & functionalities as a base for developing Membership & Communitiy sites with WordPress. It has a lot of Filter & Action hooks to help extend and customize the plugin depending on the type of membership sites that you are developing. 
 
-There are many approaches in building membership/community sites with Ultimate Member but there's a limitation: not all features & functionalities are implemented as the base only includes the most popularly known & used features/functionalities. With the help of this Extended plugin, it compiles all those missing basic features & functionalities contributed & shared by many of our community developers so you may use them freely.
+There are many approaches in building membership/community sites with Ultimate Member but there's a limitation: not all features & functionalities are implemented as the base only includes the most popularly known & used features/functionalities. With the help of this Extended plugin, it compiles all basic features & functionalities contributed & shared by many of our community developers so you may use them freely.
 
 ## Installation
 
