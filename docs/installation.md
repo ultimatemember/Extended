@@ -11,7 +11,7 @@ There are many approaches in building membership/community sites with Ultimate M
 
 
 ::: info :ninja: How To Contribute?
-Do you want to share ideas & customizations to help others? Please read our guide on how to [Contribute](/developer/how-to-contribute). Are you a Developer? Please see our guide to [develop extensions](/developer/create-extensions/).
+Do you want to share ideas & customizations to help others? Please read our guide on how to [Contribute](/developer/how-to-contribute). Are you a Developer? Please see our guide to [develop extensions](/developer/create-extensions).
 :::
 
 ## Installation
