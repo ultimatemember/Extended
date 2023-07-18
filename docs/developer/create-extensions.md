@@ -38,7 +38,12 @@ composer install
 ```
 
 #### Activate the Plugin
-Activate the Extended plugin via the Plugins manager and run the Scaffold commands below.
+Activate the Extended plugin via the Plugins manager or via WP-CLI with:
+```sh
+wp plugin activate Extended
+```
+
+and run the Scaffold commands below.
 
 
 ## Scaffold
