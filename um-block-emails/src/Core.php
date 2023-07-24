@@ -102,7 +102,7 @@ class Core {
 	 */
 	public function merge_disposable_emails( $emails ) {
 
-		if ( is_admin() ) {
+		if ( is_admin() && ! wp_doing_ajax() ) {
 			return $emails;
 		}
 
