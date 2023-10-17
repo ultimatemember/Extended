@@ -83,6 +83,14 @@ if ( ! function_exists( 'um_extended_loading_allowed' ) ) {
 	if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 		require __DIR__ . '/vendor/autoload.php';
 	}
+
+	/**
+	 * Extended API
+	 */
+	if ( is_readable( __DIR__ . '/includes/class-um-extended-api.php' ) ) {
+		require_once __DIR__ . '/includes/class-um-extended-api.php';
+		new UM_Extended_API();
+	}
 }
 
 /**
@@ -130,9 +138,17 @@ final class UM_Extended {
 	 */
 	public function um_extended_construct() {
 
-		$extensions = glob( UM_EXTENDED_PLUGIN_DIR . 'src/um-*', GLOB_ONLYDIR );
+
+		if ( empty( get_option( 'um_extended_enable_active' ) ) ) {
+			return;
+		} 
+			
+		$um_extended_api = new UM_Extended_API();
+
+		$extensions = array_keys( $um_extended_api->get_active_extensions() );
 
 		foreach ( $extensions as $i => $ext ) {
+
 			$name      = str_replace( 'um-', '', basename( $ext ) );
 			$slug      = $name;
 			$func_name = str_replace( '-', '_', $name );

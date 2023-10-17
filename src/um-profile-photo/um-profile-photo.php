@@ -6,7 +6,7 @@
  * Version: 1.0.3
  * Author: Ultimate Member Ltd.
  * Author URI: https://ultimatemember.com
- * UM version: 2.1.0
+ * UM version: 2.6.12
  *
  * @package UM_Extended_Profile_Photo\Core
  */

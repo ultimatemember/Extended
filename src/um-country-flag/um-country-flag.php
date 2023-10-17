@@ -8,7 +8,7 @@
  * Author URI: http://ultimatemember.com/
  * Text Domain: um-country-flag
  * Domain Path: /languages
- * UM version: 2.1.0
+ * UM version: 2.6.12
  *
  * @package UM_Extended_Country_Flag\Core
  */

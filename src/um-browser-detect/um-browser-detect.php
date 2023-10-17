@@ -8,7 +8,8 @@
  * Author URI: http://ultimatemember.com/
  * Text Domain: um-browser
  * Domain Path: /languages
- * UM version: 2.1.0
+ * UM version: 2.6.12
+ * Doc URL: https://ultimatemember.github.io/Extended/installation.html
  *
  * @package UM_Extended_Browser_Detect\Core
  */

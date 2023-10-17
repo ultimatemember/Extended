@@ -7,7 +7,8 @@
  * Author:            UMDevs.com
  * Author URI:        https://ultimatemember.com
  * Text Domain:       um-regenerate-thumbnails
- * Domain Path:       /languages * UM version: 2.1.0
+ * Domain Path:       /languages 
+ * UM version: 2.6.12
  *
  * @package UM_Extended_Regenerate_Thumbnails\Core
  */

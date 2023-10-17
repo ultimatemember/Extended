@@ -7,7 +7,7 @@
  * Author: Ultimate Member Ltd.
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-fields-counter
- * UM version: 2.1.0
+ * UM version: 2.6.12
  *
  * @package UM_Extended_Fields_Counter\Core
  */

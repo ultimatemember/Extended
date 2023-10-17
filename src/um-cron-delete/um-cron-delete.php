@@ -6,7 +6,7 @@
  * Version: 1.0.1
  * Author: UM Devs
  * Author URI: https://ultimatemember.com
- * UM version: 2.1.0
+ * UM version: 2.6.12
  *
  * @package UM_Extended_Cron_Delete\Core
  */

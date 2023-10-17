@@ -6,7 +6,7 @@
  * Author: Ultimate Member
  * Author URI: http://ultimatemember.com/
  * Text Domain: um-math-captcha
- * UM version: 2.1.0
+ * UM version: 2.6.12
  *
  * @package UM_Extended_Math_Captcha\Core
  */

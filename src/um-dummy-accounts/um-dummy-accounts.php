@@ -10,7 +10,7 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       um-dummy-accounts
  * Domain Path:       /languages
- * UM version: 2.1.0
+ * UM version: 2.6.12
  *
  * @package UM_Extended_Dummy_Accounts\Core
  */

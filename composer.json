@@ -12,6 +12,11 @@
             "email": "team@ultimatemember.com"
         }
     ],
+    "scripts": {
+        "compile-ext": [
+          "php build/compile-extensions.php"
+        ]
+    },
     "autoload": {
         "psr-4": {
             "UM_Extended\\": "src",

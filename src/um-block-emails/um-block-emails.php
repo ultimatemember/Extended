@@ -7,6 +7,8 @@
  * Author: Ultimate Member
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-block-emails
+ * UM version: 2.6.12
+ * UM package: core
  *
  * @package UM_Extended_Block_Emails\Core
  */

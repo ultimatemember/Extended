@@ -8,7 +8,7 @@
  * Author URI: http://ultimatemember.com/
  * Text Domain: um-yoast-seo
  * Domain Path: /languages
- * UM version: 2.1.0
+ * UM version: 2.6.12
  *
  * @package UM_Extended_Yoast_Seo\Core
  */

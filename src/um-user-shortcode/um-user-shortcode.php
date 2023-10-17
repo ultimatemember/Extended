@@ -6,6 +6,7 @@
  * Version: 1.0.0
  * Author: UM Devs
  * Author URI: https://ultimatemember.com
+ * UM version: 2.6.12
  *
  * @package UM_Extended_User_Shortcode\Core
  */
