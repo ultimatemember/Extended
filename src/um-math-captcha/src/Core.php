@@ -43,7 +43,7 @@ class Core {
 		echo esc_attr__( 'Solve this simple Math: ', 'um-math-captcha' ) . esc_attr( new Captcha() ) . ' = ?';
 		echo "<input  type='text' placeholder='" . esc_attr__( 'Your answer...', 'um-math-captcha' ) . "' name='captcha' value=''/>";
 		if ( UM()->form()->has_error( 'um_math_challenge' ) ) {
-			echo wp_kses( UM()->fields()->field_error( UM()->fields()->show_error( 'um_math_challenge' ) ), UM()->get_allowed_html( 'template' ) );
+			echo wp_kses( UM()->fields()->field_error( UM()->fields()->show_error( 'um_math_challenge' ), 'um_math_challenge' ), UM()->get_allowed_html( 'template' ) );
 		}
 	}
 }

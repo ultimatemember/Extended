@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ultimate Member - Math Captcha in Register form
  * Description:  This plugin adds math challenge in the Register forms
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Ultimate Member
  * Author URI: http://ultimatemember.com/
  * Text Domain: um-math-captcha
