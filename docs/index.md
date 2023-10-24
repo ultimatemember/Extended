@@ -6,8 +6,8 @@ lastUpdated: false
 
 hero:
   name: Ultimate Member Extended
-  text: "v1.0.3"
-  tagline: Some extended features & functionalities of Ultimate Member plugin.
+  text: "v2.0.0"
+  tagline: Some extended features & functionalities of Ultimate Member plugins.
   image:
     src: /favicon-192x192.png
   actions:
@@ -16,7 +16,7 @@ hero:
       link: /installation
     - theme: alt
       text: View on GitHub
-      link: https://github.com/ultimatemember/Extended
+      link: installations
 features:
   - icon: ✔️
     title: Customize with Hooks

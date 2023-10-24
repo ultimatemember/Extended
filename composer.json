@@ -15,6 +15,9 @@
     "scripts": {
         "compile-ext": [
           "php build/compile-extensions.php"
+        ],
+        "helpscout_sync": [
+            "php docs/ultimatemember/helpscout.php"
         ]
     },
     "autoload": {
