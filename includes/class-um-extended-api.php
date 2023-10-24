@@ -8,7 +8,7 @@
 /**
  * Class Core to handle all plugin initialization.
  *
- * @since 1.0.0
+ * @since 2.0.0
  */
 class UM_Extended_API {
 
@@ -93,7 +93,7 @@ class UM_Extended_API {
 	/**
 	 * Adds the RefreshRuntime.
 	 *
-	 * @since1.0.0
+	 * @since 2.0.0
 	 *
 	 * @return void
 	 */
@@ -127,7 +127,7 @@ class UM_Extended_API {
 	/**
 	 * Register the JS to enqueue.
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 *
 	 * @param  string $asset        The script to load.
 	 * @param  array  $dependencies An array of dependencies.
@@ -149,7 +149,7 @@ class UM_Extended_API {
 			$url = $this->load_manifest( $asset );
 		}
 
-		wp_register_script( $handle, $url, $dependencies, '1.0.0', true );
+		wp_register_script( $handle, $url, $dependencies, '2.0.0', true );
 		wp_enqueue_script( $handle );
 		$css_files = $this->load_manifest( $asset, true );
 		
@@ -172,7 +172,7 @@ class UM_Extended_API {
 	/**
 	 * Register the CSS to enqueue.
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 *
 	 * @param  string $asset    The script to load.
 	 * @param  string $handle   Handle name
@@ -188,7 +188,7 @@ class UM_Extended_API {
 
 		
 		$asset =  pathinfo( $handle . '-' . $asset, PATHINFO_FILENAME );
-		wp_register_style( $asset, $url, $url, '1.0.0', 'all' );
+		wp_register_style( $asset, $url, $url, '2.0.0', 'all' );
 		wp_enqueue_style( $asset );
 
 	}
@@ -196,7 +196,7 @@ class UM_Extended_API {
 	/**
 	 * Get the JS asset handle.
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 *
 	 * @param  string $asset The asset to find the handle for.
 	 * @return string        The asset handle.
@@ -210,7 +210,7 @@ class UM_Extended_API {
 	 *
 	 * @param string $asset Asset name.
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 */
 	public function live_url( $asset ) {
 
@@ -244,7 +244,7 @@ class UM_Extended_API {
 	/**
 	 * Preload JS imports.
 	 *
-	 * @since 1.0.0
+	 * @since 2.0.0
 	 *
 	 * @param  string $url The asset to load imports for.
 	 * @return void
@@ -315,7 +315,7 @@ class UM_Extended_API {
 			return wp_send_json_error( 'restricted_page' );
 		}
 
-		$search_extension = $_REQUEST['extension']; //phpcs:ignore
+		$search_extension = isset( $_REQUEST['extension'] ) ? $_REQUEST['extension'] : ''; //phpcs:ignore
 		$extensions = '';
 		require UM_EXTENDED_PLUGIN_DIR . 'dist/extensions.php';
 
