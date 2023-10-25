@@ -10,7 +10,7 @@
 	<arg name="extensions" value="php"/>
 	<arg name="cache" value=".phpcs.cache"/>
 
-	<include-pattern>.</include-pattern>
+	<include-pattern>*</include-pattern>
 
 	<exclude-pattern>\.github/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
