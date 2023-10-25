@@ -1,0 +1,22 @@
+name: Generate POT file
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - 'languages/**'
+
+jobs:
+  WP_Generate_POT_File:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: WordPress .pot File Generator
+        uses: iamdharmesh/action-wordpress-pot-generator@main
+        with:
+          destination_path: './languages'
+          slug: 'extended'
+          text_domain: 'um-extended'
+        env:
+          GITHUB_TOKEN: ${{ secrets.UM_EXTENDED_ACTION_SECRET}}

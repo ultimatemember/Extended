@@ -1,0 +1,42 @@
+name: Build Release
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Install PHP
+      uses: "shivammathur/setup-php@v2"
+      with:
+        php-version: "latest"
+    - name: "Install NPM"
+      run : sudo npm install --unsafe-perm=true --allow-root
+    - name: Install Composer Dependencies
+      uses: php-actions/composer@v6
+      with:
+        php_version: "latest"
+        command: install --no-progress --no-dev --optimize-autoloader
+    - name: "Prefix Vendors"
+      run : composer "prefix-dependencies"
+    - name: Commit files
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git rm .gitignore
+        git add vendor/\*
+        git commit -a -m "Composer Installed"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.UM_EXTENDED_ACTION_SECRET }}
+        branch: releases
+        repository: ultimatemember/Extended
+        force: true
