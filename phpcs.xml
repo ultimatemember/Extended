@@ -25,7 +25,7 @@
 	<rule ref="PHPCompatibilityWP"/>
 
 	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
-		<exclude-pattern>src/*</exclude-pattern>
+		<exclude-pattern>src/**/*</exclude-pattern>
 		<exclude-pattern>um-extended.php</exclude-pattern>
 		<exclude-pattern>tests/php/src/</exclude-pattern>
 	</rule>
