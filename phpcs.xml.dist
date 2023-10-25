@@ -27,7 +27,6 @@
 
 	<rule ref="WordPress-Extra"/>
 	<rule ref="WordPress"/>
-	<rule ref="PHPCompatibilityWP"/>
 
 	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
 		<exclude-pattern>src/**/*</exclude-pattern>
