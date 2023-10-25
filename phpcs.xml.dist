@@ -10,6 +10,8 @@
 	<arg name="extensions" value="php"/>
 	<arg name="cache" value=".phpcs.cache"/>
 
+	<include-pattern>.</include-pattern>
+
 	<exclude-pattern>\.github/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>node_modules/*</exclude-pattern>
@@ -19,7 +21,7 @@
 	<exclude-pattern>dist/*.php</exclude-pattern>
 	<exclude-pattern>build/*</exclude-pattern>
 	<exclude-pattern>app/*</exclude-pattern>
-
+	
 	<rule ref="WordPress">
 		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
