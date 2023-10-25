@@ -14,4 +14,5 @@ jobs:
          - name: WPCS check
            uses: 10up/wpcs-action@stable
            with:
+               standard: 'WordPress|WordPress-Extra|10up-Default'
                use_local_config: 'true'
