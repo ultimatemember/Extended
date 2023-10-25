@@ -138,11 +138,10 @@ final class UM_Extended {
 	 */
 	public function um_extended_construct() {
 
-
 		if ( empty( get_option( 'um_extended_enable_active' ) ) ) {
 			return;
-		} 
-			
+		}
+
 		$um_extended_api = new UM_Extended_API();
 
 		$extensions = array_keys( $um_extended_api->get_active_extensions() );
