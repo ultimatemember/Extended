@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="Ultimate Member CS">
+<ruleset name="Project Rules">
 
 	<description>Best practices Ultimate Member Coding Standards</description>
 	<config name="testVersion" value="7.4-"/>
@@ -16,7 +16,7 @@
 	<exclude-pattern>documentor/*</exclude-pattern>
 	<exclude-pattern>\.idea/*</exclude-pattern>
 	<exclude-pattern>includes/blocks/*</exclude-pattern>
-	<exclude-pattern>dist/*.php</exclude-pattern>
+	<exclude-pattern>dist/*</exclude-pattern>
 	<exclude-pattern>build/*</exclude-pattern>
 	<exclude-pattern>app/*</exclude-pattern>
 	
