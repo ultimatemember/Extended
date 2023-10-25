@@ -41,9 +41,9 @@ class UM_Extended_API {
 		add_action( 'admin_menu', array( $this, 'extended_menu' ) );
 		add_action( 'admin_head', array( $this, 'dev_refresh_runtime' ) );
 
-		add_action( 'wp_ajax_um_extended_extensions', array( $this, 'extensions' )  );
-		add_action( 'wp_ajax_um_extended_activate', array( $this, 'extension_activate' )  );
-		add_action( 'wp_ajax_um_extended_deactivate', array( $this, 'extension_deactivate' )  );
+		add_action( 'wp_ajax_um_extended_extensions', array( $this, 'extensions' ) );
+		add_action( 'wp_ajax_um_extended_activate', array( $this, 'extension_activate' ) );
+		add_action( 'wp_ajax_um_extended_deactivate', array( $this, 'extension_deactivate' ) );
 		add_action( 'wp_ajax_um_extended_disable_all_active', array( $this, 'disable_all_active' ) );
 
 		add_filter( 'script_loader_tag', array( $this, 'script_loader_tag' ), 10, 3 );
@@ -85,7 +85,14 @@ class UM_Extended_API {
 	 */
 	public function settings_page() {
 
-		$this->register_js( 'settings', array( 'jquery' ), array( 'plugin_url' => UM_EXTENDED_PLUGIN_URL, 'ajax_url' => admin_url('admin-ajax.php') ) );
+		$this->register_js(
+			'settings',
+			array( 'jquery' ),
+			array(
+				'plugin_url' => UM_EXTENDED_PLUGIN_URL,
+				'ajax_url'   => admin_url( 'admin-ajax.php' ),
+			)
+		);
 
 		require_once UM_EXTENDED_PLUGIN_DIR . 'templates/settings.php';
 	}
@@ -152,9 +159,9 @@ class UM_Extended_API {
 		wp_register_script( $handle, $url, $dependencies, '2.0.0', true );
 		wp_enqueue_script( $handle );
 		$css_files = $this->load_manifest( $asset, true );
-		
+
 		if ( ! empty( $css_files ) && ! defined( 'UM_EXTENDED_IS_DEV' ) ) {
-			foreach( $css_files  as $i => $css_file ) {
+			foreach ( $css_files  as $i => $css_file ) {
 				$this->register_styles( $css_file, $handle );
 			}
 		}
@@ -175,19 +182,18 @@ class UM_Extended_API {
 	 * @since 2.0.0
 	 *
 	 * @param  string $asset    The script to load.
-	 * @param  string $handle   Handle name
+	 * @param  string $handle   Handle name.
 	 * @return void
 	 */
 	public function register_styles( $asset, $handle ) {
-		
+
 		if ( ! wp_script_is( $handle, 'registered' ) ) {
 			return;
 		}
-	
-		$url = UM_EXTENDED_PLUGIN_URL . 'dist/assets/' . $asset;  
 
-		
-		$asset =  pathinfo( $handle . '-' . $asset, PATHINFO_FILENAME );
+		$url = UM_EXTENDED_PLUGIN_URL . 'dist/assets/' . $asset;
+
+		$asset = pathinfo( $handle . '-' . $asset, PATHINFO_FILENAME );
 		wp_register_style( $asset, $url, $url, '2.0.0', 'all' );
 		wp_enqueue_style( $asset );
 
@@ -272,7 +278,8 @@ class UM_Extended_API {
 	/**
 	 * Load Asset from Manifest
 	 *
-	 * @param string $asset The asset name.
+	 * @param string  $asset The asset name.
+	 * @param boolean $css_dependencies Whether dependencies are CSS.
 	 */
 	public function load_manifest( $asset, $css_dependencies = false ) {
 
@@ -316,43 +323,41 @@ class UM_Extended_API {
 		}
 
 		$search_extension = isset( $_REQUEST['extension'] ) ? $_REQUEST['extension'] : ''; //phpcs:ignore
-		$extensions = '';
+		$extensions       = '';
 		require UM_EXTENDED_PLUGIN_DIR . 'dist/extensions.php';
 
 		$extensions = json_decode( stripslashes( $extensions ), true ); //phpcs:ignore
-		
-		$active_extensions = get_option( 'um_extended_active_extensions' )? : array();
 
+		$active_extensions = $this->get_active_extensions();
 
-		$extensions['active_extensions'] = array();
-		$extensions['all_active_enabled'] = get_option( 'um_extended_enable_active' ) ? true:false;
-		$extensions['all_extensions'] = $extensions['extensions'];
-		foreach( $active_extensions as $i => $ae ) {
-			$extensions['all_extensions'][ $i ]['is_active'] = false;
+		$extensions['active_extensions']  = array();
+		$extensions['all_active_enabled'] = get_option( 'um_extended_enable_active' ) ? true : false;
+		$extensions['all_extensions']     = $extensions['extensions'];
+		foreach ( $active_extensions as $i => $ae ) {
+			$extensions['all_extensions'][ $i ]['is_active']    = false;
 			$extensions['active_extensions'][ $i ]['is_active'] = false;
-			
-			if( isset( $extensions['extensions'][ $i ] ) ) {
-				$extensions['active_extensions'][ $i ] = $extensions['extensions'][ $i ];
+
+			if ( isset( $extensions['extensions'][ $i ] ) ) {
+				$extensions['active_extensions'][ $i ]              = $extensions['extensions'][ $i ];
 				$extensions['active_extensions'][ $i ]['is_active'] = true;
 				unset( $extensions['extensions'][ $i ] );
 				$extensions['all_extensions'][ $i ]['is_active'] = true;
-			} 
-			
+			}
 		}
 
-		if( ! empty( $search_extension ) ) {
-			foreach( $extensions['all_extensions'] as $idx => $ext ) {
-				if( $idx === $search_extension ) {
+		if ( ! empty( $search_extension ) ) {
+			foreach ( $extensions['all_extensions'] as $idx => $ext ) {
+				if ( $idx === $search_extension ) {
 					if ( isset( $extensions['active_extensions'][ $idx ] ) ) {
-						$extensions['all_extensions'][ $i ]['is_active'] = true;
+						$extensions['all_extensions'][ $i ]['is_active']      = true;
 						$extensions['active_extensions'][ $idx ]['is_active'] = true;
 						return wp_send_json_success( $extensions['active_extensions'][ $idx ] );
-					} else if ( isset( $extensions['extensions'][ $idx ] ) ) {
+					} elseif ( isset( $extensions['extensions'][ $idx ] ) ) {
 						$extensions['all_extensions'][ $i ]['is_active'] = false;
-						$extensions['extensions'][ $idx ]['is_active'] = false;
+						$extensions['extensions'][ $idx ]['is_active']   = false;
 						return wp_send_json_success( $extensions['extensions'][ $idx ] );
-					} else{
-						return wp_send_json_error( __('Something went wrong', 'um-extended' ) );
+					} else {
+						return wp_send_json_error( __( 'Something went wrong', 'um-extended' ) );
 					}
 				}
 			}
@@ -361,67 +366,76 @@ class UM_Extended_API {
 		return wp_send_json_success( $extensions );
 	}
 
+	/**
+	 * Activate Extension
+	 */
 	public function extension_activate() {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return wp_send_json_error( 'restricted_page' );
 		}
 
-		$search_extension = $_REQUEST['extension']; //phpcs:ignore
-		$extensions = '';
+		$search_extension = isset( $_REQUEST['extension'] ) ? $_REQUEST['extension'] : ''; //phpcs:ignore
+		$extensions       = '';
 		require UM_EXTENDED_PLUGIN_DIR . 'dist/extensions.php';
 
 		$extensions = json_decode( stripslashes( $extensions ), true ); //phpcs:ignore
-		
-		$active_extensions = get_option( 'um_extended_active_extensions' )? : array();
+
+		$active_extensions = $this->get_active_extensions();
 
 		if ( isset( $extensions['extensions'][ $search_extension ] ) ) {
-			if( isset( $active_extensions[ $search_extension ] ) ) {
+			if ( isset( $active_extensions[ $search_extension ] ) ) {
 				return wp_send_json_error( __( 'Extension is already active.', 'um-extended' ) );
 			} else {
 				$active_extensions[ $search_extension ] = $extensions['extensions'][ $search_extension ];
-				update_option( 'um_extended_active_extensions', $active_extensions ); 
+				update_option( 'um_extended_active_extensions', $active_extensions );
 				return wp_send_json_success( __( 'Extension has been activated', 'um-extended' ) );
 			}
 		}
 	}
 
 
+	/**
+	 * Deactivate Extension
+	 */
 	public function extension_deactivate() {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return wp_send_json_error( 'restricted_page' );
 		}
 
-		$search_extension = $_REQUEST['extension']; //phpcs:ignore
-		$extensions = '';
+		$search_extension = isset( $_REQUEST['extension'] ) ? $_REQUEST['extension'] : ''; //phpcs:ignore
+		$extensions       = '';
 		require UM_EXTENDED_PLUGIN_DIR . 'dist/extensions.php';
 
 		$extensions = json_decode( stripslashes( $extensions ), true ); //phpcs:ignore
-		
-		$active_extensions = get_option( 'um_extended_active_extensions' )? : array();
+
+		$active_extensions = $this->get_active_extensions();
 
 		if ( isset( $extensions['extensions'][ $search_extension ] ) ) {
-			if( isset( $active_extensions[ $search_extension ] ) ) {
+			if ( isset( $active_extensions[ $search_extension ] ) ) {
 				unset( $active_extensions[ $search_extension ] );
-				update_option( 'um_extended_active_extensions', $active_extensions ); 
+				update_option( 'um_extended_active_extensions', $active_extensions );
 				return wp_send_json_success( __( 'Extension has been deactivated', 'um-extended' ) );
 			}
 		}
 	}
 
-	public function disable_all_active(){
+	/**
+	 * Disable All Active extensions
+	 */
+	public function disable_all_active() {
 
 		if ( ! current_user_can( 'manage_options' ) ) {
 			return wp_send_json_error( 'restricted_page' );
 		}
 
-		$state = $_REQUEST['state']; //phpcs:ignore
-		if( 'false' === $state ) {
-			update_option( 'um_extended_enable_active', true ); 
+		$state = isset( $_REQUEST['state'] ) ?  $_REQUEST['state']: ''; //phpcs:ignore
+		if ( 'false' === $state ) {
+			update_option( 'um_extended_enable_active', true );
 			return wp_send_json_success( __( 'All Active extensions have been enabled.', 'um-extended' ) );
 		} else {
-			delete_option( 'um_extended_enable_active' ); 
+			delete_option( 'um_extended_enable_active' );
 			return wp_send_json_success( __( 'All Active extensions have been disabled.', 'um-extended' ) );
 		}
 	}
@@ -430,7 +444,11 @@ class UM_Extended_API {
 	 * Get Active Extensions
 	 */
 	public function get_active_extensions() {
-		$active_extensions = get_option( 'um_extended_active_extensions' )? : array();
+		$active_extensions = get_option( 'um_extended_active_extensions' );
+
+		if ( empty( $active_extensions ) ) {
+			$active_extensions = array();
+		}
 		return $active_extensions;
 	}
 
