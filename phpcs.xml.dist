@@ -10,8 +10,6 @@
 	<arg name="extensions" value="php"/>
 	<arg name="cache" value=".phpcs.cache"/>
 
-	<include-pattern>*</include-pattern>
-
 	<exclude-pattern>\.github/*</exclude-pattern>
 	<exclude-pattern>vendor/*</exclude-pattern>
 	<exclude-pattern>node_modules/*</exclude-pattern>
@@ -32,7 +30,7 @@
 
 	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
 		<exclude-pattern>src/**/*</exclude-pattern>
-		<exclude-pattern>um-extended.php</exclude-pattern>
+		<exclude-pattern>./um-extended.php</exclude-pattern>
 		<exclude-pattern>tests/php/src/</exclude-pattern>
 	</rule>
 	<rule ref="Generic.Commenting">
