@@ -5,3 +5,4 @@ node_modules
 *.csr
 *.env.live
 docs/
+phpcs.xml
