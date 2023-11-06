@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Plugin Name: Ultimate Member - VCard
  * Plugin URI: https://www.ultimatemember.com
  * Description: Adds a predefined field to generate VCard for users to download from their profiles.
@@ -8,6 +8,7 @@
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-vcard
  * UM version: 2.6.12
+ *
  * @package UM_Extended_Vcard\Core
  */
 
