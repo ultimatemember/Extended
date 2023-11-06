@@ -69,15 +69,7 @@ class UM_Extended_API {
 	 * Register Menu
 	 */
 	public function extended_menu() {
-		add_menu_page(
-			__( 'UM Extended', 'um-extended' ),
-			'UM Extended',
-			'manage_options',
-			'um-extended',
-			array( $this, 'settings_page' ),
-			'dashicons-admin-users',
-			'42.78578',
-		);
+		add_menu_page( __( 'UM Extended', 'um-extended' ), 'UM Extended', 'manage_options', 'um-extended', array( $this, 'settings_page' ), 'dashicons-admin-users', '42.78578' );
 	}
 
 	/**
@@ -106,16 +98,7 @@ class UM_Extended_API {
 	 */
 	public function dev_refresh_runtime() {
 
-		echo sprintf(
-			'<script type="module">
-		import RefreshRuntime from "%1$s@react-refresh"
-		RefreshRuntime.injectIntoGlobalHook(window)
-		window.$RefreshReg$ = () => {}
-		window.$RefreshSig$ = () => (type) => type
-		window.__vite_plugin_react_preamble_installed__ = true
-		</script>',
-			$this->get_dev_url(), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-		);
+		echo sprintf( '<script type="module"> import RefreshRuntime from "%1$s@react-refresh"; RefreshRuntime.injectIntoGlobalHook(window); window.$RefreshReg$ = () => {} window.$RefreshSig$ = () => (type) => type window.__vite_plugin_react_preamble_installed__ = true;</script>', $this->get_dev_url() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 	}
 
 	/**
