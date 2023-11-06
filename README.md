@@ -18,12 +18,11 @@ All custom extended features and codes. Click on each plugin for more details.
 -  [Set Password Link for UM Email Templates](https://github.com/ultimatemember/Extended/tree/main/um-set-password/)
 -  [Show Password Strength meter in Register form, Reset Password form and Change Password form](https://github.com/ultimatemember/Extended/tree/main/um-pass-strength)
 -  [Force Capitalization of Display Name( First and Last Names )](https://github.com/ultimatemember/Extended/tree/main/um-capitalize-name)
+-  [Updates Block Disposable Email Domains](https://github.com/ultimatemember/Extended/tree/main/um-block-emails)
 
 # Installation
 
--  Download the [zip file](https://github.com/ultimatemember/Extended/archive/main.zip)
--  Extract the file and then zip each plugin directory
--  Upload the zippped plugin to WP Admin > Plugins
+For the installation guide, please see this [doc artcie](https://docs.ultimatemember.com/article/1663-download-installation-of-the-basic-extensions).
 
 # Contributors
 
