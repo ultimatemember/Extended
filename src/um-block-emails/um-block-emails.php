@@ -104,7 +104,7 @@ function um_extended_blockemails_plugin() {
 		$core = new \UM_Extended_Block_Emails\Core( __FILE__ );
 	}
 
-	return $core;
+	return $core; // core.
 }
 
 um_extended_blockemails_plugin();
