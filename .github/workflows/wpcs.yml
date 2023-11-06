@@ -4,7 +4,7 @@ on:
    pull_request:
    push:
       branches:
-         - refactor
+         - main
 jobs:
    phpcs:
       name: WPCS
@@ -16,4 +16,4 @@ jobs:
            with:
                standard: 'WordPress|WordPress-Extra|10up-Default'
                use_local_config: 'true'
-               repo_branch: 'refactor'
+               repo_branch: 'main'
