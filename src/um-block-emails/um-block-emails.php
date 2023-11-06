@@ -78,7 +78,7 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 	}
 
 	/**
-	 * Autoloader with Composer
+	 * Autoloader with Composer.
 	 */
 	if ( is_readable( __DIR__ . '/vendor/autoload.php' ) ) {
 		require __DIR__ . '/vendor/autoload.php';
@@ -86,11 +86,11 @@ if ( ! function_exists( 'um_extended_blockemails_loading_allowed' ) ) {
 }
 
 /**
- * Global function-holder. Works similar to a singleton's instance().
+ * Global function-holder. Works similar to a singleton's instance.
  *
  * @since 1.0.0
  *
- * @return UM_Extended_Block_Emails\Core
+ * @return UM_Extended_Block_Emails\Core  Extension class.
  */
 function um_extended_blockemails_plugin() {
 	/**
