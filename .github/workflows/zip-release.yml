@@ -19,7 +19,6 @@ jobs:
         php-version: "latest"
     - name: "Install NPM"
       run : sudo npm install --unsafe-perm=true --allow-root
-        command: install --no-progress --no-dev --optimize-autoloader
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
