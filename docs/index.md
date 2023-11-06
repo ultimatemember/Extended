@@ -1,30 +1,23 @@
 ---
-layout: home
+home: true
+heroText: Ultimate Member Extended
+herHeight: 1400
+footer: true
+tagline: Explore our extended features/functionalities & ways to customize Ultimate Member plugins.
+actions:
+  - text: Get Started  →
+    link: /installation
+    type: primary
+  - text: Browse Features & Functions
+    link: /browse
+    type: secondary
 
-titleTemplate: false
-lastUpdated: false
-
-hero:
-  name: Ultimate Member Extended
-  text: "v1.0.3"
-  tagline: Some extended features & functionalities of Ultimate Member plugin.
-  image:
-    src: /favicon-192x192.png
-  actions:
-    - theme: brand
-      text: Get Started
-      link: /installation
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/ultimatemember/Extended
 features:
-  - icon: ✔️
-    title: Customize with Hooks
+  - title: Customize with Hooks
     details: Extend these further with more available Filter & Action hooks.
-  - icon: 💡
-    title: Follows PHP & WordPress Coding Standards
+  - title: Follows PHP & WordPress Coding Standards
     details: The features & functionalities follow best coding practices with WPCS + PHPCS.
-  - icon: 😻
-    title: Open for Pull-Requests!
+  - title: Open for Pull-Requests!
     details: You have ideas and customizations that you want to share with everyone? Just create a Pull-Request so we can review them!
 ---
+

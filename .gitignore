@@ -1,5 +1,9 @@
 vendor
 .DS_Store
 node_modules
+*.pem
+*.csr
+*.env.live
+docs/
+phpcs.xml
 build
-docs

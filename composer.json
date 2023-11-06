@@ -1,30 +1,81 @@
 {
-    "name": "ultimatemember/extended",
-    "description": "description_text",
+    "name": "ultimatemember/um-extended",
+    "description": "Extended features & functionalities of Ultimate Member",
     "type": "wordpress-plugin",
     "homepage": "https://ultimatemember.com/",
     "license": "GPL-3.0-or-later",
     "minimum-stability": "stable",
     "prefer-stable": true,
-    "config": {
-      "allow-plugins": {
-        "symfony/flex": true,
-        "dealerdirect/phpcodesniffer-composer-installer": true
-      }
-    },
     "authors": [
-      {
-        "name": "Ultimate Member",
-        "email": "team@ultimatemember.com"
-      }
+        {
+            "name": "Ultimate Member Group Ltd.",
+            "email": "team@ultimatemember.com"
+        }
     ],
+    "scripts": {
+        "compile-ext": [
+            "php build/compile-extensions.php"
+        ],
+        "helpscout_sync": [
+            "php docs/ultimatemember/helpscout.php"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "UM_Extended\\": "src",
+            "UM_Extended_Block_Emails\\": "src/um-block-emails/src",
+            "UM_Extended_Browser_Detect\\": "src/um-browser-detect/src",
+            "UM_Extended_Capitalize_Name\\": "src/um-capitalize-name/src",
+            "UM_Extended_Country_Flag\\": "src/um-country-flag/src",
+            "UM_Extended_Cover_Photo\\": "src/um-cover-photo/src",
+            "UM_Extended_Cron_Delete\\": "src/um-cron-delete/src/",
+            "UM_Extended_Cronjob_Activation_Email\\": "src/um-cronjob-activation-email/src/",
+            "UM_Extended_Dummy_Accounts\\": "src/um-dummy-accounts/src/",
+            "UM_Extended_Fields_Counter\\": "src/um-fields-counter/src/",
+            "UM_Extended_Math_Captcha\\": "src/um-math-captcha/src/",
+            "UM_Extended_Pass_Strength\\": "src/um-pass-strength/src/",
+            "UM_Extended_Profile_Photo\\": "src/um-profile-photo/src",
+            "UM_Extended_Regenerate_Thumbnails\\": "src/um-regenerate-thumbnails/src/",
+            "UM_Extended_Set_Password\\": "src/um-set-password/src/",
+            "UM_Extended_User_Shortcode\\": "src/um-user-shortcode/src/",
+            "UM_Extended_Vcard\\": "src/um-vcard/src/",
+            "UM_Extended_Yoast_Seo\\": "src/um-yoast-seo/src/",
+            "UM_WPCLI\\": "src/um-wpcli/src/"
+        }
+    },
+    "repositories": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/champsupertramp/phpdoc-vuepress"
+        },
+        {
+          "type": "vcs",
+          "url": "https://github.com/champsupertramp/html-to-markdown"
+        }
+     ],
     "require-dev": {
-      "wp-cli/wp-cli": "*",
-      "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
-      "object-calisthenics/phpcs-calisthenics-rules": "*",
-      "phpcompatibility/phpcompatibility-wp": "*",
-      "wp-coding-standards/wpcs": "2.3.0",
-      "squizlabs/php_codesniffer": "3.*",
-      "phpdocumentor/phpdocumentor": "3.1.*"
+        "wp-cli/wp-cli": "*",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "object-calisthenics/phpcs-calisthenics-rules": "*",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "wp-coding-standards/wpcs": "2.3.0",
+        "squizlabs/php_codesniffer": "3.*",
+        "phpdocumentor/phpdocumentor": "3.1.*",
+        "champsupertramp/phpdoc-vuepress": "dev-master",
+        "champsupertramp/html-to-markdown": "dev-master",
+        "vlucas/phpdotenv": "^5.5",
+        "league/html-to-markdown": "^5.1"
+        
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/flex": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "require": {
+        "cbschuld/browser.php": "^1.9",
+        "kmlpandey77/math-captcha": "^1.0",
+        "jeroendesloovere/vcard": "dev-2.0.0-dev"
     }
-  }
+}

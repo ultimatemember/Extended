@@ -1,0 +1,21 @@
+{
+    "name": "ultimatemember/um-dummy-accounts",
+    "description": "Ultimate Member - Generate Dummy Accounts",
+    "type": "wordpress-plugin",
+    "homepage": "https://ultimatemember.com/",
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+       {
+          "name": "Ultimate Member Group Ltd.",
+          "email": "team@ultimatemember.com"
+       }
+    ],
+    "autoload": {
+       "psr-4": {
+          "UM_Extended_Dummy_Accounts\\": "src"
+       }
+    }
+   
+ }

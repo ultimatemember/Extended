@@ -1,0 +1,22 @@
+{
+    "name": "ultimatemember/um-cron-delete",
+    "description": "Ultimate Member - Schedule User Deletions with WP Cronjob",
+    "type": "wordpress-plugin",
+    "homepage": "https://ultimatemember.com/",
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+       {
+          "name": "Ultimate Member Group Ltd.",
+          "email": "team@ultimatemember.com"
+       }
+    ],
+    "autoload": {
+       "psr-4": {
+          "UM_Extended_Cron_Delete\\": "src"
+       }
+    }
+   
+   
+ }

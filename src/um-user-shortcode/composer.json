@@ -1,0 +1,20 @@
+{
+    "name": "ultimatemember/um-user-shortcode",
+    "description": "Ultimate Member - User Meta Shortcodes",
+    "type": "wordpress-plugin",
+    "homepage": "https://ultimatemember.com/",
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+       {
+          "name": "Ultimate Member Group Ltd.",
+          "email": "team@ultimatemember.com"
+       }
+    ],
+    "autoload": {
+       "psr-4": {
+          "UM_Extended_User_Shortcodes\\": "src"
+       }
+    }
+ }

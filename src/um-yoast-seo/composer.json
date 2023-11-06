@@ -1,0 +1,20 @@
+{
+    "name": "ultimatemember/um-yoast-seo",
+    "description": "Ultimate Member - Yoast SEO",
+    "type": "wordpress-plugin",
+    "homepage": "https://ultimatemember.com/",
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+       {
+          "name": "Ultimate Member Group Ltd.",
+          "email": "team@ultimatemember.com"
+       }
+    ],
+    "autoload": {
+       "psr-4": {
+          "UM_Extended_Yoast_Seo\\": "src"
+       }
+    }
+ }

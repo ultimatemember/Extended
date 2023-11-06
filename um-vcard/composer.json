@@ -1,6 +1,0 @@
-{
-   "require-dev": {},
-   "require": {
-      "jeroendesloovere/vcard": "dev-2.0.0-dev"
-   }
-}

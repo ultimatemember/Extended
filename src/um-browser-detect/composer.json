@@ -1,0 +1,23 @@
+{
+    "name": "ultimatemember/um-browser-detect",
+    "description": "Ultimate Member - Browser Detect",
+    "type": "wordpress-plugin",
+    "homepage": "https://ultimatemember.com/",
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+       {
+          "name": "Ultimate Member Group Ltd.",
+          "email": "team@ultimatemember.com"
+       }
+    ],
+    "autoload": {
+       "psr-4": {
+          "UM_Extended_Browser_Detect\\": "src"
+       }
+    },
+    "require": {
+        "cbschuld/browser.php": "^1.9"
+    }
+}
