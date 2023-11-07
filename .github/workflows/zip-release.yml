@@ -24,6 +24,10 @@ jobs:
       with:
         php_version: "latest"
         command: install --no-progress --no-dev --optimize-autoloader
+    - name: Git Submodule Update
+      run: |
+        git pull --recurse-submodules
+        git submodule update --remote --recursive
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
