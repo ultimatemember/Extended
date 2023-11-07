@@ -3,7 +3,7 @@ name: Generate POT file
 on:
   push:
     branches:
-      - master
+      - releases
     paths-ignore:
       - 'languages/**'
 
