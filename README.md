@@ -6,6 +6,12 @@ Official Documentation at https://ultimatemember.github.io/docs-v3/extended/
 - [Installation](https://ultimatemember.github.io/docs-v3/extended/installation.html)
 - [Features & Functionalities](https://ultimatemember.github.io/docs-v3/extended/browse.html)
 
-# Contributors
+## Collaborators
 
-![Contributors](https://contrib.rocks/image?repo=ultimatemember/Extended)
+<!-- readme: collaborators -start -->
+<!-- readme: collaborators -end -->
+
+## Contributors
+
+<!-- readme: contributors -start -->
+<!-- readme: contributors -end -->
