@@ -28,7 +28,7 @@ Official Documentation at https://ultimatemember.github.io/docs-v3/extended/
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-## Contributors ✨
+## Special Thanks ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
