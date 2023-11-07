@@ -6,12 +6,11 @@ Official Documentation at https://ultimatemember.github.io/docs-v3/extended/
 - [Installation](https://ultimatemember.github.io/docs-v3/extended/installation.html)
 - [Features & Functionalities](https://ultimatemember.github.io/docs-v3/extended/browse.html)
 
-## Collaborators
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
 
-<!-- readme: collaborators -start -->
-<!-- readme: collaborators -end -->
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-## Contributors
-
-<!-- readme: contributors -start -->
-<!-- readme: contributors -end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
