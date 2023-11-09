@@ -96,6 +96,7 @@ if ( ! function_exists( 'um_extended_loading_allowed' ) ) {
 /**
  * Extended
  */
+#[AllowDynamicProperties]
 final class UM_Extended {
 
 	/**
@@ -131,6 +132,14 @@ final class UM_Extended {
 	 */
 	public $classes = array();
 
+
+	/**
+	 * Functions
+	 *
+	 * @var array $funcs
+	 */
+	public $funcs = array();
+
 	/**
 	 * Dynamically load extensions.
 	 * Directory name and class should match patterns:
@@ -164,16 +173,14 @@ final class UM_Extended {
 			}
 
 			if ( class_exists( $class_name ) ) {
-				$this->add_method(
-					$func_name,
-					function() use ( $class_name, $slug ) {
+				$this->funcs[ $func_name ] = function() use ( $class_name, $slug ) {
 
-						if ( ! isset( $this->classes[ $slug ] ) ) {
-							$this->classes[ $slug ] = new $class_name( __FILE__ );
-						}
-						return $this->classes[ $slug ];
+					if ( ! isset( $this->classes[ $slug ] ) ) {
+						$this->classes[ $slug ] = new $class_name( __FILE__ );
 					}
-				);
+					return $this->classes[ $slug ];
+				};
+
 				call_user_func( array( $this, $func_name ) );
 			} else {
 				if ( ! defined( 'WP_CLI' ) ) {
@@ -185,23 +192,17 @@ final class UM_Extended {
 	}
 
 	/**
-	 * Dynamically Register Method
-	 *
-	 * @param string $name Function name.
-	 * @param array  $method Function.
-	 */
-	public function add_method( $name, $method ) {
-		$this->{$name} = $method;
-	}
-
-	/**
 	 * Call function
 	 *
 	 * @param string $name Function name.
 	 * @param array  $arguments Function args.
 	 */
 	public function __call( $name, $arguments ) {
-		return call_user_func( $this->{$name}, $arguments );
+		if ( isset( $this->funcs[ $name ] ) ) {
+			return call_user_func( $this->funcs[ $name ], $arguments );
+		}
+
+		die( 'Nothin\'?' );
 	}
 }
 
