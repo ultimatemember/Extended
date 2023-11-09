@@ -30,7 +30,6 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git pull --recurse-submodules
         git submodule update --remote --recursive
-        git add src/um-wpcli/\*
         git rm .gitignore
         git rm -r docs
         git add vendor/\*
