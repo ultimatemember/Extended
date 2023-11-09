@@ -31,8 +31,6 @@ jobs:
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git pull --recurse-submodules
-        git submodule update --remote --recursive
         git rm .gitignore
         git rm -r docs
         git commit -a -m "Composer Installed"
