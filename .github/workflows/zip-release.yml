@@ -13,16 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+      with:
+        submodules: recursive
     - name: Install PHP
       uses: "shivammathur/setup-php@v2"
       with:
         php-version: "latest"
-    - name: submodules recursively
-      uses: actions/checkout@v3
-      with:
-        repository: ultimatemember/Extended
-        token: ${{ secrets.GITHUB_TOKEN }}
-        submodules: recursive    
     - name: "Install NPM"
       run : sudo npm install --unsafe-perm=true --allow-root
     - name: Install Composer Dependencies
@@ -30,7 +26,6 @@ jobs:
       with:
         php_version: "latest"
         command: install --no-progress --no-dev --optimize-autoloader
-    
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -39,8 +34,6 @@ jobs:
         git submodule update --remote --recursive
         git rm .gitignore
         git rm -r docs
-        git add vendor/\*
-        git add src/um-wpcli/\*
         git commit -a -m "Composer Installed"
     - name: Push changes
       uses: ad-m/github-push-action@master
