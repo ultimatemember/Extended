@@ -40,6 +40,7 @@ jobs:
         git rm .gitignore
         git rm -r docs
         git add vendor/\*
+        git add src/um-wpcli/\*
         git commit -a -m "Composer Installed"
     - name: Push changes
       uses: ad-m/github-push-action@master
