@@ -1,6 +1,6 @@
 # Ultimate Member Extended
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-8-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-9-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Explore our extended features/functionalities & ways to customize Ultimate Member plugins.
@@ -27,6 +27,7 @@ Official Documentation at https://ultimatemember.github.io/docs-v3/extended/
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/alexpull"><img src="https://avatars.githubusercontent.com/u/5243105?v=4?s=100" width="100px;" alt="Oleksii Pulariya"/><br /><sub><b>Oleksii Pulariya</b></sub></a><br /><a href="https://github.com/ultimatemember/Extended/commits?author=alexpull" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/AngeliMae"><img src="https://avatars.githubusercontent.com/u/16516778?v=4?s=100" width="100px;" alt="Angeli Camba"/><br /><sub><b>Angeli Camba</b></sub></a><br /><a href="https://github.com/ultimatemember/Extended/commits?author=AngeliMae" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
