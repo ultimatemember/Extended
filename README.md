@@ -1,6 +1,6 @@
 # Ultimate Member Extended
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Explore our extended features/functionalities & ways to customize Ultimate Member plugins.
@@ -22,6 +22,7 @@ Official Documentation at https://ultimatemember.github.io/docs-v3/extended/
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/ashubawork"><img src="https://avatars.githubusercontent.com/u/43743394?v=4?s=100" width="100px;" alt="ashubawork"/><br /><sub><b>ashubawork</b></sub></a><br /><a href="https://github.com/ultimatemember/Extended/commits?author=ashubawork" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/cryptexvinci"><img src="https://avatars.githubusercontent.com/u/10268346?v=4?s=100" width="100px;" alt="Towhid"/><br /><sub><b>Towhid</b></sub></a><br /><a href="https://github.com/ultimatemember/Extended/commits?author=cryptexvinci" title="Code">💻</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/nikitasinelnikov"><img src="https://avatars.githubusercontent.com/u/26598684?v=4?s=100" width="100px;" alt="Mykyta Synelnikov"/><br /><sub><b>Mykyta Synelnikov</b></sub></a><br /><a href="https://github.com/ultimatemember/Extended/commits?author=nikitasinelnikov" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/mansurahamed"><img src="https://avatars.githubusercontent.com/u/13786308?v=4?s=100" width="100px;" alt="mansurahamed"/><br /><sub><b>mansurahamed</b></sub></a><br /><a href="https://github.com/ultimatemember/Extended/commits?author=mansurahamed" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
