@@ -18,7 +18,7 @@ class Core {
 	 * Init
 	 */
 	public function __construct() {
-		add_filter( 'um_user_pre_updating_files_array', array( $this, 'update_files' ) );
+		// add_filter( 'um_user_pre_updating_files_array', array( $this, 'update_files' ) );
 		add_filter( 'um_predefined_fields_hook', array( $this, 'predefined_fields' ), 99999, 1 );
 		add_filter( 'um_core_fields_hook', array( $this, 'modify_field_option' ) );
 		add_filter( 'um_image_upload_handler_overrides__register_cover_photo', array( $this, 'upload_handler' ), 99999 );
@@ -145,7 +145,7 @@ class Core {
 	 * @param integer $user_id the user ID.
 	 * @param array   $args Field settings.
 	 */
-	public function um_registration_set_cover_photo( $user_id, $args ) {
+	public function set_cover_photo( $user_id, $args ) {
 
 		if ( isset( $args['form_id'] ) ) {
 			$req = 'register_cover_photo-' . $args['form_id'];
