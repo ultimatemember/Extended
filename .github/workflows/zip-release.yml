@@ -33,6 +33,7 @@ jobs:
         rm -rf .git/modules/src/um-wpcli
     - name: Add back Submodules
       run: | 
+           rm -rf src/um-wpcli
            git clone https://github.com/ultimatemember/um-wpcli.git src/um-wpcli
     - name: Commit files
       run: |
