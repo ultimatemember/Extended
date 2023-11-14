@@ -35,9 +35,10 @@ jobs:
       run: | 
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          rm -rf src/um-wpcli
           git rm .gitignore
+          rm -rf src/um-wpcli
           git clone https://github.com/ultimatemember/um-wpcli.git src/um-wpcli
+          rm -rf src/um-wpcli/.git/
           git add src/um-wpcli/*
           git commit -a -m "Added UM-WPCLI"
     - name: Commit files
