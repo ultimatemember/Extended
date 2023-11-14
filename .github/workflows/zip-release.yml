@@ -12,9 +12,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout Submodules
+      uses: actions/checkout@v4
       with:
-        submodules: "recursive"
+        submodules: true
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: Install PHP
       uses: "shivammathur/setup-php@v2"
