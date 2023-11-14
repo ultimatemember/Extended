@@ -31,11 +31,12 @@ jobs:
         git submodule update --init
         git rm -r -f --cached src/um-wpcli
         rm -rf .git/modules/src/um-wpcli
-    - name: Add back Submodules
+    - name: Add UM-WPCLI
       run: | 
            rm -rf src/um-wpcli
            git clone https://github.com/ultimatemember/um-wpcli.git src/um-wpcli
            git add src/um-wpcli/*
+           git commit -a -m "Added UM-WPCLI"
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
