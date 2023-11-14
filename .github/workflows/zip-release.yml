@@ -34,7 +34,7 @@ jobs:
         git rm .gitignore
         git rm -r -f .gitmodules
         git rm -r -f src/um-wpcli
-        git clone git@github.com:ultimatemember/um-wpcli.git src/um-wpcli
+        git clone https://github.com/ultimatemember/um-wpcli.git src/um-wpcli
         git submodule update --init
         git add vendor/*
         git add src/um-wpcli/*
