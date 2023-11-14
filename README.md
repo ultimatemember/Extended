@@ -1,15 +1,20 @@
 # Ultimate Member Extended
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 Explore our extended features/functionalities & ways to customize Ultimate Member plugins.
 Official Documentation at https://ultimatemember.github.io/docs-v3/extended/
+
+| Core       |      Latest     |      Pre-Release     | 
+| ------------- | :-----------: | :-----------: |
+| ![Static Badge](https://img.shields.io/badge/Requires-version_2.7.0+-7856ff) | ![GitHub release (with filter)](https://img.shields.io/github/v/release/ultimatemember/Extended?label=Latest%20Release)| ![GitHub release (with filter)](https://img.shields.io/github/v/release/ultimatemember/Extended?filter=2.0.1-alpha2&label=Version)
 
 - [Installation](https://ultimatemember.github.io/docs-v3/extended/installation.html)
 - [Features & Functionalities](https://ultimatemember.github.io/docs-v3/extended/browse.html)
 
 ## Contributors
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-10-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
