@@ -33,7 +33,7 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git rm .gitignore
         git rm -r -f .gitmodules
-        git rm -r -f src/um-wpcli
+        git rm -r -f --cached src/um-wpcli
         git clone https://github.com/ultimatemember/um-wpcli.git src/um-wpcli
         git add vendor/*
         git add src/um-wpcli/
