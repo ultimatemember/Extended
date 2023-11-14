@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: recursive
-        token: ${{ secrets.UM_EXTENDED_TOKEN }}
+        token: ${{ secrets.UM_EXTENDED_ACTION_SECRET }}
     - name: Install PHP
       uses: "shivammathur/setup-php@v2"
       with:
@@ -39,7 +39,7 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.UM_EXTENDED_TOKEN }}
+        github_token: ${{ secrets.UM_EXTENDED_ACTION_SECRET }}
         branch: releases
         repository: ultimatemember/Extended
         force: true
