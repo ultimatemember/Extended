@@ -30,7 +30,6 @@ jobs:
     - name: Remove Submodules
       run: |   
         git rm -r -f .gitmodules
-        git rm -r -f src/um-wpcli
         git rm -r -f --cached src/um-wpcli
     - name: Add back Submodules
       run: | 
