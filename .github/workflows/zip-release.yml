@@ -36,7 +36,7 @@ jobs:
         git rm -r -f --cached src/um-wpcli
         git clone https://github.com/ultimatemember/um-wpcli.git src/um-wpcli
         git add vendor/*
-        git add src/um-wpcli/
+        git add src/um-wpcli/*
         git rm -r docs
         git commit -a -m "Composer Installed"
     - name: Push changes
