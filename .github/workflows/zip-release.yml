@@ -35,6 +35,7 @@ jobs:
       run: | 
            rm -rf src/um-wpcli
            git clone https://github.com/ultimatemember/um-wpcli.git src/um-wpcli
+           git add src/um-wpcli/*
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
