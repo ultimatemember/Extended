@@ -37,7 +37,7 @@ jobs:
         git clone https://github.com/ultimatemember/um-wpcli.git src/um-wpcli
         git submodule update --init
         git add vendor/*
-        git add src/um-wpcli/*
+        git add src/um-wpcli/
         git rm -r docs
         git commit -a -m "Composer Installed"
     - name: Push changes
