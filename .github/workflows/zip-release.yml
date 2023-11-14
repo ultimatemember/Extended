@@ -31,6 +31,7 @@ jobs:
       run: |   
         git rm -r -f .gitmodules
         git rm -r -f --cached src/um-wpcli
+        rm -rf .git/modules/src/um-wpcli
     - name: Add back Submodules
       run: | 
           git clone https://github.com/ultimatemember/um-wpcli.git src/um-wpcli
