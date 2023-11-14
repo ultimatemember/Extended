@@ -14,8 +14,6 @@ jobs:
     steps:
     - name: Checkout Submodules
       uses: actions/checkout@v4
-      with:
-        submodules: recursive
     - name: Install PHP
       uses: "shivammathur/setup-php@v2"
       with:
