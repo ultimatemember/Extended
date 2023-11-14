@@ -26,7 +26,6 @@ jobs:
         git rm -r -f --cached src/um-wpcli/
         git submodule sync --recursive
         git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
-        git add src/um-wpcli/*
     - name: Install PHP
       uses: "shivammathur/setup-php@v2"
       with:
