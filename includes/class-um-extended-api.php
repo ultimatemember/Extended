@@ -98,7 +98,9 @@ class UM_Extended_API {
 	 */
 	public function dev_refresh_runtime() {
 
-		echo sprintf( '<script type="module"> import RefreshRuntime from "%1$s@react-refresh"; RefreshRuntime.injectIntoGlobalHook(window); window.$RefreshReg$ = () => {} window.$RefreshSig$ = () => (type) => type window.__vite_plugin_react_preamble_installed__ = true;</script>', $this->get_dev_url() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+		if ( defined( 'UM_EXTENDED_IS_DEV' ) && UM_EXTENDED_IS_DEV ) { //phpcs:ignore
+			echo sprintf( '<script type="module"> import RefreshRuntime from "%1$s@react-refresh"; RefreshRuntime.injectIntoGlobalHook(window); window.$RefreshReg$ = () => {} window.$RefreshSig$ = () => (type) => type window.__vite_plugin_react_preamble_installed__ = true;</script>', $this->get_dev_url() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+		}
 	}
 
 	/**
