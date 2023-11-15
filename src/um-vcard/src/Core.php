@@ -54,6 +54,19 @@ class Core {
 		add_action( 'um_after_user_updated', array( $this, 'generate' ) );
 		add_action( 'um_registration_complete', array( $this, 'generate' ) );
 
+		// Remove unused field options.
+		add_filter(
+			'um_core_fields_hook',
+			function( $fields ) {
+				if ( isset( $_REQUEST['arg3'] ) && 'vcard' === $_REQUEST['arg3'] ) { // phpcs:ignore WordPress.Security.NonceVerification
+					$fields['file']['col1'] = array( '_title', '_metakey', '_help', '_visibility' );
+					$fields['file']['col2'] = array( '_label', '_public', '_roles', '_icon' );
+					$fields['file']['col3'] = array();
+				}
+				return $fields;
+			}
+		);
+
 	}
 
 	/**
@@ -216,7 +229,6 @@ class Core {
 			'icon'     => 'um-icon-card',
 			'color'    => '#6441A4',
 		);
-
 		return $fields;
 	}
 
@@ -227,11 +239,11 @@ class Core {
 	 * @return string
 	 */
 	public function image_encode( $path ) {
-		$image    = file_get_contents( $path );
+		$image    = file_get_contents( $path ); //phpcs:ignore
 		$finfo    = new \finfo( FILEINFO_MIME_TYPE );
 		$type     = $finfo->buffer( $image );
 		$big_type = strtoupper( str_replace( 'image/', '', $type ) );
-		return 'data:' . $type . ';ENCODING=b;TYPE=' . $big_type . ':' . base64_encode( $image );
+		return 'data:' . $type . ';ENCODING=b;TYPE=' . $big_type . ':' . base64_encode( $image ); //phpcs:ignore
 	}
 
 
