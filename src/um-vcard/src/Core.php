@@ -89,6 +89,7 @@ class Core {
 		$additional = um_user( 'display_name' );
 		$prefix     = um_user( 'prefix' );
 		$suffix     = um_user( 'suffix' );
+		$file_type  = '';
 
 		$user_dir = UM()->uploader()->get_upload_user_base_dir( $user_id ) . DIRECTORY_SEPARATOR;
 
@@ -180,6 +181,7 @@ class Core {
 			$avatar_dir_path = UM()->uploader()->get_upload_user_base_dir( $user_id ) . DIRECTORY_SEPARATOR . um_profile( 'profile_photo' );
 			$img             = wp_get_image_editor( $avatar_dir_path );
 			$filetype        = wp_check_filetype( $avatar_dir_path );
+			$file_type       = $filetype['type'];
 			$vcard_filename  = 'vcard-120x120.' . $filetype['ext'];
 
 			$vcard_avatar_dir_path = UM()->uploader()->get_upload_user_base_dir( $user_id ) . DIRECTORY_SEPARATOR . $vcard_filename;
@@ -199,9 +201,8 @@ class Core {
 
 		$formatter = new Formatter( new VcfFormatter(), 'vcard' );
 		$formatter->addVCard( $vcard );
-		$file_type = $filetype['type'];
-		$content   = str_replace( 'PHOTO:data:' . $file_type . ';', 'PHOTO;', $formatter->getContent() );
-		$content   = str_replace( 'LOGO:data:' . $file_type . ';', 'LOGO;', $content );
+		$content = str_replace( 'PHOTO:data:' . $file_type . ';', 'PHOTO;', $formatter->getContent() );
+		$content = str_replace( 'LOGO:data:' . $file_type . ';', 'LOGO;', $content );
 		$formatter->save( $user_dir );
 
 		if ( ! $wp_filesystem->put_contents( $user_dir . 'vcard.vcf', $content, 0644 ) ) {
