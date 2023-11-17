@@ -16,10 +16,11 @@ jobs:
       run: |
         mkdir -p ~/assets
         for folder in src/* ; do
-            [ -d $folder ] && zip -r "${folder%/}" "${folder%/}"
-            file=$(basename "${folder}")
-            ls -l
-            # mv "~/src/${folder}.zip" ~/assets/
+            cd src
+            ext_dir=$(basename "${folder}")
+            [ -d $folder ] && zip -r "${ext_dir%/}" "${ext_dir%/}"
+            cd ../
+            mv "~/src/${folder}.zip" ~/assets/
         done
         zip -r assets.zip ~/assets/
     - name: Create Release
