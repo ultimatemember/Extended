@@ -18,7 +18,7 @@ jobs:
         for folder in src/* ; do
             [ -d $folder ] && zip -r "${folder%/}" "${folder%/}"
             file=$(basename "${folder}")
-            mv "${file}.zip" ~/assets/
+            mv "~/src/${file}.zip" ~/assets/
         done
         zip -r assets.zip ~/assets/
     - name: Create Release
