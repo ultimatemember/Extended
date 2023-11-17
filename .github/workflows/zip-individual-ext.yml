@@ -16,7 +16,7 @@ jobs:
       run: |
         mkdir -p ~/assets
         for folder in src/* ; do
-            [ -d $folder ] && zip --junk-paths -r "${folder%/}" "${folder%/}"
+            [ -d $folder ] && zip -r "${folder%/}" "${folder%/}"
             file=$(basename "${folder}")
             ls -l
             # mv "~/src/${folder}.zip" ~/assets/
