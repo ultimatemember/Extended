@@ -17,7 +17,7 @@ jobs:
         mkdir -p ~/assets
         for folder in src/* ; do
             [ -d $folder ] && zip -r "${folder%/}" "${folder%/}"
-            file=$(dirname "${folder}")
+            file=$(basename "${folder}")
             mv "${file}.zip" ~/assets/
         done
         zip -r assets.zip ~/assets/
