@@ -17,7 +17,7 @@ jobs:
         mkdir -p assets
         for folder in src/* ; do
             ext_dir=$(basename "${folder}")
-            [ -d $folder ] && zip -r "assets/${ext_dir%/}" "${ext_dir%/}"
+            [ -d $folder ] && zip -r "assets/${ext_dir%/}" "src/${ext_dir%/}"
         done
         cd assets && ls -l
         cd ../
