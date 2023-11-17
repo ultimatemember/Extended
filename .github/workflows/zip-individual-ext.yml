@@ -18,10 +18,9 @@ jobs:
         for folder in src/* ; do
             cd src
             ext_dir=$(basename "${folder}")
-            [ -d $folder ] && zip -r "${ext_dir%/}" "${ext_dir%/}"
+            [ -d $folder ] && zip -r "~/assets/${ext_dir%/}" "${ext_dir%/}"
             ls -l
             cd ../
-            mv "~/${folder}.zip" ~/assets/
         done
         zip -r assets.zip ~/assets/
     - name: Create Release
