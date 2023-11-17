@@ -1,3 +1,0 @@
-[submodule "src/um-wpcli"]
-	path = src/um-wpcli
-	url = https://github.com/ultimatemember/um-wpcli.git
