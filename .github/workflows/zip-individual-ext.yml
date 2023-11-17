@@ -18,7 +18,8 @@ jobs:
         for folder in src/* ; do
             [ -d $folder ] && zip --junk-paths -r "${folder%/}" "${folder%/}"
             file=$(basename "${folder}")
-            mv "~/src/${file}.zip" ~/assets/
+            ls -l
+            # mv "~/src/${folder}.zip" ~/assets/
         done
         zip -r assets.zip ~/assets/
     - name: Create Release
