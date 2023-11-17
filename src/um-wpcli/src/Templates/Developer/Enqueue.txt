@@ -1,0 +1,42 @@
+<?php
+/**
+ * Enqueue class
+ *
+ * @package {namespace}
+ */
+
+namespace {namespace};
+
+/**
+ * Class Enqueue to handle all plugin initialization.
+ *
+ * @since 1.0.0
+ */
+class Enqueue extends Core {
+
+	/**
+	 * Init
+	 */
+	public function __construct() {
+		// Frontend.
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue' ) );
+		// Admin.
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue' ) );
+	}
+
+	/**
+	 * Frontend Enqueue scripts & styles.
+	 */
+	public function enqueue() {
+		wp_enqueue_style( 'um-extended-{plugin_dir}', $this->plugin_url() . '/assets/frontend/css/{plugin_dir}.css', array(), '1.0.0', 'all' );
+		wp_enqueue_script( 'um-extended-{plugin_dir}', $this->plugin_url() . '/assets/frontend/js/{plugin_dir}.js', array(), '1.0.0', true );
+	}
+
+	/**
+	 * Admin Enqueue scripts & styles.
+	 */
+	public function admin_enqueue() {
+		wp_enqueue_style( 'um-extended-{plugin_dir}_admin', $this->plugin_url() . '/assets/admin/css/{plugin_dir}.css', array(), '1.0.0', 'all' );
+		wp_enqueue_script( 'um-extended-{plugin_dir}_admin', $this->plugin_url() . '/assets/admin/js/{plugin_dir}.js', array(), '1.0.0', true );
+	}
+}
