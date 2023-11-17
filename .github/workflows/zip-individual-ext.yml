@@ -20,7 +20,7 @@ jobs:
             ext_dir=$(basename "${folder}")
             [ -d $folder ] && zip -r "${ext_dir%/}" "${ext_dir%/}"
             cd ../
-            mv "~/src/${folder}.zip" ~/assets/
+            mv "~/${folder}.zip" ~/assets/
         done
         zip -r assets.zip ~/assets/
     - name: Create Release
