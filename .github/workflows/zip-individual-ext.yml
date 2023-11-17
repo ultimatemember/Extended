@@ -17,10 +17,8 @@ jobs:
         mkdir -p assets
         for folder in src/* ; do
             ext_dir=$(basename "${folder}")
-            [ -d $folder ] && zip -r "assets/${ext_dir%/}" "src/${ext_dir%/}"
+            [ -d $folder ] && cd "src/${ext_dir%/}" && composer install && zip -r "../../assets/${ext_dir%/}" "${ext_dir%/}" && cd ../../
         done
-        cd assets && ls -l
-        cd ../
         zip -r assets.zip assets/
     - name: Create Release
       id: create_release
