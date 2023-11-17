@@ -16,7 +16,7 @@ jobs:
       run: |
         mkdir -p assets
         for folder in src/* ; do
-            [ -d $folder ] && zip -r "assets/${folder%/}" "${folder%/}"
+            [ -d $folder ] && zip -r "src/${folder%/}" "assets/${folder%/}"
         done
         zip -r assets.zip assets
     - name: Create Release
