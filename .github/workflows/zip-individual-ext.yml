@@ -22,6 +22,7 @@ jobs:
             cd ../
         done
         cd assets && ls -l
+        cd ../
         zip -r assets.zip assets/
     - name: Create Release
       id: create_release
