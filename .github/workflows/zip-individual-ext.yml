@@ -14,10 +14,11 @@ jobs:
       uses: actions/checkout@v2
     - name: Build project
       run: |
-        mkdir -p assets
+        mkdir -p ~/assets
         for folder in src/* ; do
             [ -d $folder ] && zip -r "${folder%/}" "${folder%/}"
-            mv ${folder%/} ~/assets/
+            file=${$(basename $folder)%.zip}
+            mv $file ~/assets/
         done
         zip -r assets.zip ~/assets/
     - name: Create Release
@@ -38,5 +39,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
         asset_path: ./assets.zip
-        asset_name: assets.zip
+        asset_name: Individual-Extensions.zip
         asset_content_type: application/zip
