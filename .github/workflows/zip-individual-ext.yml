@@ -18,11 +18,11 @@ jobs:
         for folder in src/* ; do
             cd src
             ext_dir=$(basename "${folder}")
-            [ -d $folder ] && zip -r "~/assets/${ext_dir%/}" "${ext_dir%/}"
-            ls -l
+            [ -d $folder ] && zip -r "${ext_dir%/}" "../assets/${ext_dir%/}"
             cd ../
         done
-        zip -r assets.zip ~/assets/
+        cd assets && ls -l
+        zip -r assets.zip assets/
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
