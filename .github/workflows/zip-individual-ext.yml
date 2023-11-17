@@ -19,6 +19,7 @@ jobs:
             cd src
             ext_dir=$(basename "${folder}")
             [ -d $folder ] && zip -r "${ext_dir%/}" "${ext_dir%/}"
+            ls -l
             cd ../
             mv "~/${folder}.zip" ~/assets/
         done
