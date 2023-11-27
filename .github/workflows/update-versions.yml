@@ -27,6 +27,6 @@ jobs:
       - name: Run step if any of the listed files above change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
         run: |
-         for file in ${{ steps.changed-files-specific.outputs.any_changed }}; do
-         echo "$file was modified"
+         for file in ${{ steps.changed-files.outputs.added_files }}; do
+          echo "$file was added"
          done
