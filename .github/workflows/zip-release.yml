@@ -28,22 +28,6 @@ jobs:
         git submodule update --init
         git rm -r -f --cached src/um-wpcli
         rm -rf .git/modules/src/um-wpcli
-    - name: Update versions
-      id: changed-files-specific
-      uses: tj-actions/changed-files@v40
-      with:
-        files: |
-          src/**
-        dir_names: "true"
-    - name: Run step if any of the listed files above change
-      if: steps.changed-files-specific.outputs.any_changed == 'true'
-      run: |
-        for file in ${{ steps.changed-files-specific.outputs.all_changed_and_modified_files }}; do
-        php build/increment-versions.php "$file"
-        done
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git commit -a -m "Update Extension Versions"
     - name: Add UM-WPCLI
       run: | 
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
