@@ -1,0 +1,15 @@
+name: Main Workflow Init
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+    call-workflow1:
+        uses: ./.github/workflows/increment-version.yml
+    call-workflow2:
+        needs: call-workflow1
+        uses: ./.github/workflows/zip-release.yml
