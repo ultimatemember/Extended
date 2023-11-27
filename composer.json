@@ -18,9 +18,6 @@
         ],
         "helpscout_sync": [
             "php docs/ultimatemember/helpscout.php"
-        ],
-        "update_version": [
-            "php build/increment-versions.php"
         ]
     },
     "autoload": {
