@@ -12,6 +12,18 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+    - name: Get changed files
+      id: changed-files-specific
+      uses: tj-actions/changed-files@v40
+      with:
+        files: |
+          src/**
+    - name: Run step if any of the listed files above change
+      if: steps.changed-files-specific.outputs.any_changed == 'true'
+      run: |
+        for file in ${{ steps.changed-files-specific.outputs.any_changed }}; do
+          echo "$file was modified"
+        done
     - name: Build project
       run: |
         mkdir -p assets
