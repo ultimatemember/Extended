@@ -6,5 +6,6 @@ node_modules
 *.env.live
 docs/
 phpcs.xml
-build
+build/*
+!build/increment-versions.php
 src/um-wpcli/*
