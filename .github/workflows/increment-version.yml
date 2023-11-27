@@ -1,0 +1,43 @@
+name: Increment Extension Versions
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Submodules
+      uses: actions/checkout@v4
+    - name: Install PHP
+      uses: "shivammathur/setup-php@v2"
+      with:
+        php-version: "latest"
+    - name: Update versions & Commit files
+      id: changed-files-specific
+      uses: tj-actions/changed-files@v40
+      with:
+        files: |
+          src/**
+        dir_names: "true"
+    - name: Run step if any of the listed files above change
+      if: steps.changed-files-specific.outputs.any_changed == 'true'
+      run: |
+        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        for file in ${{ steps.changed-files-specific.outputs.all_changed_and_modified_files }}; do
+        php build/increment-versions.php "$file"
+        git commit -a -m "Update Version for $file"
+        done
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.UM_EXTENDED_ACTION_SECRET }}
+        branch: main
+        repository: ultimatemember/Extended
+        force: true
