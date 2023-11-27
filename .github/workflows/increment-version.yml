@@ -35,6 +35,7 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
       with:
+        branch-suffix: timestamp
         title: Bump Plugin Versions
         body: |
           Updated the plugin version(s) of the following extension(s):
@@ -44,3 +45,5 @@ jobs:
         labels: |
           plugin-version-bumped
           automated pr
+        assignees: champsupertramp
+        reviewers: champsupertramp
