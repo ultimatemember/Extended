@@ -3,7 +3,7 @@
  * Plugin Name: Ultimate Member - Fields Character and Words Counter
  * Plugin URI: https://www.ultimatemember.com
  * Description: Adds a counter for character and words length in textbox and textarea fields
- * Version: 1.0.3
+ * Version: 1.0.4
  * Author: Ultimate Member Ltd.
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-fields-counter
