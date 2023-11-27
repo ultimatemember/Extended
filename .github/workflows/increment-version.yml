@@ -32,6 +32,12 @@ jobs:
         php build/increment-versions.php "$file"
         git commit -a -m "Bump Plugin Version of $file"
         done
+    - name: Summaries Updated Plugins
+      id: um-plugins
+      run: |
+        for file in ${{ steps.changed-files-specific.outputs.all_changed_and_modified_files }}; do
+          echo "UPDATED_PLUGINS=$file" >> "$GITHUB_OUTPUT"
+        done
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
       with:
@@ -39,9 +45,7 @@ jobs:
         title: Bump Plugin Versions
         body: |
           Updated the plugin version(s) of the following extension(s):
-          for file in ${{ steps.changed-files-specific.outputs.all_changed_and_modified_files }}; do
-          - "$file"
-          done
+            ${{ steps.um-plugins.outputs.UPDATED_PLUGINS }}
         labels: |
           plugin-version-bumped
           automated pr
