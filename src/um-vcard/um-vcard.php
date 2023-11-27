@@ -30,9 +30,7 @@ if ( ! function_exists( 'um_extended_vcard_loading_allowed' ) ) {
 
 		// Search for ultimate-member plugin name.
 		if ( ! is_plugin_active( 'ultimate-member/ultimate-member.php' ) ) {
-
 			add_action( 'admin_notices', 'um_extended_vcard_ultimatemember_requirement_notice' );
-
 			return false;
 		}
 
