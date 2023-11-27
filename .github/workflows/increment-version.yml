@@ -34,3 +34,13 @@ jobs:
         done
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
+      with:
+        title: Bump Plugin Versions
+        body: |
+          Updated the plugin version(s) of the following extension(s):
+          for file in ${{ steps.changed-files-specific.outputs.all_changed_and_modified_files }}; do
+          - "$file"
+          done
+        labels: |
+          plugin-version-bumped
+          automated pr
