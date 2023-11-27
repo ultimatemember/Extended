@@ -32,6 +32,7 @@ jobs:
         git commit -a -m "Update Version for $file"
         done
     - name: Push changes
+      if: steps.changed-files-specific.outputs.any_changed == 'true'
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.UM_EXTENDED_ACTION_SECRET }}
