@@ -39,9 +39,7 @@ jobs:
         title: Bump Plugin Versions
         body: |
           Updated the plugin version(s) of the following extension(s):
-            - ${{ join( steps.changed-files-specific.outputs.all_changed_and_modified_files , '\n - ' ) }}
+            - ${{ join( steps.changed-files-specific.outputs.all_changed_and_modified_files , ', ' ) }}
         labels: |
           plugin-version-bumped
-          automated pr
         assignees: champsupertramp
-        reviewers: champsupertramp
