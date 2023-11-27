@@ -3,8 +3,8 @@
  * Plugin Name: Ultimate Member - Schedule User Deletions with WP Cronjob
  * Plugin URI: http://ultimatemember.com/
  * Description: Deletes users by status after X number of days/months/years
- * Version: 1.0.1
- * Author: UM Devs
+ * Version: 1.0.2
+ * Author: Ultimate Member Group Ltd.
  * Author URI: https://ultimatemember.com
  * UM version: 2.6.12
  *
