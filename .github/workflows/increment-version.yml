@@ -35,9 +35,11 @@ jobs:
     - name: Summaries Updated Plugins
       id: um-plugins
       run: |
+        BUMPED_PLUGINS=''
         for file in ${{ steps.changed-files-specific.outputs.all_changed_and_modified_files }}; do
-          echo "UPDATED_PLUGINS=$file" >> "$GITHUB_OUTPUT"
+          BUMPED_PLUGINS+="$file"
         done
+        echo "UPDATED_PLUGINS=$BUMPED_PLUGINS" >> "$GITHUB_OUTPUT"
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v5
       with:
