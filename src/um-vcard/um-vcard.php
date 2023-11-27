@@ -3,7 +3,7 @@
  * Plugin Name: Ultimate Member - VCard
  * Plugin URI: https://www.ultimatemember.com
  * Description: Adds a predefined field to generate VCard for users to download from their profiles.
- * Version: 2.0.2
+ * Version: 2.0.3
  * Author: Ultimate Member Ltd.
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-vcard
