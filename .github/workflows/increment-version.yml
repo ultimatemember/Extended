@@ -37,7 +37,7 @@ jobs:
       run: |
         BUMPED_PLUGINS=''
         for file in ${{ steps.changed-files-specific.outputs.all_changed_and_modified_files }}; do
-          BUMPED_PLUGINS+="- $file \n"
+          BUMPED_PLUGINS+="- $file"$'\n'
         done
         echo "UPDATED_PLUGINS=$BUMPED_PLUGINS" >> "$GITHUB_OUTPUT"
     - name: Create Pull Request
