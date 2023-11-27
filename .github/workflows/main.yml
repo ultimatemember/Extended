@@ -9,6 +9,7 @@ jobs:
         steps:
           - uses: actions/checkout@v3
     call-workflow1:
+        if: github.actor != 'github-actions[bot]' 
         uses: ./.github/workflows/increment-version.yml
     call-workflow2:
         needs: call-workflow1
