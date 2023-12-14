@@ -3,7 +3,7 @@
  * Plugin Name: Ultimate Member - User Meta Shortcodes
  * Plugin URI: http://ultimatemember.com/
  * Description: Adds a shortcode functionality to render User Meta data in Pages/Posts
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: UM Devs
  * Author URI: https://ultimatemember.com
  * UM version: 2.6.12
