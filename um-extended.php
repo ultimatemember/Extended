@@ -3,7 +3,7 @@
  * Plugin Name: Ultimate Member - Extended Features & Functionalities
  * Plugin URI: https://www.ultimatemember.com/
  * Description: Extended features & functionalities of Ultimate Member
- * Version: 2.0.3
+ * Version: 2.0.4
  * Author: Ultimate Member Group Ltd.
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-extended
