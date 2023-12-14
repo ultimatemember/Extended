@@ -3,7 +3,7 @@
  * Plugin Name: Ultimate Member - Set Password
  * Plugin URI: https://www.ultimatemember.com
  * Description: Generates a link for email templates to allow users to set password on account activation/registration.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Ultimate Member Ltd.
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-set-password
