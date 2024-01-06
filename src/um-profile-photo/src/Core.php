@@ -18,7 +18,6 @@ class Core {
 	 * Init
 	 */
 	public function __construct() {
-		// add_filter( 'um_user_pre_updating_files_array', array( $this, 'update_files' ) );
 		add_filter( 'um_predefined_fields_hook', array( $this, 'predefined_fields' ), 99999, 1 );
 		add_filter( 'um_core_fields_hook', array( $this, 'modify_field_option' ) );
 		add_filter( 'um_image_upload_handler_overrides__register_profile_photo', array( $this, 'upload_handler' ), 99999 );
@@ -30,7 +29,6 @@ class Core {
 		add_action( 'template_redirect', array( $this, 'set_temp_user_id' ) );
 		add_action( 'wp_footer', array( $this, 'profile_photo_script' ) );
 		add_action( 'wp_ajax_um_remove_file', array( $this, 'delete_profile_photo_from_account' ), 1 );
-
 	}
 
 	/**
@@ -86,7 +84,6 @@ class Core {
 		</p>
 			<?php
 		}
-
 	}
 
 	/**
@@ -103,7 +100,6 @@ class Core {
 		</p>
 			<?php
 		}
-
 	}
 
 	/**
@@ -212,10 +208,9 @@ class Core {
 			delete_user_meta( $user_id, 'synced_profile_photo' );
 			update_user_meta( $user_id, 'profile_photo', "profile_photo.{$ext}" );
 			update_user_meta( $user_id, 'register_profile_photo', "profile_photo.{$ext}" );
-			unlink( $temp_image_path );
+			wp_delete_file( $temp_image_path );
 
 		}
-
 	}
 
 	/**
@@ -227,7 +222,6 @@ class Core {
 		if ( ! $temp_profile_id ) {
 			setcookie( 'um-register-profile-photo', md5( time() ), time() + 3600, COOKIEPATH, COOKIE_DOMAIN );
 		}
-
 	}
 
 	/**
