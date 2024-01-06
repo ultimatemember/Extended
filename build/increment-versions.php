@@ -24,6 +24,9 @@ if( isset( $argv ) && is_array( $argv ) ) {
 
 
 function get_file_data( $file, $context = '' ) {
+    if( empty(  $file ) ) {
+        return array();
+    }
 	// Pull only the first 8 KB of the file in.
 	$file_data = file_get_contents( $file );
 
