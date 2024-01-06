@@ -40,19 +40,20 @@
             "UM_Extended_User_Shortcode\\": "src/um-user-shortcode/src/",
             "UM_Extended_Vcard\\": "src/um-vcard/src/",
             "UM_Extended_Yoast_Seo\\": "src/um-yoast-seo/src/",
-            "UM_WPCLI\\": "src/um-wpcli/src/"
+            "UM_WPCLI\\": "src/um-wpcli/src/",
+            "UM_Extended_Profile_Slug\\": "src/um-profile-slug/src/"
         }
     },
     "repositories": [
         {
-          "type": "vcs",
-          "url": "https://github.com/champsupertramp/phpdoc-vuepress"
+            "type": "vcs",
+            "url": "https://github.com/champsupertramp/phpdoc-vuepress"
         },
         {
-          "type": "vcs",
-          "url": "https://github.com/champsupertramp/html-to-markdown"
+            "type": "vcs",
+            "url": "https://github.com/champsupertramp/html-to-markdown"
         }
-     ],
+    ],
     "require-dev": {
         "wp-cli/wp-cli": "*",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
@@ -65,7 +66,6 @@
         "champsupertramp/html-to-markdown": "dev-master",
         "vlucas/phpdotenv": "^5.5",
         "league/html-to-markdown": "^5.1"
-        
     },
     "config": {
         "allow-plugins": {
