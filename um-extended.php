@@ -173,7 +173,7 @@ final class UM_Extended {
 			}
 
 			if ( class_exists( $class_name ) ) {
-				$this->funcs[ $func_name ] = function() use ( $class_name, $slug ) {
+				$this->funcs[ $func_name ] = function () use ( $class_name, $slug ) {
 
 					if ( ! isset( $this->classes[ $slug ] ) ) {
 						$this->classes[ $slug ] = new $class_name( __FILE__ );
@@ -182,13 +182,10 @@ final class UM_Extended {
 				};
 
 				call_user_func( array( $this, $func_name ) );
-			} else {
-				if ( ! defined( 'WP_CLI' ) ) {
+			} elseif ( ! defined( 'WP_CLI' ) ) {
 					wp_die( esc_attr( 'Invalid Class Name: ' . $class_name ) );
-				}
 			}
 		}
-
 	}
 
 	/**

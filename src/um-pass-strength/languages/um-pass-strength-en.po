@@ -1,0 +1,241 @@
+# Copyright (C) 2024 Ultimate Member
+# This file is distributed under the same license as the Ultimate Member - Password Strength Meter plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Ultimate Member - Password Strength Meter 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/um-pass-strength\n"
+"POT-Creation-Date: 2024-01-06T07:07:59+00:00\n"
+"PO-Revision-Date: 2024-01-06 15:11+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.2\n"
+"X-Domain: um-pass-strength\n"
+
+#. Plugin Name of the plugin
+msgid "Ultimate Member - Password Strength Meter"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://ultimatemember.com/extensions/yoast/"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"Displays password strength meter in Register, Reset Password and Change "
+"Password forms."
+msgstr ""
+
+#. Author of the plugin
+msgid "Ultimate Member"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://ultimatemember.com/"
+msgstr ""
+
+#: src/Core.php:69
+msgid "Straight rows of keys on your keyboard are easy to guess."
+msgstr ""
+
+#: src/Core.php:70
+msgid "Short keyboard patterns are easy to guess."
+msgstr ""
+
+#: src/Core.php:71
+msgid "Repeated characters like 'aaa' are easy to guess."
+msgstr ""
+
+#: src/Core.php:72
+msgid "Repeated character patterns like 'abcabcabc' are easy to guess."
+msgstr ""
+
+#: src/Core.php:73
+msgid "Common character sequences like 'abc' are easy to guess."
+msgstr ""
+
+#: src/Core.php:74
+msgid "Recent years are easy to guess."
+msgstr ""
+
+#: src/Core.php:75
+msgid "Dates are easy to guess."
+msgstr ""
+
+#: src/Core.php:76
+msgid "This is a heavily used password."
+msgstr ""
+
+#: src/Core.php:77
+msgid "This is a frequently used password."
+msgstr ""
+
+#: src/Core.php:78
+msgid "This is a commonly used password."
+msgstr ""
+
+#: src/Core.php:79
+msgid "This is similar to a commonly used password."
+msgstr ""
+
+#: src/Core.php:80
+msgid "Single words are easy to guess."
+msgstr ""
+
+#: src/Core.php:81
+msgid "Single names or surnames are easy to guess."
+msgstr ""
+
+#: src/Core.php:82
+msgid "Common names and surnames are easy to guess."
+msgstr ""
+
+#: src/Core.php:83
+msgid "There should not be any personal or page related data."
+msgstr ""
+
+#: src/Core.php:84
+msgid "Your password was exposed by a data breach on the Internet."
+msgstr ""
+
+#: src/Core.php:87
+msgid "Avoid predictable letter substitutions like '@' for 'a'."
+msgstr ""
+
+#: src/Core.php:88
+msgid "Avoid reversed spellings of common words."
+msgstr ""
+
+#: src/Core.php:89
+msgid "Capitalize some, but not all letters."
+msgstr ""
+
+#: src/Core.php:90
+msgid "Capitalize more than the first letter."
+msgstr ""
+
+#: src/Core.php:91
+msgid "Avoid dates and years that are associated with you."
+msgstr ""
+
+#: src/Core.php:92
+msgid "Avoid recent years."
+msgstr ""
+
+#: src/Core.php:93
+msgid "Avoid years that are associated with you."
+msgstr ""
+
+#: src/Core.php:94
+msgid "Avoid common character sequences."
+msgstr ""
+
+#: src/Core.php:95
+msgid "Avoid repeated words and characters."
+msgstr ""
+
+#: src/Core.php:96
+msgid ""
+"Use longer keyboard patterns and change typing direction multiple times."
+msgstr ""
+
+#: src/Core.php:97
+msgid "Add more words that are less common."
+msgstr ""
+
+#: src/Core.php:98
+msgid "Use multiple words, but avoid common phrases."
+msgstr ""
+
+#: src/Core.php:99
+msgid ""
+"You can create strong passwords without using symbols, numbers, or uppercase "
+"letters."
+msgstr ""
+
+#: src/Core.php:100
+msgid "If you use this password elsewhere, you should change it."
+msgstr ""
+
+#: src/Core.php:103
+msgid "less than a second"
+msgstr ""
+
+#: src/Core.php:104
+msgid "{base} second"
+msgstr ""
+
+#: src/Core.php:105
+msgid "{base} seconds"
+msgstr ""
+
+#: src/Core.php:106
+msgid "{base} minute"
+msgstr ""
+
+#: src/Core.php:107
+msgid "{base} minutes"
+msgstr ""
+
+#: src/Core.php:108
+msgid "{base} hour"
+msgstr ""
+
+#: src/Core.php:109
+msgid "{base} hours"
+msgstr ""
+
+#: src/Core.php:110
+msgid "{base} day"
+msgstr ""
+
+#: src/Core.php:111
+msgid "{base} days"
+msgstr ""
+
+#: src/Core.php:112
+msgid "{base} month"
+msgstr ""
+
+#: src/Core.php:113
+msgid "{base} months"
+msgstr ""
+
+#: src/Core.php:114
+msgid "{base} year"
+msgstr ""
+
+#: src/Core.php:115
+msgid "{base} years"
+msgstr ""
+
+#: src/Core.php:116
+msgid "centuries"
+msgstr ""
+
+#: assets/js/um-pass-strength.js:14524 resources/js/app.js:19
+msgid "Worst ☹"
+msgstr ""
+
+#: assets/js/um-pass-strength.js:14525 resources/js/app.js:20
+msgid "Bad ☹"
+msgstr ""
+
+#: assets/js/um-pass-strength.js:14526 resources/js/app.js:21
+msgid "Weak ☹"
+msgstr ""
+
+#: assets/js/um-pass-strength.js:14527 resources/js/app.js:22
+msgid "Good ☺"
+msgstr ""
+
+#: assets/js/um-pass-strength.js:14528 resources/js/app.js:23
+msgid "Strong 💪"
+msgstr ""
+
+#: assets/js/um-pass-strength.js:14566 resources/js/app.js:70
+msgid "Strength"
+msgstr ""

@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Ultimate Member - Password Strength Meter
- * Plugin URI: https://ultimatemember.com/extensions/yoast/
+ * Plugin URI: https://ultimatemember.github.io/docs-v3/extended/article/1780-password-strength-estimator.html
  * Description: Displays password strength meter in Register, Reset Password and Change Password forms.
  * Version: 1.0
  * Author: Ultimate Member
@@ -18,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'UM_EXTENDED_PSWD_STRENGTH_METER_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'UM_EXTENDED_PSWD_STRENGTH_METER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+
 
 if ( ! function_exists( 'um_extended_password_strength_meter_loading_allowed' ) ) {
 	/**
@@ -86,6 +88,7 @@ if ( ! function_exists( 'um_extended_password_strength_meter_loading_allowed' ) 
 	}
 }
 
+
 /**
  * Global function-holder. Works similar to a singleton's instance().
  *
@@ -94,6 +97,7 @@ if ( ! function_exists( 'um_extended_password_strength_meter_loading_allowed' ) 
  * @return UM_Extended_Cover_Photo\Core
  */
 function um_extended_password_strength_meter_plugin() {
+
 	/**
 	 * Load core class
 	 *
