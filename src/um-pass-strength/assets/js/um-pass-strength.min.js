@@ -14557,7 +14557,7 @@ function um_pass_strength_validate(val) {
     result.feedback.warning = "";
   }
   if (result.feedback.suggestions.length > 0 && um_pass_strength.show_suggestions) {
-    result.feedback.suggestions = "<div class='suggestions'><span class='um-faicon-info-circle'></span> " + result.feedback.suggestions + "</div>";
+    result.feedback.suggestions = "<div class='suggestions'><span class='um-faicon-info-circle'></span> " + result.feedback.suggestions.join('<br/><span class=\'um-faicon-info-circle\'></span> ') + "</div>";
   } else {
     result.feedback.suggestions = "";
   }

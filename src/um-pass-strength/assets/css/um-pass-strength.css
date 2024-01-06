@@ -73,5 +73,5 @@ meter#um-sp-password-strength-meter[value="4"]::-moz-meter-bar {
 }
 
 #um-sp-password-strength-text .feedback .warning, #um-sp-password-strength-text .feedback .suggestions {
-  padding: 5px;
+  padding: 0px;
 }
