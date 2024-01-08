@@ -8,7 +8,7 @@
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-extended-profile-slug
  *
- * @package UM_Extended_Profile-slug
+ * @package UM_Extended_Profile_Slug
  */
 
 define( 'UM_EXTENDED_PROFILE_SLUG_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );

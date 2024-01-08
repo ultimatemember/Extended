@@ -14,6 +14,9 @@ if( isset( $argv ) && is_array( $argv ) ) {
             }
             $new_version = implode( ".", $new_version );
 
+            if ( empty( $file ) ) {
+                continue;
+            }
             $str = file_get_contents($file);
             $str = str_replace( "Version: " . $current_version, "Version: " . $new_version, $str);
             file_put_contents($file, $str);
