@@ -19,6 +19,7 @@ class Core {
 	public function __construct() {
 
 		add_action( 'init', array( $this, 'rewrite_rules' ), 1 );
+		add_action( 'template_redirect', array( $this, 'redirect' ) );
 	}
 
 	/**
@@ -32,6 +33,8 @@ class Core {
 		global $wp;
 		$wp->add_query_var( 'um_uid' );
 		$wp->add_query_var( 'um_profile_tab' );
+		$wp->add_query_var( 'subnav' );
+		add_rewrite_rule( $profile_page_slug . '/([~a-z0%-9-]+)/([~a-z0%-9-]+)/([~a-z0%-9-]+)?', 'index.php?pagename=' . $profile_page_slug . '&um_user=$matches[1]&profiletab=$matches[2]&subnav=$matches[3]', 'top' );
 		add_rewrite_rule( $profile_page_slug . '/([~a-z0%-9-]+)/([~a-z0%-9-]+)/?', 'index.php?pagename=' . $profile_page_slug . '&um_user=$matches[1]&profiletab=$matches[2]', 'top' );
 
 		$tabs = UM()->profile()->tabs_active();
@@ -46,6 +49,46 @@ class Core {
 					return um_user_profile_url() . $tab_id;
 				}
 			);
+
+			if ( isset( $tab_data['subnav'] ) ) {
+				foreach ( $tab_data['subnav'] as $id_s => $subtab ) {
+					add_filter(
+						'um_user_profile_subnav_link',
+						function ( $subnav_link, $id_s, $subtab ) use ( $tab_id ) {
+							return um_user_profile_url() . $tab_id . '/' . $id_s;
+						},
+						10,
+						3
+					);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Redirect to formatted Tab Slug
+	 */
+	public function redirect() {
+		global $wp;
+		if ( isset( $_REQUEST['profiletab'] ) || isset( $_REQUEST['subnav'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+			$profiletab        = ! empty( $_REQUEST['profiletab'] ) ? sanitize_key( $_REQUEST['profiletab'] ) : get_query_var( 'profiletab' ); // phpcs:ignore WordPress.Security.NonceVerification
+			$subnav            = ! empty( $_REQUEST['subnav'] ) ? sanitize_key( $_REQUEST['subnav'] ) : get_query_var( 'subnav' ); // phpcs:ignore WordPress.Security.NonceVerification
+			$profile_page_slug = get_post_field( 'post_name', UM()->config()->permalinks['user'] );
+			$arr               = explode( '/', home_url( $profile_page_slug . '/' . get_query_var( 'um_user' ) ) );
+			$permalink         = implode( '/', array_unique( $arr ) ) . '/' . $profiletab;
+
+			if ( ! empty( $subnav ) ) {
+				$permalink = $permalink . '/' . $subnav;
+			}
+
+			$parse_request = array_map( 'esc_attr', $_REQUEST ); // phpcs:ignore WordPress.Security.NonceVerification
+			unset( $parse_request['profiletab'] );
+			unset( $parse_request['subnav'] );
+
+			$permalink = add_query_arg( $parse_request, $permalink );
+
+			wp_safe_redirect( $permalink );
+
 		}
 	}
 
