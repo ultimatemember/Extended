@@ -55,6 +55,8 @@ class Core {
 					add_filter(
 						'um_user_profile_subnav_link',
 						function ( $subnav_link, $id_s, $subtab ) use ( $tab_id ) {
+							$subnav_link;
+							$subtab;
 							return um_user_profile_url() . $tab_id . '/' . $id_s;
 						},
 						10,
