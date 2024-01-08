@@ -3,7 +3,7 @@
  * Plugin Name: Ultimate Member - Profile Tabs' Slugs
  * Plugin URI: https://www.ultimatemember.com/
  * Description: Modify the Profile Tabs permalinks with a name format
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Ultimate Member
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-extended-profile-slug
