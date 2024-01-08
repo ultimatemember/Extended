@@ -1,0 +1,17 @@
+{
+  "name": "kmlpandey77/math-captcha",
+  "description": "A Simple PHP Math Captcha",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kamal Pandey",
+      "email": "kml.pandey77@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Kmlpandey77\\MathCaptcha\\": "src/"
+    }
+  },
+  "require": {}
+}
