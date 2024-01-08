@@ -3,7 +3,12 @@
 if( isset( $argv ) && is_array( $argv ) ) {
     foreach( $argv as $index => $dir ) {
         if( is_dir( $dir ) && strpos( $dir, "src/" ) > -1 ) {
-            $file = glob( $dir . '/um-*.php', GLOB_BRACE )[0];
+            $file = glob( $dir . '/um-*.php', GLOB_BRACE );
+            if( ! empty( $file ) ) {
+                $file = $file[0];
+            } else {
+                continue;
+            }
             $name = basename( $dir );
             $slug = $name;
             $plugin_metadata = get_file_data( $file );
