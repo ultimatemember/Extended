@@ -91,7 +91,7 @@ if ( ! function_exists( 'um_extended_profile_slug_loading_allowed' ) ) {
  *
  * @since 1.0.0
  *
- * @return UM_Extended_Profile_slug\Core
+ * @return UM_Extended_Profile_Slug\Core
  */
 function um_extended_profile_slug_plugin() {
 	/**
@@ -102,7 +102,7 @@ function um_extended_profile_slug_plugin() {
 	static $core;
 
 	if ( ! isset( $core ) ) {
-		$core = new \UM_Extended_Profile_slug\Core();
+		$core = new \UM_Extended_Profile_Slug\Core();
 	}
 
 	return $core;
