@@ -65,7 +65,7 @@ class Core {
 	 * Enqueue Assets
 	 */
 	public function enqueue_assets() {
-		wp_enqueue_script( 'um-pass-strength', $this->plugin_url() . 'assets/js/um-pass-strength.min.js', array( 'um_scripts', 'jquery' ), '1.0.0', true );
+		wp_enqueue_script( 'um-pass-strength', $this->plugin_url() . 'assets/js/um-pass-strength.min.js', array( 'um_scripts', 'jquery', 'wp-i18n' ), '1.0.0', true );
 		wp_enqueue_style( 'um-pass-strength', $this->plugin_url() . 'assets/css/um-pass-strength.min.css', array(), '1.0.0' );
 
 		$translations = array(
@@ -119,6 +119,14 @@ class Core {
 				'years'     => __( '{base} years', 'um-pass-strength' ),
 				'centuries' => __( 'centuries', 'um-pass-strength' ),
 			),
+			'strength'       => array(
+				__( 'Worst ☹', 'um-pass-strength' ),
+				__( 'Bad ☹', 'um-pass-strength' ),
+				__( 'Weak ☹', 'um-pass-strength' ),
+				__( 'Good ☺', 'um-pass-strength' ),
+				__( 'Strong 💪', 'um-pass-strength' ),
+			),
+			'strength_label' => __( 'Strength', 'um-pass-strength' ),
 		);
 
 		wp_localize_script(

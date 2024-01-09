@@ -23,11 +23,13 @@ mix.webpackConfig((webpack) => {
          new webpack.ProvidePlugin({
             $: "jquery",
             jQuery: "jquery",
-            "window.jQuery": "jquery"
+            "window.jQuery": "jquery",
          })
-      ]
+      ],
    };
 });
+
+
 
 mix.setPublicPath(path.resolve("./")); // Fix path for standalone
 
