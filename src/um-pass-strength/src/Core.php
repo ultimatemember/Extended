@@ -63,6 +63,8 @@ class Core {
 	}
 	/**
 	 * Enqueue Assets
+	 *
+	 * @since 1.0.1
 	 */
 	public function enqueue_assets() {
 		wp_enqueue_script( 'um-pass-strength', $this->plugin_url() . 'assets/js/um-pass-strength.min.js', array( 'um_scripts', 'jquery', 'wp-i18n' ), '1.0.0', true );
