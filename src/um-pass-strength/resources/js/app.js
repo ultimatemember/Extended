@@ -2,7 +2,6 @@
 import { zxcvbn, zxcvbnOptions } from '@zxcvbn-ts/core'
 import * as zxcvbnCommonPackage from '@zxcvbn-ts/language-common'
 import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en'
-const { __ } = wp.i18n;
 
 const options = {
   translations: um_pass_strength.translations,
@@ -15,13 +14,6 @@ const options = {
 
 zxcvbnOptions.setOptions(options)
 
-var strength = {
-	0: __( "Worst ☹", "um-pass-strength" ),
-	1: __( "Bad ☹", "um-pass-strength" ),
-	2: __( "Weak ☹", "um-pass-strength" ),
-	3: __(  "Good ☺", "um-pass-strength" ),
-	4: __( "Strong 💪", "um-pass-strength" ),
-};
 
 var $change_pass_dom = jQuery("#um_field_password_user_password, #um_field_0_user_password");
 var $register_pass_dom = jQuery(".um-register div[data-key='user_password'] .um-field-area, .um-password div[data-key='user_password'] .um-field-area");
@@ -47,6 +39,9 @@ jQuery(".um-register input[data-key='user_password'], .um-password input[data-ke
 });
 
 function um_pass_strength_validate(val) {
+
+	var strength = um_pass_strength.translations.strength;
+
 	var result = zxcvbn(val);
 	var meter = document.getElementById("um-sp-password-strength-meter");
 	var text = document.getElementById("um-sp-password-strength-text");
@@ -67,7 +62,7 @@ function um_pass_strength_validate(val) {
 
 	var $strength_text = "";
 	if (um_pass_strength.show_score) {
-	   $strength_text = __( "Strength", "um-pass-strength" ) + ": <strong>" + strength[result.score] + "</strong>";
+	   $strength_text = um_pass_strength.translations.strength_label + ": <strong>" + strength[result.score] + "</strong>";
 	} else {
 	   strength[result.score] = "";
 	}
