@@ -51,6 +51,9 @@ class Core {
 		// Don't display the field in Edit View.
 		add_filter( 'um_vcard_form_edit_field', '__return_empty_string' );
 
+		// Don't remove the vcard.vcf from the members' folder.
+		add_filter( 'um_can_remove_uploaded_file', array( $this, 'block_removing' ), 10, 3 );
+
 		add_action( 'um_after_user_updated', array( $this, 'generate' ) );
 		add_action( 'um_registration_complete', array( $this, 'generate' ) );
 
@@ -68,6 +71,29 @@ class Core {
 		);
 
 	}
+
+
+	/**
+	 * Don't remove the vcard.vcf file from the members' folder.
+	 *
+	 * @see \um\core\Uploader::remove_unused_uploads()
+	 *
+	 * @param boolean $can_unlink Can unlink or not.
+	 * @param int     $user_id    User ID.
+	 * @param string  $str        File name.
+	 *
+	 * @return boolean
+	 */
+	public function block_removing( $can_unlink, $user_id, $str ) {
+		if ( 'vcard.vcf' === $str  ) {
+			$can_unlink = false;
+		}
+		if ( 0 === strpos( $str, 'vcard-120x120.' )  ) {
+			$can_unlink = false;
+		}
+		return $can_unlink;
+	}
+
 
 	/**
 	 * Generate VCard on profile update
