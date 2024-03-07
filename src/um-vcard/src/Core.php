@@ -60,7 +60,7 @@ class Core {
 		// Remove unused field options.
 		add_filter(
 			'um_core_fields_hook',
-			function( $fields ) {
+			function ( $fields ) {
 				if ( isset( $_REQUEST['arg3'] ) && 'vcard' === $_REQUEST['arg3'] ) { // phpcs:ignore WordPress.Security.NonceVerification
 					$fields['file']['col1'] = array( '_title', '_metakey', '_help', '_visibility' );
 					$fields['file']['col2'] = array( '_label', '_public', '_roles', '_icon' );
@@ -69,7 +69,6 @@ class Core {
 				return $fields;
 			}
 		);
-
 	}
 
 
@@ -85,10 +84,10 @@ class Core {
 	 * @return boolean
 	 */
 	public function block_removing( $can_unlink, $user_id, $str ) {
-		if ( 'vcard.vcf' === $str  ) {
+		if ( 'vcard.vcf' === $str ) {
 			$can_unlink = false;
 		}
-		if ( 0 === strpos( $str, 'vcard-120x120.' )  ) {
+		if ( 0 === strpos( $str, 'vcard-120x120.' ) ) {
 			$can_unlink = false;
 		}
 		return $can_unlink;
@@ -236,7 +235,6 @@ class Core {
 		}
 
 		update_user_meta( $user_id, 'vcard', 'vcard.vcf' );
-
 	}
 
 	/**
@@ -272,6 +270,4 @@ class Core {
 		$big_type = strtoupper( str_replace( 'image/', '', $type ) );
 		return 'data:' . $type . ';ENCODING=b;TYPE=' . $big_type . ':' . base64_encode( $image ); //phpcs:ignore
 	}
-
-
 }
