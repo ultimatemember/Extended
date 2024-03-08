@@ -51,13 +51,16 @@ class Core {
 		// Don't display the field in Edit View.
 		add_filter( 'um_vcard_form_edit_field', '__return_empty_string' );
 
+		// Don't remove the vcard.vcf from the members' folder.
+		add_filter( 'um_can_remove_uploaded_file', array( $this, 'block_removing' ), 10, 3 );
+
 		add_action( 'um_after_user_updated', array( $this, 'generate' ) );
 		add_action( 'um_registration_complete', array( $this, 'generate' ) );
 
 		// Remove unused field options.
 		add_filter(
 			'um_core_fields_hook',
-			function( $fields ) {
+			function ( $fields ) {
 				if ( isset( $_REQUEST['arg3'] ) && 'vcard' === $_REQUEST['arg3'] ) { // phpcs:ignore WordPress.Security.NonceVerification
 					$fields['file']['col1'] = array( '_title', '_metakey', '_help', '_visibility' );
 					$fields['file']['col2'] = array( '_label', '_public', '_roles', '_icon' );
@@ -66,8 +69,30 @@ class Core {
 				return $fields;
 			}
 		);
-
 	}
+
+
+	/**
+	 * Don't remove the vcard.vcf file from the members' folder.
+	 *
+	 * @see \um\core\Uploader::remove_unused_uploads()
+	 *
+	 * @param boolean $can_unlink Can unlink or not.
+	 * @param int     $user_id    User ID.
+	 * @param string  $str        File name.
+	 *
+	 * @return boolean
+	 */
+	public function block_removing( $can_unlink, $user_id, $str ) {
+		if ( 'vcard.vcf' === $str ) {
+			$can_unlink = false;
+		}
+		if ( 0 === strpos( $str, 'vcard-120x120.' ) ) {
+			$can_unlink = false;
+		}
+		return $can_unlink;
+	}
+
 
 	/**
 	 * Generate VCard on profile update
@@ -210,7 +235,6 @@ class Core {
 		}
 
 		update_user_meta( $user_id, 'vcard', 'vcard.vcf' );
-
 	}
 
 	/**
@@ -246,6 +270,4 @@ class Core {
 		$big_type = strtoupper( str_replace( 'image/', '', $type ) );
 		return 'data:' . $type . ';ENCODING=b;TYPE=' . $big_type . ':' . base64_encode( $image ); //phpcs:ignore
 	}
-
-
 }
