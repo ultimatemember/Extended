@@ -99,7 +99,7 @@ class Core {
 
 		add_filter(
 			'um_edit_label_user_password',
-			function( $text ) {
+			function ( $text ) {
 				return __( 'Set your Password', 'um-extended' );
 			}
 		);
