@@ -33,7 +33,7 @@ jobs:
             ext_dir=$(basename "${folder}")
             [ -d $folder ] && cd "src/${ext_dir%/}" && composer install --no-dev && cd ../ && zip -r "../assets/${ext_dir%/}" "${ext_dir%/}"  && cd ../
         done
-        cd ../
+        cd ../../
         ls -a
         zip -r assets.zip assets/
     - name: Create Release
