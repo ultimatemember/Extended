@@ -12,8 +12,18 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
+    - name: Build project for Pre-release
+      if: 'github.event.prerelease'
+      run: |
+        mkdir -p assets
+        for folder in src/* ; do
+            ext_dir=$(basename "${folder}")
+            [ -d $folder ] && cd "src/${ext_dir%/}" && composer install --no-dev && cd ../ && zip -r "../assets/${ext_dir%/}" "${ext_dir%/}" && cd ../
+        done
+        ls -a
+        zip -r assets.zip assets/
     - name: Build project
+      if: '!github.event.prerelease'
       run: |
         mkdir -p assets
         for folder in src/* ; do
