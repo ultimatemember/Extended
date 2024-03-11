@@ -1,4 +1,6 @@
 on:
+  release:
+     types: [published]
   push:
     tags:
     - '*' # Push events to matching v*, i.e. v1.0, v20.15.10
@@ -30,6 +32,7 @@ jobs:
             ext_dir=$(basename "${folder}")
             [ -d $folder ] && cd "src/${ext_dir%/}" && composer install --no-dev && cd ../ && zip -r "../assets/${ext_dir%/}" "${ext_dir%/}" && cd ../
         done
+        cd ~
         ls -a
         zip -r assets.zip assets/
     - name: Create Release
