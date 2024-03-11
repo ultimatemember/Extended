@@ -31,7 +31,7 @@ jobs:
         mkdir -p assets
         for folder in src/* ; do
             ext_dir=$(basename "${folder}")
-            [ -d $folder ] && cd "src/${ext_dir%/}" && composer install --no-dev && cd ../ && zip -r "../assets/${ext_dir%/}" "${ext_dir%/}" 
+            [ -d $folder ] && cd "src/${ext_dir%/}" && composer install --no-dev && cd ../ && zip -r "../assets/${ext_dir%/}" "${ext_dir%/}"  && cd ../
         done
         cd ../
         ls -a
