@@ -1,0 +1,17 @@
+name: Main Workflow Init
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+    call-workflow1:
+        if: 'github.event.prerelease'
+        uses: ./.github/workflows/increment-version.yml
+    call-workflow2:
+        needs: call-workflow1
+        uses: ./.github/workflows/zip-release.yml
+        
