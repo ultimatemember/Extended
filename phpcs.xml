@@ -38,19 +38,11 @@
 		<exclude-pattern>tests/</exclude-pattern>
 	</rule>
 
-	<rule ref="WordPress.Files.FileName.NotHyphenatedLowercase">
-		<exclude-pattern>i18n/</exclude-pattern>
-		<exclude-pattern>src/</exclude-pattern>
-		<exclude-pattern>src/*</exclude-pattern>
-		<exclude-pattern>tests/php</exclude-pattern>
-		<exclude-pattern>tests/Tools/</exclude-pattern>
+	<rule ref="WordPress">
+	<!-- Any of `WordPress|WordPress-Core|WordPress-Docs|WordPress-Extra|WordPress-VIP-Go|WordPressVIPMinimum|10up-Default` -->
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
 	</rule>
-	<rule ref="WordPress.Files.FileName.InvalidClassFileName">
-		<exclude-pattern>i18n/</exclude-pattern>
-		<exclude-pattern>src/</exclude-pattern>
-		<exclude-pattern>src/*</exclude-pattern>
-		<exclude-pattern>tests/php</exclude-pattern>
-		<exclude-pattern>tests/Tools/</exclude-pattern>
-	</rule>
+
 
 </ruleset>
