@@ -7,6 +7,7 @@
  * Author: Ultimate Member Group Ltd.
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-extended
+ * Requires Plugins: ultimate-member
  *
  * @package UM_Extended
  */
