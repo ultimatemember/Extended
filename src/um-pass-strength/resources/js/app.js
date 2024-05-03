@@ -35,6 +35,15 @@ import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en'
 			  j: password.length - 1,
 			})
 		  }
+
+		  if (password.search(/[0-9]/) < 0) {
+			matches.push({
+				pattern: 'requireDigit',
+				token: password,
+				i: 0,
+				j: password.length - 1,
+			 })
+		}
 		return matches
 	  }
 	},
@@ -55,7 +64,12 @@ import * as zxcvbnEnPackage from '@zxcvbn-ts/language-en'
 				warning: um_pass_strength.translations.warnings.minLength,
 				suggestions: new Array(),
 				}
-		}
+			} else if( match.pattern === 'requireDigit' ) {
+				return {
+					warning: um_pass_strength.translations.warnings.requireDigit,
+					suggestions: new Array(),
+					}
+			}
 	
 	},
 	scoring(match) {
@@ -78,6 +92,7 @@ zxcvbnOptions.setOptions(options)
 zxcvbnOptions.addMatcher('minLength', requireUMExtendedMatcher)
 zxcvbnOptions.addMatcher('requireUpperCase', requireUMExtendedMatcher)
 zxcvbnOptions.addMatcher('requireLowerCase', requireUMExtendedMatcher)
+zxcvbnOptions.addMatcher('requireDigit', requireUMExtendedMatcher)
 
 var $change_pass_dom = jQuery("#um_field_password_user_password, #um_field_0_user_password");
 var $register_pass_dom = jQuery(".um-register div[data-key='user_password'] .um-field-area, .um-password div[data-key='user_password'] .um-field-area");

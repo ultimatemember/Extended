@@ -14550,6 +14550,14 @@ var requireUMExtendedMatcher = {
             j: password.length - 1
           });
         }
+        if (password.search(/[0-9]/) < 0) {
+          matches.push({
+            pattern: 'requireDigit',
+            token: password,
+            i: 0,
+            j: password.length - 1
+          });
+        }
         return matches;
       }
     }]);
@@ -14570,6 +14578,11 @@ var requireUMExtendedMatcher = {
         warning: um_pass_strength.translations.warnings.minLength,
         suggestions: new Array()
       };
+    } else if (match.pattern === 'requireDigit') {
+      return {
+        warning: um_pass_strength.translations.warnings.requireDigit,
+        suggestions: new Array()
+      };
     }
   },
   scoring: function scoring(match) {
@@ -14586,6 +14599,7 @@ _zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__["zxcvbnOptions"].setOptions(options
 _zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__["zxcvbnOptions"].addMatcher('minLength', requireUMExtendedMatcher);
 _zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__["zxcvbnOptions"].addMatcher('requireUpperCase', requireUMExtendedMatcher);
 _zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__["zxcvbnOptions"].addMatcher('requireLowerCase', requireUMExtendedMatcher);
+_zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__["zxcvbnOptions"].addMatcher('requireDigit', requireUMExtendedMatcher);
 var $change_pass_dom = jQuery("#um_field_password_user_password, #um_field_0_user_password");
 var $register_pass_dom = jQuery(".um-register div[data-key='user_password'] .um-field-area, .um-password div[data-key='user_password'] .um-field-area");
 var $meter_content = "<meter id='um-sp-password-strength-meter' max='4'><div></div></meter><div id='um-sp-password-strength-text'></div>";
