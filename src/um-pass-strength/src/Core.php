@@ -88,6 +88,9 @@ class Core {
 				'commonNames'       => __( 'Common names and surnames are easy to guess.', 'um-pass-strength' ),
 				'userInputs'        => __( 'There should not be any personal or page related data.', 'um-pass-strength' ),
 				'pwned'             => __( 'Your password was exposed by a data breach on the Internet.', 'um-pass-strength' ),
+				'minLength'         => __( 'Your password is not long enough', 'um-pass-strength' ),
+				'requireUpperCase'  => __( 'Your password must include uppercase letters', 'um-pass-strength' ),
+				'requireLowerCase'  => __( 'Your password must include lowercase letters', 'um-pass-strength' ),
 			),
 			'suggestions'    => array(
 				'l33t'                  => __( 'Avoid predictable letter substitutions like \'@\' for \'a\'.', 'um-pass-strength' ),
