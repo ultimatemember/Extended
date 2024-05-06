@@ -168,9 +168,9 @@ final class UM_Extended {
 			$name      = str_replace( 'Wp_', 'WP_', $name );
 
 			if ( 'wpcli' === $slug ) {
-				$class_name = 'UM_WPCLI\Core';
+				$class_name = '\UM_WPCLI\Core';
 			} else {
-				$class_name = 'UM_Extended_' . $name . '\Core';
+				$class_name = '\UM_Extended_' . $name . '\Core';
 			}
 
 			if ( class_exists( $class_name ) ) {
