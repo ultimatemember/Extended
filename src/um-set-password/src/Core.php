@@ -93,7 +93,7 @@ class Core {
 	public function password_has_changed( $user_id ) {
 		if ( isset( $_REQUEST['set_pass'] ) && 'new_user' === sanitize_key( $_REQUEST['set_pass'] ) ) {  // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 			um_fetch_user( $user_id );
-			UM()->user()->approve( false );
+			UM()->common()->users()->approve( $user_id );
 		}
 		wp_safe_redirect( um_get_core_page( 'login', 'password_set' ) );
 		exit;
