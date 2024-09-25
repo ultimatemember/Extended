@@ -179,7 +179,7 @@ class Core {
 		$temp_image_path = $temp_dir . DIRECTORY_SEPARATOR . $profile_p;
 		$new_image_path  = $user_basedir . DIRECTORY_SEPARATOR . $profile_p;
 
-			$image = wp_get_image_editor( $temp_image_path );
+		$image = wp_get_image_editor( $temp_image_path );
 
 		$file_info = wp_check_filetype_and_ext( $temp_image_path, $profile_p );
 
@@ -187,8 +187,7 @@ class Core {
 
 		$new_image_name = str_replace( $profile_p, "profile_photo.{$ext}", $new_image_path );
 
-		$sizes = UM()->options()->get( 'profile_thumb_sizes' );
-
+		$sizes   = UM()->options()->get( 'photo_thumb_sizes' );
 		$quality = UM()->options()->get( 'image_compression' );
 
 		if ( ! is_wp_error( $image ) ) {
@@ -278,9 +277,9 @@ class Core {
 		?>
 		<script type="text/javascript">
 			jQuery(document).on("ready", function(){
-			setTimeout(() => {
-				var register_profile_photo = jQuery("div[data-key='register_profile_photo']");
-				register_profile_photo.find(".um-field-area").find(".um-single-image-preview").find("img").attr("src", register_profile_photo.data("profile_photo"));
+				setTimeout(() => {
+					var register_profile_photo = jQuery("div[data-key='register_profile_photo']");
+					register_profile_photo.find(".um-field-area").find(".um-single-image-preview").find("img").attr("src", register_profile_photo.data("profile_photo"));
 				}, 1000);
 
 				var account_small_avatar = jQuery(".um-account-meta-img-b").find("a").find("img");
@@ -288,7 +287,7 @@ class Core {
 				jQuery(document).ajaxSuccess(function(event, xhr, settings) {
 					if( typeof settings.data.indexOf !== "undefined" ){
 						if (settings.data.indexOf("action=um_resize_image") > -1) {
-							jQuery(".um-account .um-form form").submit();
+							jQuery('input#register_profile_photo').closest('form').submit();
 						}
 					}
 				});
