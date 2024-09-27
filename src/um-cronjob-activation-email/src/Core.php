@@ -53,7 +53,7 @@ class Core {
 
 			$status = um_user( 'account_status' );
 			if ( 'awaiting_email_confirmation' === $status ) {
-				UM()->common()->users()->send_activation( $user_id );
+				UM()->common()->users()->send_activation( $user_id, true );
 				um_reset_user();
 			}
 		}
