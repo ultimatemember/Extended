@@ -95,7 +95,7 @@ class Core {
 				$field_value = $browser->getUserAgent();
 				break;
 			case 'user_ip_address':
-				$field_value = isset( $_SERVER['REMOTE_ADDR'] ) ? wp_unslash( sanitize_key( $_SERVER['REMOTE_ADDR'] ) ) : '';
+				$field_value = isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( $_SERVER['REMOTE_ADDR'] ) : '';
 				break;
 		}
 
