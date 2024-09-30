@@ -71,7 +71,7 @@ class Core {
 				\UM()->options()->remove( 'blocked_disposable_emails' );
 			}
 
-			update_option( 'um_extended_option_block_disposable_emails',  implode( PHP_EOL, $arr_email_formatted ), false );
+			update_option( 'um_extended_option_block_disposable_emails', implode( PHP_EOL, $arr_email_formatted ), false );
 		}
 	}
 
