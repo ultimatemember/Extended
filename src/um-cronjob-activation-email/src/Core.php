@@ -48,13 +48,9 @@ class Core {
 		$users = get_users( $args );
 
 		foreach ( $users as $user_id ) {
-
-			um_fetch_user( $user_id );
-
-			$status = um_user( 'account_status' );
+			$status = UM()->common()->users()->get_status( $user_id );
 			if ( 'awaiting_email_confirmation' === $status ) {
 				UM()->common()->users()->send_activation( $user_id, true );
-				um_reset_user();
 			}
 		}
 	}
