@@ -48,8 +48,7 @@ class Core {
 		$users = get_users( $args );
 
 		foreach ( $users as $user_id ) {
-			$status = UM()->common()->users()->get_status( $user_id );
-			if ( 'awaiting_email_confirmation' === $status ) {
+			if ( UM()->common()->users()->has_status( $user_id, 'awaiting_email_confirmation' ) ) {
 				UM()->common()->users()->send_activation( $user_id, true );
 			}
 		}
