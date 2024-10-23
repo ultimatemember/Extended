@@ -3,7 +3,7 @@
  * Plugin Name: Ultimate Member - Password Strength Meter
  * Plugin URI: https://ultimatemember.github.io/docs-v3/extended/article/1780-password-strength-estimator.html
  * Description: Displays password strength meter in Register, Reset Password and Change Password forms.
- * Version: 1.0.1
+ * Version: 1.2.0
  * Author: Ultimate Member
  * Author URI: http://ultimatemember.com/
  * Text Domain: um-pass-strength

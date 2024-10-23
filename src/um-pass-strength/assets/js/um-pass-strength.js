@@ -86,25 +86,25 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/Feedback.esm.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/Feedback.esm.js ***!
-  \***********************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Feedback.esm.js":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Feedback.esm.js ***!
+  \****************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Feedback; });
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
-/* harmony import */ var _matcher_bruteforce_feedback_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./matcher/bruteforce/feedback.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/feedback.esm.js");
-/* harmony import */ var _matcher_date_feedback_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./matcher/date/feedback.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/date/feedback.esm.js");
-/* harmony import */ var _matcher_dictionary_feedback_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./matcher/dictionary/feedback.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/feedback.esm.js");
-/* harmony import */ var _matcher_regex_feedback_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./matcher/regex/feedback.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/regex/feedback.esm.js");
-/* harmony import */ var _matcher_repeat_feedback_esm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./matcher/repeat/feedback.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/repeat/feedback.esm.js");
-/* harmony import */ var _matcher_sequence_feedback_esm_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./matcher/sequence/feedback.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/sequence/feedback.esm.js");
-/* harmony import */ var _matcher_spatial_feedback_esm_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./matcher/spatial/feedback.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/spatial/feedback.esm.js");
-/* harmony import */ var _matcher_separator_feedback_esm_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./matcher/separator/feedback.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/separator/feedback.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _matcher_bruteforce_feedback_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./matcher/bruteforce/feedback.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/feedback.esm.js");
+/* harmony import */ var _matcher_date_feedback_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./matcher/date/feedback.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/date/feedback.esm.js");
+/* harmony import */ var _matcher_dictionary_feedback_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./matcher/dictionary/feedback.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/feedback.esm.js");
+/* harmony import */ var _matcher_regex_feedback_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./matcher/regex/feedback.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/regex/feedback.esm.js");
+/* harmony import */ var _matcher_repeat_feedback_esm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./matcher/repeat/feedback.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/repeat/feedback.esm.js");
+/* harmony import */ var _matcher_sequence_feedback_esm_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./matcher/sequence/feedback.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/sequence/feedback.esm.js");
+/* harmony import */ var _matcher_spatial_feedback_esm_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./matcher/spatial/feedback.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/spatial/feedback.esm.js");
+/* harmony import */ var _matcher_separator_feedback_esm_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./matcher/separator/feedback.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/separator/feedback.esm.js");
 
 
 
@@ -192,25 +192,25 @@ class Feedback {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/Matching.esm.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/Matching.esm.js ***!
-  \***********************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Matching.esm.js":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Matching.esm.js ***!
+  \****************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Matching; });
-/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
-/* harmony import */ var _matcher_date_matching_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./matcher/date/matching.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/date/matching.esm.js");
-/* harmony import */ var _matcher_dictionary_matching_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./matcher/dictionary/matching.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/matching.esm.js");
-/* harmony import */ var _matcher_regex_matching_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./matcher/regex/matching.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/regex/matching.esm.js");
-/* harmony import */ var _matcher_repeat_matching_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./matcher/repeat/matching.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/repeat/matching.esm.js");
-/* harmony import */ var _matcher_sequence_matching_esm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./matcher/sequence/matching.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/sequence/matching.esm.js");
-/* harmony import */ var _matcher_spatial_matching_esm_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./matcher/spatial/matching.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/spatial/matching.esm.js");
-/* harmony import */ var _matcher_separator_matching_esm_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./matcher/separator/matching.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/separator/matching.esm.js");
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
+/* harmony import */ var _matcher_date_matching_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./matcher/date/matching.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/date/matching.esm.js");
+/* harmony import */ var _matcher_dictionary_matching_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./matcher/dictionary/matching.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/matching.esm.js");
+/* harmony import */ var _matcher_regex_matching_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./matcher/regex/matching.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/regex/matching.esm.js");
+/* harmony import */ var _matcher_repeat_matching_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./matcher/repeat/matching.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/repeat/matching.esm.js");
+/* harmony import */ var _matcher_sequence_matching_esm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./matcher/sequence/matching.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/sequence/matching.esm.js");
+/* harmony import */ var _matcher_spatial_matching_esm_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./matcher/spatial/matching.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/spatial/matching.esm.js");
+/* harmony import */ var _matcher_separator_matching_esm_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./matcher/separator/matching.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/separator/matching.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
 
 
 
@@ -276,10 +276,10 @@ class Matching {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/Options.esm.js ***!
-  \**********************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js ***!
+  \***************************************************************************************************/
 /*! exports provided: Options, zxcvbnOptions */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -287,11 +287,11 @@ class Matching {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Options", function() { return Options; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "zxcvbnOptions", function() { return zxcvbnOptions; });
-/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
-/* harmony import */ var _data_l33tTable_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data/l33tTable.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/l33tTable.esm.js");
-/* harmony import */ var _data_translationKeys_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data/translationKeys.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/translationKeys.esm.js");
-/* harmony import */ var _matcher_dictionary_variants_matching_unmunger_TrieNode_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./matcher/dictionary/variants/matching/unmunger/TrieNode.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/TrieNode.esm.js");
-/* harmony import */ var _matcher_dictionary_variants_matching_unmunger_l33tTableToTrieNode_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./matcher/dictionary/variants/matching/unmunger/l33tTableToTrieNode.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/l33tTableToTrieNode.esm.js");
+/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helper.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
+/* harmony import */ var _data_l33tTable_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./data/l33tTable.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/l33tTable.esm.js");
+/* harmony import */ var _data_translationKeys_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./data/translationKeys.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/translationKeys.esm.js");
+/* harmony import */ var _matcher_dictionary_variants_matching_unmunger_TrieNode_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./matcher/dictionary/variants/matching/unmunger/TrieNode.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/TrieNode.esm.js");
+/* harmony import */ var _matcher_dictionary_variants_matching_unmunger_l33tTableToTrieNode_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./matcher/dictionary/variants/matching/unmunger/l33tTableToTrieNode.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/l33tTableToTrieNode.esm.js");
 
 
 
@@ -425,17 +425,17 @@ const zxcvbnOptions = new Options();
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/TimeEstimates.esm.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/TimeEstimates.esm.js ***!
-  \****************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/TimeEstimates.esm.js":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/TimeEstimates.esm.js ***!
+  \*********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TimeEstimates; });
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
 
 
 const SECOND = 1;
@@ -538,10 +538,10 @@ class TimeEstimates {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js ***!
-  \*************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js ***!
+  \******************************************************************************************************/
 /*! exports provided: ALL_DIGIT, ALL_LOWER, ALL_LOWER_INVERTED, ALL_UPPER, ALL_UPPER_INVERTED, ALPHA_INVERTED, BRUTEFORCE_CARDINALITY, DATE_MAX_YEAR, DATE_MIN_YEAR, DATE_SPLITS, END_UPPER, MIN_GUESSES_BEFORE_GROWING_SEQUENCE, MIN_SUBMATCH_GUESSES_MULTI_CHAR, MIN_SUBMATCH_GUESSES_SINGLE_CHAR, MIN_YEAR_SPACE, ONE_LOWER, ONE_UPPER, REFERENCE_YEAR, REGEXEN, SEPERATOR_CHARS, SEPERATOR_CHAR_COUNT, START_UPPER */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -569,7 +569,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEPERATOR_CHARS", function() { return SEPERATOR_CHARS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SEPERATOR_CHAR_COUNT", function() { return SEPERATOR_CHAR_COUNT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "START_UPPER", function() { return START_UPPER; });
-/* harmony import */ var _dateSplits_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dateSplits.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/dateSplits.esm.js");
+/* harmony import */ var _dateSplits_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./dateSplits.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/dateSplits.esm.js");
 
 
 const DATE_MAX_YEAR = 2050;
@@ -606,10 +606,10 @@ const SEPERATOR_CHAR_COUNT = SEPERATOR_CHARS.length;
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/data/dateSplits.esm.js":
-/*!******************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/data/dateSplits.esm.js ***!
-  \******************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/dateSplits.esm.js":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/dateSplits.esm.js ***!
+  \***********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -644,10 +644,10 @@ var dateSplits = {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/data/l33tTable.esm.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/data/l33tTable.esm.js ***!
-  \*****************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/l33tTable.esm.js":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/l33tTable.esm.js ***!
+  \**********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -685,10 +685,10 @@ var l33tTable = {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/data/translationKeys.esm.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/data/translationKeys.esm.js ***!
-  \***********************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/translationKeys.esm.js":
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/translationKeys.esm.js ***!
+  \****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -754,10 +754,10 @@ var translationKeys = {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/debounce.esm.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/debounce.esm.js ***!
-  \***********************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/debounce.esm.js":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/debounce.esm.js ***!
+  \****************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -798,10 +798,10 @@ var debounce = ((func, wait, isImmediate) => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/helper.esm.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/helper.esm.js ***!
-  \*********************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/helper.esm.js":
+/*!**************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/helper.esm.js ***!
+  \**************************************************************************************************/
 /*! exports provided: buildRankedDictionary, extend, sorted */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -831,10 +831,10 @@ const buildRankedDictionary = orderedList => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/index.esm.js":
-/*!********************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/index.esm.js ***!
-  \********************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/index.esm.js":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/index.esm.js ***!
+  \*************************************************************************************************/
 /*! exports provided: Options, debounce, zxcvbn, zxcvbnAsync, zxcvbnOptions */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -842,16 +842,16 @@ const buildRankedDictionary = orderedList => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "zxcvbn", function() { return zxcvbn; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "zxcvbnAsync", function() { return zxcvbnAsync; });
-/* harmony import */ var _Matching_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Matching.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Matching.esm.js");
-/* harmony import */ var _scoring_index_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scoring/index.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/scoring/index.esm.js");
-/* harmony import */ var _TimeEstimates_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TimeEstimates.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/TimeEstimates.esm.js");
-/* harmony import */ var _Feedback_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Feedback.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Feedback.esm.js");
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _Matching_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Matching.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Matching.esm.js");
+/* harmony import */ var _scoring_index_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scoring/index.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/index.esm.js");
+/* harmony import */ var _TimeEstimates_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TimeEstimates.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/TimeEstimates.esm.js");
+/* harmony import */ var _Feedback_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Feedback.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Feedback.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "zxcvbnOptions", function() { return _Options_esm_js__WEBPACK_IMPORTED_MODULE_4__["zxcvbnOptions"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Options", function() { return _Options_esm_js__WEBPACK_IMPORTED_MODULE_4__["Options"]; });
 
-/* harmony import */ var _debounce_esm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./debounce.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/debounce.esm.js");
+/* harmony import */ var _debounce_esm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./debounce.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/debounce.esm.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "debounce", function() { return _debounce_esm_js__WEBPACK_IMPORTED_MODULE_5__["default"]; });
 
 
@@ -904,17 +904,17 @@ const zxcvbnAsync = async (password, userInputs) => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/levenshtein.esm.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/levenshtein.esm.js ***!
-  \**************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/levenshtein.esm.js":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/levenshtein.esm.js ***!
+  \*******************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return findLevenshteinDistance; });
-/* harmony import */ var fastest_levenshtein__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fastest-levenshtein */ "./node_modules/fastest-levenshtein/esm/mod.js");
+/* harmony import */ var fastest_levenshtein__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fastest-levenshtein */ "./node_modules/.pnpm/fastest-levenshtein@1.0.16/node_modules/fastest-levenshtein/esm/mod.js");
 
 
 const getUsedThreshold = (password, entry, threshold) => {
@@ -953,10 +953,10 @@ const findLevenshteinDistance = (password, rankedDictionary, threshold) => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/feedback.esm.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/feedback.esm.js ***!
-  \******************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/feedback.esm.js":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/feedback.esm.js ***!
+  \***********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -973,17 +973,17 @@ var bruteforceMatcher = (() => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/scoring.esm.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/scoring.esm.js ***!
-  \*****************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/scoring.esm.js":
+/*!**********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/scoring.esm.js ***!
+  \**********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return bruteforceMatcher; });
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
 
 
 var bruteforceMatcher = (({
@@ -1010,17 +1010,17 @@ var bruteforceMatcher = (({
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/date/feedback.esm.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/date/feedback.esm.js ***!
-  \************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/date/feedback.esm.js":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/date/feedback.esm.js ***!
+  \*****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return dateMatcher; });
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
 
 
 var dateMatcher = (() => {
@@ -1036,18 +1036,18 @@ var dateMatcher = (() => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/date/matching.esm.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/date/matching.esm.js ***!
-  \************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/date/matching.esm.js":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/date/matching.esm.js ***!
+  \*****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MatchDate; });
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
-/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helper.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helper.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
 
 
 
@@ -1309,17 +1309,17 @@ class MatchDate {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/date/scoring.esm.js":
-/*!***********************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/date/scoring.esm.js ***!
-  \***********************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/date/scoring.esm.js":
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/date/scoring.esm.js ***!
+  \****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return dateMatcher; });
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
 
 
 var dateMatcher = (({
@@ -1342,18 +1342,18 @@ var dateMatcher = (({
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/feedback.esm.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/feedback.esm.js ***!
-  \******************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/feedback.esm.js":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/feedback.esm.js ***!
+  \***********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return dictionaryMatcher; });
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
 
 
 
@@ -1427,21 +1427,21 @@ var dictionaryMatcher = ((match, isSoleMatch) => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/matching.esm.js":
-/*!******************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/matching.esm.js ***!
-  \******************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/matching.esm.js":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/matching.esm.js ***!
+  \***********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MatchDictionary; });
-/* harmony import */ var _levenshtein_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../levenshtein.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/levenshtein.esm.js");
-/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helper.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
-/* harmony import */ var _variants_matching_reverse_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./variants/matching/reverse.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/reverse.esm.js");
-/* harmony import */ var _variants_matching_l33t_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./variants/matching/l33t.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/l33t.esm.js");
+/* harmony import */ var _levenshtein_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../levenshtein.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/levenshtein.esm.js");
+/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helper.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _variants_matching_reverse_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./variants/matching/reverse.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/reverse.esm.js");
+/* harmony import */ var _variants_matching_l33t_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./variants/matching/l33t.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/l33t.esm.js");
 
 
 
@@ -1519,18 +1519,18 @@ class MatchDictionary {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/scoring.esm.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/scoring.esm.js ***!
-  \*****************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/scoring.esm.js":
+/*!**********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/scoring.esm.js ***!
+  \**********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return dictionaryMatcher; });
-/* harmony import */ var _variants_scoring_uppercase_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./variants/scoring/uppercase.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/uppercase.esm.js");
-/* harmony import */ var _variants_scoring_l33t_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./variants/scoring/l33t.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/l33t.esm.js");
+/* harmony import */ var _variants_scoring_uppercase_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./variants/scoring/uppercase.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/uppercase.esm.js");
+/* harmony import */ var _variants_scoring_l33t_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./variants/scoring/l33t.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/l33t.esm.js");
 
 
 
@@ -1572,18 +1572,18 @@ var dictionaryMatcher = (({
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/l33t.esm.js":
-/*!********************************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/l33t.esm.js ***!
-  \********************************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/l33t.esm.js":
+/*!*************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/l33t.esm.js ***!
+  \*************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MatchL33t; });
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
-/* harmony import */ var _unmunger_getCleanPasswords_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./unmunger/getCleanPasswords.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/getCleanPasswords.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _unmunger_getCleanPasswords_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./unmunger/getCleanPasswords.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/getCleanPasswords.esm.js");
 
 
 
@@ -1686,10 +1686,10 @@ class MatchL33t {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/reverse.esm.js":
-/*!***********************************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/reverse.esm.js ***!
-  \***********************************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/reverse.esm.js":
+/*!****************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/reverse.esm.js ***!
+  \****************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1728,10 +1728,10 @@ class MatchReverse {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/TrieNode.esm.js":
-/*!*********************************************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/TrieNode.esm.js ***!
-  \*********************************************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/TrieNode.esm.js":
+/*!**************************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/TrieNode.esm.js ***!
+  \**************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1782,10 +1782,10 @@ class TrieNode {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/getCleanPasswords.esm.js":
-/*!******************************************************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/getCleanPasswords.esm.js ***!
-  \******************************************************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/getCleanPasswords.esm.js":
+/*!***********************************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/getCleanPasswords.esm.js ***!
+  \***********************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1937,10 +1937,10 @@ const getCleanPasswords = (password, limit, trieRoot) => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/l33tTableToTrieNode.esm.js":
-/*!********************************************************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/l33tTableToTrieNode.esm.js ***!
-  \********************************************************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/l33tTableToTrieNode.esm.js":
+/*!*************************************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/matching/unmunger/l33tTableToTrieNode.esm.js ***!
+  \*************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1962,17 +1962,17 @@ var l33tTableToTrieNode = ((l33tTable, triNode) => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/l33t.esm.js":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/l33t.esm.js ***!
-  \*******************************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/l33t.esm.js":
+/*!************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/l33t.esm.js ***!
+  \************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return l33tVariant; });
-/* harmony import */ var _scoring_utils_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scoring/utils.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js");
+/* harmony import */ var _scoring_utils_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scoring/utils.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js");
 
 
 const countSubstring = (string, substring) => {
@@ -2041,18 +2041,18 @@ var l33tVariant = (({
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/uppercase.esm.js":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/uppercase.esm.js ***!
-  \************************************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/uppercase.esm.js":
+/*!*****************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/variants/scoring/uppercase.esm.js ***!
+  \*****************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return uppercaseVariant; });
-/* harmony import */ var _scoring_utils_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scoring/utils.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js");
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _scoring_utils_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../scoring/utils.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
 
 
 
@@ -2096,17 +2096,17 @@ var uppercaseVariant = (word => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/regex/feedback.esm.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/regex/feedback.esm.js ***!
-  \*************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/regex/feedback.esm.js":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/regex/feedback.esm.js ***!
+  \******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return regexMatcher; });
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
 
 
 var regexMatcher = (match => {
@@ -2128,18 +2128,18 @@ var regexMatcher = (match => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/regex/matching.esm.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/regex/matching.esm.js ***!
-  \*************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/regex/matching.esm.js":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/regex/matching.esm.js ***!
+  \******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MatchRegex; });
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
-/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helper.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../helper.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
 
 
 
@@ -2183,17 +2183,17 @@ class MatchRegex {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/regex/scoring.esm.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/regex/scoring.esm.js ***!
-  \************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/regex/scoring.esm.js":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/regex/scoring.esm.js ***!
+  \*****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return regexMatcher; });
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
 
 
 var regexMatcher = (({
@@ -2229,17 +2229,17 @@ var regexMatcher = (({
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/repeat/feedback.esm.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/repeat/feedback.esm.js ***!
-  \**************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/repeat/feedback.esm.js":
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/repeat/feedback.esm.js ***!
+  \*******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return repeatMatcher; });
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
 
 
 var repeatMatcher = (match => {
@@ -2259,17 +2259,17 @@ var repeatMatcher = (match => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/repeat/matching.esm.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/repeat/matching.esm.js ***!
-  \**************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/repeat/matching.esm.js":
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/repeat/matching.esm.js ***!
+  \*******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MatchRepeat; });
-/* harmony import */ var _scoring_index_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../scoring/index.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/scoring/index.esm.js");
+/* harmony import */ var _scoring_index_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../scoring/index.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/index.esm.js");
 
 
 /*
@@ -2394,10 +2394,10 @@ class MatchRepeat {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/repeat/scoring.esm.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/repeat/scoring.esm.js ***!
-  \*************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/repeat/scoring.esm.js":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/repeat/scoring.esm.js ***!
+  \******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2415,10 +2415,10 @@ var repeatMatcher = (({
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/separator/feedback.esm.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/separator/feedback.esm.js ***!
-  \*****************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/separator/feedback.esm.js":
+/*!**********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/separator/feedback.esm.js ***!
+  \**********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2436,17 +2436,17 @@ var separatorMatcher = (() => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/separator/matching.esm.js":
-/*!*****************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/separator/matching.esm.js ***!
-  \*****************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/separator/matching.esm.js":
+/*!**********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/separator/matching.esm.js ***!
+  \**********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MatchSeparator; });
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
 
 
 const separatorRegex = new RegExp(`[${_data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__["SEPERATOR_CHARS"].join('')}]`);
@@ -2512,17 +2512,17 @@ class MatchSeparator {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/separator/scoring.esm.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/separator/scoring.esm.js ***!
-  \****************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/separator/scoring.esm.js":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/separator/scoring.esm.js ***!
+  \*********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return separatorMatcher; });
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
 
 
 var separatorMatcher = (() => {
@@ -2535,17 +2535,17 @@ var separatorMatcher = (() => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/sequence/feedback.esm.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/sequence/feedback.esm.js ***!
-  \****************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/sequence/feedback.esm.js":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/sequence/feedback.esm.js ***!
+  \*********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return sequenceMatcher; });
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
 
 
 var sequenceMatcher = (() => {
@@ -2561,17 +2561,17 @@ var sequenceMatcher = (() => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/sequence/matching.esm.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/sequence/matching.esm.js ***!
-  \****************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/sequence/matching.esm.js":
+/*!*********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/sequence/matching.esm.js ***!
+  \*********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MatchSequence; });
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
 
 
 /*
@@ -2691,10 +2691,10 @@ class MatchSequence {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/sequence/scoring.esm.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/sequence/scoring.esm.js ***!
-  \***************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/sequence/scoring.esm.js":
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/sequence/scoring.esm.js ***!
+  \********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2732,17 +2732,17 @@ var sequenceMatcher = (({
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/spatial/feedback.esm.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/spatial/feedback.esm.js ***!
-  \***************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/spatial/feedback.esm.js":
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/spatial/feedback.esm.js ***!
+  \********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return spatialMatcher; });
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
 
 
 var spatialMatcher = (match => {
@@ -2762,18 +2762,18 @@ var spatialMatcher = (match => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/spatial/matching.esm.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/spatial/matching.esm.js ***!
-  \***************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/spatial/matching.esm.js":
+/*!********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/spatial/matching.esm.js ***!
+  \********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MatchSpatial; });
-/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helper.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _helper_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../helper.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/helper.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
 
 
 
@@ -2890,18 +2890,18 @@ class MatchSpatial {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/matcher/spatial/scoring.esm.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/matcher/spatial/scoring.esm.js ***!
-  \**************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/spatial/scoring.esm.js":
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/spatial/scoring.esm.js ***!
+  \*******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return spatialMatcher; });
-/* harmony import */ var _scoring_utils_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../scoring/utils.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js");
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _scoring_utils_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../scoring/utils.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
 
 
 
@@ -2966,27 +2966,27 @@ var spatialMatcher = (({
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/scoring/estimate.esm.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/scoring/estimate.esm.js ***!
-  \*******************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/estimate.esm.js":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/estimate.esm.js ***!
+  \************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return estimateGuesses; });
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
-/* harmony import */ var _utils_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js");
-/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Options.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
-/* harmony import */ var _matcher_bruteforce_scoring_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../matcher/bruteforce/scoring.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/scoring.esm.js");
-/* harmony import */ var _matcher_date_scoring_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../matcher/date/scoring.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/date/scoring.esm.js");
-/* harmony import */ var _matcher_dictionary_scoring_esm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../matcher/dictionary/scoring.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/scoring.esm.js");
-/* harmony import */ var _matcher_regex_scoring_esm_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../matcher/regex/scoring.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/regex/scoring.esm.js");
-/* harmony import */ var _matcher_repeat_scoring_esm_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../matcher/repeat/scoring.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/repeat/scoring.esm.js");
-/* harmony import */ var _matcher_sequence_scoring_esm_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../matcher/sequence/scoring.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/sequence/scoring.esm.js");
-/* harmony import */ var _matcher_spatial_scoring_esm_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../matcher/spatial/scoring.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/spatial/scoring.esm.js");
-/* harmony import */ var _matcher_separator_scoring_esm_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../matcher/separator/scoring.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/matcher/separator/scoring.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _utils_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js");
+/* harmony import */ var _Options_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Options.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/Options.esm.js");
+/* harmony import */ var _matcher_bruteforce_scoring_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../matcher/bruteforce/scoring.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/bruteforce/scoring.esm.js");
+/* harmony import */ var _matcher_date_scoring_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../matcher/date/scoring.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/date/scoring.esm.js");
+/* harmony import */ var _matcher_dictionary_scoring_esm_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../matcher/dictionary/scoring.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/dictionary/scoring.esm.js");
+/* harmony import */ var _matcher_regex_scoring_esm_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../matcher/regex/scoring.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/regex/scoring.esm.js");
+/* harmony import */ var _matcher_repeat_scoring_esm_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../matcher/repeat/scoring.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/repeat/scoring.esm.js");
+/* harmony import */ var _matcher_sequence_scoring_esm_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../matcher/sequence/scoring.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/sequence/scoring.esm.js");
+/* harmony import */ var _matcher_spatial_scoring_esm_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../matcher/spatial/scoring.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/spatial/scoring.esm.js");
+/* harmony import */ var _matcher_separator_scoring_esm_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../matcher/separator/scoring.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/matcher/separator/scoring.esm.js");
 
 
 
@@ -3065,19 +3065,19 @@ var estimateGuesses = ((match, password) => {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/scoring/index.esm.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/scoring/index.esm.js ***!
-  \****************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/index.esm.js":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/index.esm.js ***!
+  \*********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return scoring; });
-/* harmony import */ var _utils_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js");
-/* harmony import */ var _estimate_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./estimate.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/scoring/estimate.esm.js");
-/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data/const.esm.js */ "./node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
+/* harmony import */ var _utils_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js");
+/* harmony import */ var _estimate_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./estimate.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/estimate.esm.js");
+/* harmony import */ var _data_const_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../data/const.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/data/const.esm.js");
 
 
 
@@ -3298,10 +3298,10 @@ var scoring = {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js ***!
-  \****************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/scoring/utils.esm.js ***!
+  \*********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3348,10 +3348,10 @@ var utils = {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/language-common/dist/adjacencyGraphs.json.esm.js":
-/*!**********************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/language-common/dist/adjacencyGraphs.json.esm.js ***!
-  \**********************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/adjacencyGraphs.json.esm.js":
+/*!**************************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/adjacencyGraphs.json.esm.js ***!
+  \**************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3366,10 +3366,10 @@ var tempAdjacencyGraphs = {"azerty":{"0":["ç9",null,null,")°","pP","oO"],"1":[
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/language-common/dist/diceware.json.esm.js":
-/*!***************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/language-common/dist/diceware.json.esm.js ***!
-  \***************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/diceware.json.esm.js":
+/*!*******************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/diceware.json.esm.js ***!
+  \*******************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3384,10 +3384,10 @@ var diceware = "abacus,abdomen,abdominal,abide,abiding,ability,ablaze,able,abnor
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/language-common/dist/index.esm.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/language-common/dist/index.esm.js ***!
-  \*******************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/index.esm.js":
+/*!***********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/index.esm.js ***!
+  \***********************************************************************************************************************/
 /*! exports provided: adjacencyGraphs, dictionary */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3395,9 +3395,9 @@ var diceware = "abacus,abdomen,abdominal,abide,abiding,ability,ablaze,able,abnor
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "adjacencyGraphs", function() { return adjacencyGraphs; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dictionary", function() { return dictionary; });
-/* harmony import */ var _adjacencyGraphs_json_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./adjacencyGraphs.json.esm.js */ "./node_modules/@zxcvbn-ts/language-common/dist/adjacencyGraphs.json.esm.js");
-/* harmony import */ var _diceware_json_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./diceware.json.esm.js */ "./node_modules/@zxcvbn-ts/language-common/dist/diceware.json.esm.js");
-/* harmony import */ var _passwords_json_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./passwords.json.esm.js */ "./node_modules/@zxcvbn-ts/language-common/dist/passwords.json.esm.js");
+/* harmony import */ var _adjacencyGraphs_json_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./adjacencyGraphs.json.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/adjacencyGraphs.json.esm.js");
+/* harmony import */ var _diceware_json_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./diceware.json.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/diceware.json.esm.js");
+/* harmony import */ var _passwords_json_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./passwords.json.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/passwords.json.esm.js");
 
 
 
@@ -3415,10 +3415,10 @@ const adjacencyGraphs = _adjacencyGraphs_json_esm_js__WEBPACK_IMPORTED_MODULE_0_
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/language-common/dist/passwords.json.esm.js":
-/*!****************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/language-common/dist/passwords.json.esm.js ***!
-  \****************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/passwords.json.esm.js":
+/*!********************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/passwords.json.esm.js ***!
+  \********************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3433,10 +3433,10 @@ var passwords = "123456,password,12345678,qwerty,123456789,12345,1234,111111,123
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/language-en/dist/commonWords.json.esm.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/language-en/dist/commonWords.json.esm.js ***!
-  \**************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/commonWords.json.esm.js":
+/*!**************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/commonWords.json.esm.js ***!
+  \**************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3451,10 +3451,10 @@ var commonWords = "you,the,to,'s,it,and,that,'t,of,is,in,what,we,me,this,he,for,
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/language-en/dist/firstnames.json.esm.js":
-/*!*************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/language-en/dist/firstnames.json.esm.js ***!
-  \*************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/firstnames.json.esm.js":
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/firstnames.json.esm.js ***!
+  \*************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3469,21 +3469,21 @@ var firstnames = "aaren,aarika,abagael,abagail,abbe,abbey,abbi,abbie,abby,abbye,
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/language-en/dist/index.esm.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/language-en/dist/index.esm.js ***!
-  \***************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/index.esm.js":
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/index.esm.js ***!
+  \***************************************************************************************************************/
 /*! exports provided: translations, dictionary */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "dictionary", function() { return dictionary; });
-/* harmony import */ var _commonWords_json_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./commonWords.json.esm.js */ "./node_modules/@zxcvbn-ts/language-en/dist/commonWords.json.esm.js");
-/* harmony import */ var _firstnames_json_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./firstnames.json.esm.js */ "./node_modules/@zxcvbn-ts/language-en/dist/firstnames.json.esm.js");
-/* harmony import */ var _lastnames_json_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lastnames.json.esm.js */ "./node_modules/@zxcvbn-ts/language-en/dist/lastnames.json.esm.js");
-/* harmony import */ var _wikipedia_json_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./wikipedia.json.esm.js */ "./node_modules/@zxcvbn-ts/language-en/dist/wikipedia.json.esm.js");
-/* harmony import */ var _translations_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./translations.esm.js */ "./node_modules/@zxcvbn-ts/language-en/dist/translations.esm.js");
+/* harmony import */ var _commonWords_json_esm_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./commonWords.json.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/commonWords.json.esm.js");
+/* harmony import */ var _firstnames_json_esm_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./firstnames.json.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/firstnames.json.esm.js");
+/* harmony import */ var _lastnames_json_esm_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./lastnames.json.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/lastnames.json.esm.js");
+/* harmony import */ var _wikipedia_json_esm_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./wikipedia.json.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/wikipedia.json.esm.js");
+/* harmony import */ var _translations_esm_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./translations.esm.js */ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/translations.esm.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "translations", function() { return _translations_esm_js__WEBPACK_IMPORTED_MODULE_4__["default"]; });
 
 
@@ -3506,10 +3506,10 @@ const dictionary = {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/language-en/dist/lastnames.json.esm.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/language-en/dist/lastnames.json.esm.js ***!
-  \************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/lastnames.json.esm.js":
+/*!************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/lastnames.json.esm.js ***!
+  \************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3524,10 +3524,10 @@ var lastnames = "smith,johnson,williams,jones,brown,davis,miller,wilson,moore,ta
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/language-en/dist/translations.esm.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/language-en/dist/translations.esm.js ***!
-  \**********************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/translations.esm.js":
+/*!**********************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/translations.esm.js ***!
+  \**********************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3593,10 +3593,10 @@ var translations = {
 
 /***/ }),
 
-/***/ "./node_modules/@zxcvbn-ts/language-en/dist/wikipedia.json.esm.js":
-/*!************************************************************************!*\
-  !*** ./node_modules/@zxcvbn-ts/language-en/dist/wikipedia.json.esm.js ***!
-  \************************************************************************/
+/***/ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/wikipedia.json.esm.js":
+/*!************************************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/wikipedia.json.esm.js ***!
+  \************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3611,10 +3611,10 @@ var wikipedia = "the,of,and,in,was,is,for,as,on,with,by,he,at,from,his,an,were,a
 
 /***/ }),
 
-/***/ "./node_modules/fastest-levenshtein/esm/mod.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/fastest-levenshtein/esm/mod.js ***!
-  \*****************************************************/
+/***/ "./node_modules/.pnpm/fastest-levenshtein@1.0.16/node_modules/fastest-levenshtein/esm/mod.js":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/.pnpm/fastest-levenshtein@1.0.16/node_modules/fastest-levenshtein/esm/mod.js ***!
+  \***************************************************************************************************/
 /*! exports provided: closest, distance */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3764,10 +3764,10 @@ const closest = (str, arr) => {
 
 /***/ }),
 
-/***/ "./node_modules/jquery/dist/jquery.js":
-/*!********************************************!*\
-  !*** ./node_modules/jquery/dist/jquery.js ***!
-  \********************************************/
+/***/ "./node_modules/.pnpm/jquery@3.7.1/node_modules/jquery/dist/jquery.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/.pnpm/jquery@3.7.1/node_modules/jquery/dist/jquery.js ***!
+  \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14501,24 +14501,105 @@ return jQuery;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function(jQuery) {/* harmony import */ var _zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @zxcvbn-ts/core */ "./node_modules/@zxcvbn-ts/core/dist/index.esm.js");
-/* harmony import */ var _zxcvbn_ts_language_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @zxcvbn-ts/language-common */ "./node_modules/@zxcvbn-ts/language-common/dist/index.esm.js");
-/* harmony import */ var _zxcvbn_ts_language_en__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @zxcvbn-ts/language-en */ "./node_modules/@zxcvbn-ts/language-en/dist/index.esm.js");
+/* WEBPACK VAR INJECTION */(function(jQuery) {/* harmony import */ var _zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @zxcvbn-ts/core */ "./node_modules/.pnpm/@zxcvbn-ts+core@3.0.4/node_modules/@zxcvbn-ts/core/dist/index.esm.js");
+/* harmony import */ var _zxcvbn_ts_language_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @zxcvbn-ts/language-common */ "./node_modules/.pnpm/@zxcvbn-ts+language-common@3.0.4/node_modules/@zxcvbn-ts/language-common/dist/index.esm.js");
+/* harmony import */ var _zxcvbn_ts_language_en__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @zxcvbn-ts/language-en */ "./node_modules/.pnpm/@zxcvbn-ts+language-en@3.0.2/node_modules/@zxcvbn-ts/language-en/dist/index.esm.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
 function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : String(i); }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 
 
 
+var requireUMExtendedMatcher = {
+  Matching: /*#__PURE__*/function () {
+    function MatchUpperCase() {
+      _classCallCheck(this, MatchUpperCase);
+    }
+    return _createClass(MatchUpperCase, [{
+      key: "match",
+      value: function match(_ref) {
+        var password = _ref.password;
+        var matches = [];
+        if (password.length > 0 && password == password.toLowerCase()) {
+          matches.push({
+            pattern: 'requireUpperCase',
+            token: password,
+            i: 0,
+            j: password.length - 1
+          });
+        }
+        if (password.length > 0 && password == password.toUpperCase()) {
+          matches.push({
+            pattern: 'requireLowerCase',
+            token: password,
+            i: 0,
+            j: password.length - 1
+          });
+        }
+        if (password.length > 0 && password.length <= this.minLength) {
+          matches.push({
+            pattern: 'minLength',
+            token: password,
+            i: 0,
+            j: password.length - 1
+          });
+        }
+        if (password.search(/[0-9]/) < 0) {
+          matches.push({
+            pattern: 'requireDigit',
+            token: password,
+            i: 0,
+            j: password.length - 1
+          });
+        }
+        return matches;
+      }
+    }]);
+  }(),
+  feedback: function feedback(match, isSoleMatch) {
+    if (match.pattern === 'requireLowerCase') {
+      return {
+        warning: um_pass_strength.translations.warnings.requireLowerCase,
+        suggestions: new Array()
+      };
+    } else if (match.pattern === 'requireUpperCase') {
+      return {
+        warning: um_pass_strength.translations.warnings.requireUpperCase,
+        suggestions: new Array()
+      };
+    } else if (match.pattern === 'minLength') {
+      return {
+        warning: um_pass_strength.translations.warnings.minLength,
+        suggestions: new Array()
+      };
+    } else if (match.pattern === 'requireDigit') {
+      return {
+        warning: um_pass_strength.translations.warnings.requireDigit,
+        suggestions: new Array()
+      };
+    }
+  },
+  scoring: function scoring(match) {
+    // The length of the password is multiplied by 3 to create a higher score the more characters are added.
+    return match.token.length * 10;
+  }
+};
 var options = {
   translations: um_pass_strength.translations,
   graphs: _zxcvbn_ts_language_common__WEBPACK_IMPORTED_MODULE_1__["adjacencyGraphs"],
   dictionary: _objectSpread(_objectSpread({}, _zxcvbn_ts_language_common__WEBPACK_IMPORTED_MODULE_1__["dictionary"]), _zxcvbn_ts_language_en__WEBPACK_IMPORTED_MODULE_2__["dictionary"])
 };
 _zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__["zxcvbnOptions"].setOptions(options);
+_zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__["zxcvbnOptions"].addMatcher('minLength', requireUMExtendedMatcher);
+_zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__["zxcvbnOptions"].addMatcher('requireUpperCase', requireUMExtendedMatcher);
+_zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__["zxcvbnOptions"].addMatcher('requireLowerCase', requireUMExtendedMatcher);
+_zxcvbn_ts_core__WEBPACK_IMPORTED_MODULE_0__["zxcvbnOptions"].addMatcher('requireDigit', requireUMExtendedMatcher);
 var $change_pass_dom = jQuery("#um_field_password_user_password, #um_field_0_user_password");
 var $register_pass_dom = jQuery(".um-register div[data-key='user_password'] .um-field-area, .um-password div[data-key='user_password'] .um-field-area");
 var $meter_content = "<meter id='um-sp-password-strength-meter' max='4'><div></div></meter><div id='um-sp-password-strength-text'></div>";
@@ -14568,7 +14649,7 @@ function um_pass_strength_validate(val) {
     text.innerHTML = "";
   }
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/.pnpm/jquery@3.7.1/node_modules/jquery/dist/jquery.js")))
 
 /***/ }),
 
