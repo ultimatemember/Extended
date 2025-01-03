@@ -160,8 +160,7 @@ class Core {
 		}
 
 		if ( is_user_logged_in() && strpos( sanitize_key( $_REQUEST[ $req ] ), '_temp' ) > -1 ) { // phpcs:ignore WordPress.Security.NonceVerification
-			UM()->files()->delete_core_user_photo( $user_id, 'cover_photo' );
-			delete_user_meta( $user_id, 'cover_photo' );
+			UM()->common()->users()->delete_photo( $user_id, 'cover_photo' );
 		}
 
 		$user_basedir = UM()->uploader()->get_upload_user_base_dir( $user_id, true );
@@ -315,9 +314,8 @@ class Core {
 				$fname = pathinfo( sanitize_key( $_REQUEST['filename'] ), PATHINFO_FILENAME );  // phpcs:ignore WordPress.Security.NonceVerification
 			}
 			if ( 'cover_photo' === $fname ) {
-				UM()->files()->delete_core_user_photo( get_current_user_id(), $fname );
-				delete_user_meta( get_current_user_id(), 'cover_photo' );
-				UM()->files()->delete_core_user_photo( get_current_user_id(), 'register_cover_photo' );
+				UM()->common()->users()->delete_photo( get_current_user_id(), $fname );
+				UM()->common()->users()->delete_photo( get_current_user_id(), 'register_cover_photo' );
 				wp_send_json_success( $fname );
 			}
 		}

@@ -101,7 +101,7 @@ class Core {
 
 					foreach ( $user_query->get_results() as $user ) {
 						um_fetch_user( $user->ID );
-						$original_file = UM()->files()->upload_basedir . $user->ID . '/' . um_profile( 'profile_photo' );
+						$original_file = UM()->common()->filesystem()->get_user_uploads_dir( $user->ID ) . DIRECTORY_SEPARATOR . um_profile( 'profile_photo' );
 
 						if ( 0 === $height ) {
 							$append_size = $width;
@@ -110,7 +110,7 @@ class Core {
 						}
 
 						$new_file_name_swap = str_replace( 'profile_photo', 'profile_photo-' . $append_size, um_profile( 'profile_photo' ) );
-						$new_file           = UM()->files()->upload_basedir . $user->ID . '/' . $new_file_name_swap;
+						$new_file           = UM()->common()->filesystem()->get_user_uploads_dir( $user->ID ) . DIRECTORY_SEPARATOR . $new_file_name_swap;
 
 						$this->processed_users .= '<strong>' . um_user( 'display_name' ) . '</strong><span style="color:green" class="dashicons dashicons-yes"></span></br>&nbsp;&nbsp; - Original: ' . $original_file . '<br/>&nbsp;&nbsp; - New: ' . $new_file;
 
@@ -172,7 +172,7 @@ class Core {
 					foreach ( $user_query->get_results() as $user ) {
 						um_fetch_user( $user->ID );
 
-						$original_file = UM()->files()->upload_basedir . $user->ID . '/' . um_profile( 'cover_photo' );
+						$original_file = UM()->common()->filesystem()->get_user_uploads_dir( $user->ID ) . DIRECTORY_SEPARATOR . um_profile( 'cover_photo' );
 
 						if ( 0 === $height ) {
 							$append_size = $width;
@@ -182,7 +182,7 @@ class Core {
 
 						$new_file_name_swap = str_replace( 'cover_photo', 'cover_photo-' . $append_size, um_profile( 'cover_photo' ) );
 
-						$new_file = UM()->files()->upload_basedir . $user->ID . '/' . $new_file_name_swap;
+						$new_file = UM()->common()->filesystem()->get_user_uploads_dir( $user->ID ) . DIRECTORY_SEPARATOR . $new_file_name_swap;
 
 						$this->processed_users .= '<strong>' . um_user( 'display_name' ) . '</strong><span style="color:green" class="dashicons dashicons-yes"></span></br>&nbsp;&nbsp; - Original: ' . $original_file . '<br/>&nbsp;&nbsp; - New: ' . $new_file;
 
