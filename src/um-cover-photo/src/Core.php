@@ -163,9 +163,9 @@ class Core {
 			UM()->common()->users()->delete_photo( $user_id, 'cover_photo' );
 		}
 
-		$user_basedir = UM()->uploader()->get_upload_user_base_dir( $user_id, true );
+		$user_basedir = UM()->common()->filesystem()->get_user_uploads_dir( $user_id );
 
-		$temp_dir = UM()->uploader()->get_core_temp_dir() . DIRECTORY_SEPARATOR;
+		$temp_dir = UM()->common()->filesystem()->get_tempdir() . DIRECTORY_SEPARATOR;
 
 		$temp_profile_photo = array_slice( scandir( $temp_dir ), 2 );
 
@@ -180,10 +180,10 @@ class Core {
 		if ( empty( $profile_p ) ) {
 			return;
 		}
-		$temp_image_path = $temp_dir . DIRECTORY_SEPARATOR . $profile_p;
+		$temp_image_path = $temp_dir . $profile_p;
 		$new_image_path  = $user_basedir . DIRECTORY_SEPARATOR . $profile_p;
 
-			$image = wp_get_image_editor( $temp_image_path );
+		$image = wp_get_image_editor( $temp_image_path );
 
 		$file_info = wp_check_filetype_and_ext( $temp_image_path, $profile_p );
 
@@ -256,20 +256,18 @@ class Core {
 	 * @param string $ext Extension of the uploading file.
 	 */
 	public function photo_name( $dir, $filename, $ext ) {
-
 		$temp_profile_id = isset( $_COOKIE['um-register-cover-photo'] ) ? sanitize_key( $_COOKIE['um-register-cover-photo'] ) : null;
 
 		if ( empty( $ext ) ) {
-				$image_type = wp_check_filetype( $filename );
-				$ext        = strtolower( trim( $image_type['ext'], ' \/.' ) );
+			$image_type = wp_check_filetype( $filename );
+			$ext        = strtolower( trim( $image_type['ext'], ' \/.' ) );
 		} else {
-				$ext = strtolower( trim( $ext, ' \/.' ) );
+			$ext = strtolower( trim( $ext, ' \/.' ) );
 		}
 
 		$filename = "cover_photo_{$temp_profile_id}_temp.{$ext}";
 
-		UM()->uploader()->delete_existing_file( $filename, $ext, $dir );
-
+		UM()->common()->filesystem()::remove_file( UM()->common()->filesystem()->get_user_uploads_dir( UM()->uploader()->user_id ) . DIRECTORY_SEPARATOR . $filename );
 		return $filename;
 	}
 

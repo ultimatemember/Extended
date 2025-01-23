@@ -116,7 +116,7 @@ class Core {
 		$suffix     = um_user( 'suffix' );
 		$file_type  = '';
 
-		$user_dir = UM()->uploader()->get_upload_user_base_dir( $user_id ) . DIRECTORY_SEPARATOR;
+		$user_dir = UM()->common()->filesystem()->get_user_uploads_dir( $user_id ) . DIRECTORY_SEPARATOR;
 
 		$vcard = new VCard( Kind::individual(), Version::version3() );
 		$vcard->add( new Name( $lastname, $firstname ) );
@@ -203,18 +203,18 @@ class Core {
 
 		if ( file_exists( $user_dir . um_profile( 'profile_photo' ) ) && is_file( $user_dir . um_profile( 'profile_photo' ) ) ) {
 
-			$avatar_dir_path = UM()->uploader()->get_upload_user_base_dir( $user_id ) . DIRECTORY_SEPARATOR . um_profile( 'profile_photo' );
+			$avatar_dir_path = UM()->common()->filesystem()->get_user_uploads_dir( $user_id ) . DIRECTORY_SEPARATOR . um_profile( 'profile_photo' );
 			$img             = wp_get_image_editor( $avatar_dir_path );
 			$filetype        = wp_check_filetype( $avatar_dir_path );
 			$file_type       = $filetype['type'];
 			$vcard_filename  = 'vcard-120x120.' . $filetype['ext'];
 
-			$vcard_avatar_dir_path = UM()->uploader()->get_upload_user_base_dir( $user_id ) . DIRECTORY_SEPARATOR . $vcard_filename;
+			$vcard_avatar_dir_path = UM()->common()->filesystem()->get_user_uploads_dir( $user_id ) . DIRECTORY_SEPARATOR . $vcard_filename;
 
 			try {
 				$img->resize( 120, null, false );
 				$img->set_quality( 100 );
-				$img->save( UM()->uploader()->get_upload_user_base_dir( $user_id ) . DIRECTORY_SEPARATOR . $vcard_filename );
+				$img->save( UM()->common()->filesystem()->get_user_uploads_dir( $user_id ) . DIRECTORY_SEPARATOR . $vcard_filename );
 				$vcard->add( new Photo( $this->image_encode( $vcard_avatar_dir_path ) ) );
 				$vcard->add( new Logo( $this->image_encode( $vcard_avatar_dir_path ) ) );
 			} catch ( \Exception $e ) {
