@@ -36,6 +36,8 @@ class Core {
 		add_action( 'um_daily_scheduled_events', array( $this, 'update_blacklist' ) );
 
 		add_filter( 'um_settings_structure', array( $this, 'settings' ) );
+		
+		add_filter( 'um_render_field_type_textarea_disabled', array( $this, 'render_textarea_disabled' ), 10, 4 );
 
 		add_filter( 'um_get_option_filter__blocked_emails', array( $this, 'merge_disposable_emails' ) );
 
@@ -75,34 +77,59 @@ class Core {
 		}
 
 	}
-
+	
 	/**
 	 * Add settings for Disposable Email Domains
 	 *
 	 * @param array $fields Fields Settings.
 	 */
 	public function settings( $fields ) {
-
+		
 		$new_field = array(
 			'id'          => 'blocked_disposable_emails',
-			'type'        => 'textarea',
+			'type'        => 'textarea_disabled',
 			'label'       => __( 'Blocked Disposable Email Domains', 'ultimate-member' ),
 			'description' => __( 'This updates automatically & daily so you don\'t need to modify this field. This merges with the Blocked Email Addresses option above.', 'um-extended' ),
+			'args'        => array(
+				'textarea_rows' => 6,
+			),
 		);
-
-		$fields['access']['sections']['other']['fields'][] = $new_field;
-
+		
+		$fields['access']['sections']['other']['form_sections']['blocked']['fields'][] = $new_field;
+		
 		return $fields;
+	}
+	
+	/**
+	 * Render admin form field by hook. This renders a disabled and readonly textarea field.
+	 *
+	 * @param string                     $html       Field's HTML
+	 * @param array                      $data       Field's data
+	 * @param array                      $form_data  Form data
+	 * @param \um\admin\core\Admin_Forms $admin_form Admin_Forms class object
+	 *
+	 * @return string
+	 */
+	public function render_textarea_disabled( $html, $data, $form_data, $admin_form ) {
+		if ( ! empty( $html ) ) {
+			return $html;
+		}
+		
+		$html = $admin_form->render_textarea( $data );
+		
+		$html = str_replace( '<textarea', '<textarea readonly="readonly" disabled="disabled"', $html );
+		
+		return $html;
 	}
 
 	/**
-	 * Merge Disposble Emails with Blocked Emails
+	 * Merge Disposable Emails with Blocked Emails
 	 *
 	 * @param string $emails Existing emails.
 	 */
 	public function merge_disposable_emails( $emails ) {
-
-		if ( is_admin() ) {
+		
+		if ( is_admin() && ( ! isset( $_REQUEST[ 'action' ] ) || 'um_secure_scan_affected_users' !== $_REQUEST[ 'action' ] ) ) {
 			return $emails;
 		}
 
