@@ -29,7 +29,7 @@ class Core {
 	public function rewrite_rules() {
 		add_filter( 'page_link', array( $this, 'profile_page_link' ), 1, 2 );
 
-		$profile_page_slug = get_post_field( 'post_name', UM()->config()->permalinks['user'] );
+		$profile_page_slug = get_post_field( 'post_name', um_get_predefined_page_id( 'user' ) );
 
 		global $wp;
 		$wp->add_query_var( 'um_uid' );
@@ -47,7 +47,7 @@ class Core {
 		if ( isset( $_REQUEST['profiletab'] ) || isset( $_REQUEST['subnav'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
 			$profiletab        = ! empty( $_REQUEST['profiletab'] ) ? sanitize_key( $_REQUEST['profiletab'] ) : get_query_var( 'profiletab' ); // phpcs:ignore WordPress.Security.NonceVerification
 			$subnav            = ! empty( $_REQUEST['subnav'] ) ? sanitize_key( $_REQUEST['subnav'] ) : get_query_var( 'subnav' ); // phpcs:ignore WordPress.Security.NonceVerification
-			$profile_page_slug = get_post_field( 'post_name', UM()->config()->permalinks['user'] );
+			$profile_page_slug = get_post_field( 'post_name', um_get_predefined_page_id( 'user' ) );
 			$arr               = explode( '/', home_url( $profile_page_slug . '/' . get_query_var( 'um_user' ) ) );
 			$permalink         = implode( '/', array_unique( $arr ) ) . '/' . $profiletab;
 
@@ -77,8 +77,8 @@ class Core {
 			return $permalink;
 		}
 
-		if ( UM()->config()->permalinks['user'] === $post_id ) {
-			$profile_page_slug = get_post_field( 'post_name', UM()->config()->permalinks['user'] );
+		if ( absint( um_get_predefined_page_id( 'user' ) ) === absint( $post_id ) ) {
+			$profile_page_slug = get_post_field( 'post_name', um_get_predefined_page_id( 'user' ) );
 			$arr               = explode( '/', home_url( $profile_page_slug . '/' . get_query_var( 'um_user' ) ) );
 			$permalink         = implode( '/', array_unique( $arr ) );
 		}
