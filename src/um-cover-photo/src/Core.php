@@ -18,7 +18,6 @@ class Core {
 	 * Init
 	 */
 	public function __construct() {
-		// add_filter( 'um_user_pre_updating_files_array', array( $this, 'update_files' ) );
 		add_filter( 'um_predefined_fields_hook', array( $this, 'predefined_fields' ), 99999, 1 );
 		add_filter( 'um_core_fields_hook', array( $this, 'modify_field_option' ) );
 		add_filter( 'um_image_upload_handler_overrides__register_cover_photo', array( $this, 'upload_handler' ), 99999 );

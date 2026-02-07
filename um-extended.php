@@ -3,10 +3,11 @@
  * Plugin Name: Ultimate Member - Extended Features & Functionalities
  * Plugin URI: https://www.ultimatemember.com/
  * Description: Extended features & functionalities of Ultimate Member
- * Version: 2.0.5
+ * Version: 2.1.1-alpha
  * Author: Ultimate Member Group Ltd.
  * Author URI: https://www.ultimatemember.com
  * Text Domain: um-extended
+ * Requires Plugins: ultimate-member
  *
  * @package UM_Extended
  */
@@ -167,9 +168,9 @@ final class UM_Extended {
 			$name      = str_replace( 'Wp_', 'WP_', $name );
 
 			if ( 'wpcli' === $slug ) {
-				$class_name = 'UM_WPCLI\Core';
+				$class_name = '\UM_WPCLI\Core';
 			} else {
-				$class_name = 'UM_Extended_' . $name . '\Core';
+				$class_name = '\UM_Extended_' . $name . '\Core';
 			}
 
 			if ( class_exists( $class_name ) ) {
